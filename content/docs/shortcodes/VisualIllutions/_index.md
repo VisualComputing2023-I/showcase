@@ -9,3 +9,7 @@ bookCollapseSection: true
 ## Types
 
 {{<section>}}
+
+## Marco Teorico
+
+Información sobre Visual Illutions
