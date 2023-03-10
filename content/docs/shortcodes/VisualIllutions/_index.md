@@ -444,34 +444,34 @@ Para quitar las rayas de colores y poder observar el efecto de esta ilusión opt
 ### Solución (código):
 
 ```js
-let width = 0.4;
-let gridHeight = 0.5;
-let distanceBetweenBars = 400;
-let numberOfBars = 4;
-let size = 500
-let sizeSquareBars = 10;
-let squareSize = 45
+let ancho = 0.4;
+let alturaMalla = 0.5;
+let distanciaEntreBarras = 400;
+let numeroBarras = 4;
+let tamanio = 500
+let tamanioBarrasCuadrado = 10;
+let tamanioCuadrado = 45
 
 function setup() {
-  createCanvas(size*1.4, size);
-  let fringes = size/(width*numberOfBars)
+  createCanvas(tamanio*1.4, tamanio);
+  let franjas = tamanio/(ancho*numeroBarras)
 
-  square1 = new Square(squareSize,sizeSquareBars,100,60, "red");
-  square2 = new Square(squareSize,sizeSquareBars,100,270, "green");
-  square3 = new Square(squareSize,sizeSquareBars,100,460, "red");
-  square4 = new Square(squareSize,sizeSquareBars,100,700);
-  square5 = new Square(squareSize,sizeSquareBars,300,170);
-  square6 = new Square(squareSize,sizeSquareBars,300,370);
-  square7 = new Square(squareSize,sizeSquareBars,300,570);
-  square8 = new Square(squareSize,sizeSquareBars,500,60);
-  square9 = new Square(squareSize,sizeSquareBars,500,260);
-  square10 = new Square(squareSize,sizeSquareBars,500,460);
-  square11 = new Square(squareSize,sizeSquareBars,500,710);
-  square12 = new Square(squareSize,sizeSquareBars,700,170);
-  square13 = new Square(squareSize,sizeSquareBars,700,370);
-  square14 = new Square(squareSize,sizeSquareBars,700,560);
+  cuadrado1 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,100,60, "red");
+  cuadrado2 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,100,270, "green");
+  cuadrado3 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,100,460, "red");
+  cuadrado4 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,100,700);
+  cuadrado5 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,300,170);
+  cuadrado6 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,300,370);
+  cuadrado7 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,300,570);
+  cuadrado8 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,500,60);
+  cuadrado9 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,500,260);
+  cuadrado10 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,500,460);
+  cuadrado11 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,500,710);
+  cuadrado12 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,700,170);
+  cuadrado13 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,700,370);
+  cuadrado14 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,700,560);
 
-  grid = new Grid(10,0,gridHeight,0,distanceBetweenBars,numberOfBars, fringes);
+  malla = new Malla(10,0,alturaMalla,0,distanciaEntreBarras,numeroBarras, franjas);
   
 }
 
@@ -482,105 +482,105 @@ function draw() {
   noStroke();
   
   if (mouseIsPressed === false) {
-    grid.display();
+    malla.display();
   }
   
-  square1.display();
-  square2.display();
-  square3.display();
-  square4.display();
-  square5.display();
-  square6.display();
-  square7.display();
-  square8.display();
-  square9.display();
-  square10.display();
-  square11.display();
-  square12.display();
-  square13.display();
-  square14.display();
+  cuadrado1.display();
+  cuadrado2.display();
+  cuadrado3.display();
+  cuadrado4.display();
+  cuadrado5.display();
+  cuadrado6.display();
+  cuadrado7.display();
+  cuadrado8.display();
+  cuadrado9.display();
+  cuadrado10.display();
+  cuadrado11.display();
+  cuadrado12.display();
+  cuadrado13.display();
+  cuadrado14.display();
   
 
 }
 
-// clase Grid
-class Grid {
-  builder(iw, ixp, ih, iyp, id, it, f) {
-    this.w = iw; // width de una barra
+// clase Malla
+class Malla {
+  constructor(iw, ixp, ih, iyp, id, it, f) {
+    this.w = iw; // ancho de una barra
     this.xpos = ixp; // posición x del rectángulo
     this.h = ih; // altura del rectángulo
-    this.ypos = iyp; // posición y del rectánguloside
+    this.ypos = iyp; // posición y del rectángulo
     this.d = id; // distancia de una barra
     this.t = it; // número de barras
     this.f = f; //Franjas de colores en la imagen
   }
   
   display() {
-    let green = color(105,229,174)
-    let red = color(238, 75, 43)
-    for (let i = 0; i < size; i++) {
-      fill(green);
-      rect(0 , this.ypos + i * (2*this.w) , size*1.5, this.w);
+    let verde = color(105,229,174)
+    let rojo = color(238, 75, 43)
+    for (let i = 0; i < tamanio; i++) {
+      fill(verde);
+      rect(0 , this.ypos + i * (2*this.w) , tamanio*1.5, this.w);
     }
   }
 }
 
-// clase square con lineas greens
-class Square{
-  builder(side, widthLines, x , y ,color) {
-    this.side = side
-    this.w = widthLines
+// clase cuadrado con lineas verdes
+class Cuadrado{
+  constructor(lado, anchoLineas, x , y ,color) {
+    this.lado = lado
+    this.w = anchoLineas
     this.x = x
     this.y = y
     this.color = color
   }
   
   display() {
-    let lineas = this.side/this.w
+    let lineas = this.lado/this.w
     fill(185,182,233)
-    rect(this.x, this.y, 2*this.side, 2*this.side);
-    let stripes = new Stripes(this.side, this.w, this.x, this.y,this.color);
+    rect(this.x, this.y, 2*this.lado, 2*this.lado);
+    let rayas = new Rayas(this.lado, this.w, this.x, this.y,this.color);
     if (mouseIsPressed === false) {
-      stripes.display();
+      rayas.display();
     }
     
   }
 }
-// clase square con lineas rojas
-class SquareRed {
-  builder(side, widthLines, x , y ) {
-    this.side = side
-    this.w = widthLines
+// clase cuadrado con lineas rojas
+class CuadradoRed {
+  constructor(lado, anchoLineas, x , y ) {
+    this.lado = lado
+    this.w = anchoLineas
     this.x = x
     this.y = y
   }
   
   display() {
-    let lineas = this.side/this.w
+    let lineas = this.lado/this.w
     fill(185,182,233)
-    rect(this.x, this.y, 2*this.side, 2*this.side);
+    rect(this.x, this.y, 2*this.lado, 2*this.lado);
     for(let i = 0; i< lineas-1; i++){
       fill(238, 75, 43);
       rect(this.x,
           this.y + i * (2*this.w)+10,
-          this.side * 2,
+          this.lado * 2,
           this.w)
     }
   }
 }
 
-class Stripes{ 
+class Rayas{ 
   
-  builder(side, widthLines, x , y , color) {
-    this.side = side
-    this.w = widthLines
+  constructor(lado, anchoLineas, x , y , color) {
+    this.lado = lado
+    this.w = anchoLineas
     this.x = x
     this.y = y
     this.color = color
   }
   
   display() {
-    let lineas = this.side/this.w
+    let lineas = this.lado/this.w
     for(let i = 0; i< lineas-1; i++){
       if(this.color === 'red'){
         fill(238, 75, 43);
@@ -589,7 +589,7 @@ class Stripes{
       } 
       rect(this.x,
           this.y + i * (2*this.w)+10,
-          this.side * 2,
+          this.lado * 2,
           this.w)
     }
 
@@ -602,34 +602,35 @@ class Stripes{
 
 {{< p5-global-iframe id="kk" ver="1.4.2" width="700" height="500" >}}
 
-let width = 0.4;
-let gridHeight = 0.5;
-let distanceBetweenBars = 400;
-let numberOfBars = 4;
-let size = 500
-let sizeSquareBars = 10;
-let squareSize = 45
+let ancho = 0.4;
+let alturaMalla = 0.5;
+let distanciaEntreBarras = 400;
+let numeroBarras = 4;
+let tamanio = 500
+let tamanioBarrasCuadrado = 10;
+let tamanioCuadrado = 45
 
 function setup() {
-  createCanvas(size*1.4, size);
-  let fringes = size/(width*numberOfBars)
+  createCanvas(tamanio*1.4, tamanio);
+  
+  let franjas = tamanio/(ancho*numeroBarras)
 
-  square1 = new Square(squareSize,sizeSquareBars,100,60, "red");
-  square2 = new Square(squareSize,sizeSquareBars,100,270, "green");
-  square3 = new Square(squareSize,sizeSquareBars,100,460, "red");
-  square4 = new Square(squareSize,sizeSquareBars,100,700);
-  square5 = new Square(squareSize,sizeSquareBars,300,170);
-  square6 = new Square(squareSize,sizeSquareBars,300,370);
-  square7 = new Square(squareSize,sizeSquareBars,300,570);
-  square8 = new Square(squareSize,sizeSquareBars,500,60);
-  square9 = new Square(squareSize,sizeSquareBars,500,260);
-  square10 = new Square(squareSize,sizeSquareBars,500,460);
-  square11 = new Square(squareSize,sizeSquareBars,500,710);
-  square12 = new Square(squareSize,sizeSquareBars,700,170);
-  square13 = new Square(squareSize,sizeSquareBars,700,370);
-  square14 = new Square(squareSize,sizeSquareBars,700,560);
+  cuadrado1 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,100,60, "red");
+  cuadrado2 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,100,270, "green");
+  cuadrado3 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,100,460, "red");
+  cuadrado4 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,100,700);
+  cuadrado5 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,300,170);
+  cuadrado6 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,300,370);
+  cuadrado7 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,300,570);
+  cuadrado8 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,500,60);
+  cuadrado9 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,500,260);
+  cuadrado10 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,500,460);
+  cuadrado11 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,500,710);
+  cuadrado12 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,700,170);
+  cuadrado13 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,700,370);
+  cuadrado14 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,700,560);
 
-  grid = new Grid(10,0,gridHeight,0,distanceBetweenBars,numberOfBars, fringes);
+  malla = new Malla(10,0,alturaMalla,0,distanciaEntreBarras,numeroBarras, franjas);
   
 }
 
@@ -640,31 +641,30 @@ function draw() {
   noStroke();
   
   if (mouseIsPressed === false) {
-    grid.display();
+    malla.display();
   }
   
-  square1.display();
-  square2.display();
-  square3.display();
-  square4.display();
-  square5.display();
-  square6.display();
-  square7.display();
-  square8.display();
-  square9.display();
-  square10.display();
-  square11.display();
-  square12.display();
-  square13.display();
-  square14.display();
+  cuadrado1.display();
+  cuadrado2.display();
+  cuadrado3.display();
+  cuadrado4.display();
+  cuadrado5.display();
+  cuadrado6.display();
+  cuadrado7.display();
+  cuadrado8.display();
+  cuadrado9.display();
+  cuadrado10.display();
+  cuadrado11.display();
+  cuadrado12.display();
+  cuadrado13.display();
+  cuadrado14.display();
   
 
 }
 
-// clase Grid
-class Grid {
-  builder(iw, ixp, ih, iyp, id, it, f) {
-    this.w = iw; // width de una barra
+class Malla {
+  constructor(iw, ixp, ih, iyp, id, it, f) {
+    this.w = iw; // ancho de una barra
     this.xpos = ixp; // posición x del rectángulo
     this.h = ih; // altura del rectángulo
     this.ypos = iyp; // posición y del rectángulo
@@ -674,71 +674,70 @@ class Grid {
   }
   
   display() {
-    let green = color(105,229,174)
-    let red = color(238, 75, 43)
-    for (let i = 0; i < size; i++) {
-      fill(green);
-      rect(0 , this.ypos + i * (2*this.w) , size*1.5, this.w);
+    let verde = color(105,229,174)
+    let rojo = color(238, 75, 43)
+    for (let i = 0; i < tamanio; i++) {
+      fill(verde);
+      rect(0 , this.ypos + i * (2*this.w) , tamanio*1.5, this.w);
     }
   }
 }
 
-// clase square con lineas greens
-class Square{
-  builder(side, widthLines, x , y ,color) {
-    this.side = side
-    this.w = widthLines
+class Cuadrado{
+  constructor(lado, anchoLineas, x , y ,color) {
+    this.lado = lado
+    this.w = anchoLineas
     this.x = x
     this.y = y
     this.color = color
   }
   
   display() {
-    let lineas = this.side/this.w
+    let lineas = this.lado/this.w
     fill(185,182,233)
-    rect(this.x, this.y, 2*this.side, 2*this.side);
-    let stripes = new Stripes(this.side, this.w, this.x, this.y,this.color);
+    rect(this.x, this.y, 2*this.lado, 2*this.lado);
+    let rayas = new Rayas(this.lado, this.w, this.x, this.y,this.color);
     if (mouseIsPressed === false) {
-      stripes.display();
+      rayas.display();
     }
     
   }
 }
-// clase square con lineas rojas
-class SquareRed {
-  builder(side, widthLines, x , y ) {
-    this.side = side
-    this.w = widthLines
+
+class CuadradoRed {
+  constructor(lado, anchoLineas, x , y ) {
+    this.lado = lado
+    this.w = anchoLineas
     this.x = x
     this.y = y
   }
   
   display() {
-    let lineas = this.side/this.w
+    let lineas = this.lado/this.w
     fill(185,182,233)
-    rect(this.x, this.y, 2*this.side, 2*this.side);
+    rect(this.x, this.y, 2*this.lado, 2*this.lado);
     for(let i = 0; i< lineas-1; i++){
       fill(238, 75, 43);
       rect(this.x,
           this.y + i * (2*this.w)+10,
-          this.side * 2,
+          this.lado * 2,
           this.w)
     }
   }
 }
 
-class Stripes{ 
+class Rayas{ 
   
-  builder(side, widthLines, x , y , color) {
-    this.side = side
-    this.w = widthLines
+  constructor(lado, anchoLineas, x , y , color) {
+    this.lado = lado
+    this.w = anchoLineas
     this.x = x
     this.y = y
     this.color = color
   }
   
   display() {
-    let lineas = this.side/this.w
+    let lineas = this.lado/this.w
     for(let i = 0; i< lineas-1; i++){
       if(this.color === 'red'){
         fill(238, 75, 43);
@@ -747,11 +746,9 @@ class Stripes{
       } 
       rect(this.x,
           this.y + i * (2*this.w)+10,
-          this.side * 2,
+          this.lado * 2,
           this.w)
     }
-
-  
   }
 }
 
