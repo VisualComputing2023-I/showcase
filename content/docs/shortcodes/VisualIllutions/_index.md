@@ -499,20 +499,17 @@ function draw() {
   cuadrado12.display();
   cuadrado13.display();
   cuadrado14.display();
-  
-
 }
 
-// clase Malla
 class Malla {
   constructor(iw, ixp, ih, iyp, id, it, f) {
-    this.w = iw; // ancho de una barra
-    this.xpos = ixp; // posición x del rectángulo
-    this.h = ih; // altura del rectángulo
-    this.ypos = iyp; // posición y del rectángulo
-    this.d = id; // distancia de una barra
-    this.t = it; // número de barras
-    this.f = f; //Franjas de colores en la imagen
+    this.w = iw;
+    this.xpos = ixp;
+    this.h = ih;
+    this.ypos = iyp;
+    this.d = id;
+    this.t = it;
+    this.f = f;
   }
   
   display() {
@@ -525,7 +522,6 @@ class Malla {
   }
 }
 
-// clase cuadrado con lineas verdes
 class Cuadrado{
   constructor(lado, anchoLineas, x , y ,color) {
     this.lado = lado
@@ -546,7 +542,7 @@ class Cuadrado{
     
   }
 }
-// clase cuadrado con lineas rojas
+
 class CuadradoRed {
   constructor(lado, anchoLineas, x , y ) {
     this.lado = lado
@@ -592,8 +588,6 @@ class Rayas{
           this.lado * 2,
           this.w)
     }
-
-  
   }
 }
 ```
@@ -612,7 +606,7 @@ let tamanioCuadrado = 45
 
 function setup() {
   createCanvas(tamanio*1.4, tamanio);
-  
+
   let franjas = tamanio/(ancho*numeroBarras)
 
   cuadrado1 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,100,60, "red");
@@ -658,8 +652,6 @@ function draw() {
   cuadrado12.display();
   cuadrado13.display();
   cuadrado14.display();
-  
-
 }
 
 class Malla {
@@ -700,7 +692,6 @@ class Cuadrado{
     if (mouseIsPressed === false) {
       rayas.display();
     }
-    
   }
 }
 
