@@ -98,12 +98,12 @@ function draw() {
         </html>
       "></iframe><h2 id=2---contour-adaptation>2. Contour adaptation
 <a class=anchor href=#2---contour-adaptation>#</a></h2><p>En esta ilusión óptica trata sobre la adaptación al contraste que hace que al mantenerse las ruedas de la bicicleta parpadeando de blanco a negro, la función de transferencia de contraste se desplace.</p><p>Esta bicicleta perderá sus ruedas&mldr; Pulsa el botón &ldquo;Parpadeo&rdquo; y mantén la mirada fija en la cruz verde del centro. Cuando el parpadeo se detenga, las ruedas habrán desaparecido, pero volverán a aparecer al cabo de unos segundos.</p><p>El deslizador de contraste de la derecha debe ajustarse de modo que las ruedas de la bicicleta sean apenas -pero claramente- visibles. La duración del parpadeo está preajustada a 8 s, tiempos más largos aumentan el efecto de supresión, entonces funciona con contrastes más altos. También puede comprobar varias frecuencias de parpadeo, preajustadas a 5 Hz.</p><h3 id=solución-código-1>Solución (Código):
-<a class=anchor href=#soluci%c3%b3n-c%c3%b3digo-1>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>sizeCanvas</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>500</span>;
+<a class=anchor href=#soluci%c3%b3n-c%c3%b3digo-1>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>tamanioCanvas</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>500</span>;
 </span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>angulo</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
 </span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>velocidad</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.09</span>;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setup</span>() {
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>createCanvas</span>(<span style=color:#a6e22e>sizeCanvas</span><span style=color:#f92672>*</span><span style=color:#ae81ff>1.3</span>, <span style=color:#a6e22e>sizeCanvas</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>createCanvas</span>(<span style=color:#a6e22e>tamanioCanvas</span><span style=color:#f92672>*</span><span style=color:#ae81ff>1.3</span>, <span style=color:#a6e22e>tamanioCanvas</span>);
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>angleMode</span>(<span style=color:#a6e22e>DEGREES</span>);
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
@@ -167,6 +167,7 @@ function draw() {
 </span></span><span style=display:flex><span>    <span style=color:#a6e22e>line</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>,<span style=color:#f92672>-</span><span style=color:#ae81ff>5</span>,<span style=color:#f92672>-</span><span style=color:#ae81ff>5</span>);
 </span></span><span style=display:flex><span>    <span style=color:#a6e22e>angulo</span><span style=color:#f92672>++</span>;   
 </span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>makeCloud</span>(<span style=color:#a6e22e>cloudx</span>, <span style=color:#a6e22e>cloudy</span>) {
@@ -178,7 +179,7 @@ function draw() {
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Mas</span>{
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>builder</span>(<span style=color:#a6e22e>x_1</span>, <span style=color:#a6e22e>y_1</span>, <span style=color:#a6e22e>x_2</span>, <span style=color:#a6e22e>y_2</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>constructor</span>(<span style=color:#a6e22e>x_1</span>, <span style=color:#a6e22e>y_1</span>, <span style=color:#a6e22e>x_2</span>, <span style=color:#a6e22e>y_2</span>) {
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>x_1</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>x_1</span>;
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>y_1</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>y_1</span>;
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>x_2</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>x_2</span>;
@@ -209,16 +210,17 @@ function draw() {
             
             <script>
               
-let sizeCanvas = 500;
+let tamanioCanvas = 500;
 var angulo = 0;
 var velocidad = 0.09;
 
 function setup() {
-  createCanvas(sizeCanvas*1.3, sizeCanvas);
+  createCanvas(tamanioCanvas*1.3, tamanioCanvas);
   angleMode(DEGREES);
 }
 
 function draw() {
+  
   let ms = millis();
   let cloudx = 100;
   let cloudy = 100;
@@ -230,7 +232,6 @@ function draw() {
   makeCloud(cloudx + 100, cloudy + 30)
   makeCloud(cloudx + 300, cloudy - 70)
   makeCloud(cloudx + 380, cloudy + 10)
-
   cloudx+=0.1;
 
   fill(132,132,132)
@@ -242,9 +243,10 @@ function draw() {
 
   stroke('#7F7FCC')
   line(200, 350, 250, 200);
-
+  //manubrio
   line(250,200, 280, 200);
   
+  //Marco
   line(240,245,360,350); // \
   line(400,230,360,340); // /
   line(360,350,440,353); // _
@@ -254,6 +256,7 @@ function draw() {
   line(390,230,410,230);
   
   if (mouseIsPressed === true) {
+    //ruedas alumbrantes
     if(ms%1.5 === 0){
       noFill();
       stroke('black');
@@ -289,7 +292,7 @@ function makeCloud(cloudx, cloudy) {
 }
 
 class Mas{
-  builder(x_1, y_1, x_2, y_2) {
+  constructor(x_1, y_1, x_2, y_2) {
     this.x_1 = x_1;
     this.y_1 = y_1;
     this.x_2 = x_2;
@@ -443,34 +446,34 @@ function backgroundCheckbox() {
         </html>
       "></iframe><h2 id=4--the-confetti-illusion>4. The confetti illusion
 <a class=anchor href=#4--the-confetti-illusion>#</a></h2><p>Estas esferas levitantes pueden parecer rojas, moradas o verdes a primera vista, pero en realidad los 12 orbes tienen el mismo tono insípido de beige.</p><p>Según David Novick, creador de la imagen y profesor de educación y liderazgo en ingeniería en la Universidad de Texas en El Paso, al reducir la imagen se exagera esta ilusión, mientras que al ampliarla se minimiza el efecto. Pero, ¿por qué percibimos las esferas de otro color que no es el suyo, el beige?</p><p>Esta percepción sesgada tiene su origen en un fenómeno conocido como ilusión de Munker-White, explica Novick a Live Science.</p><p>Para quitar las rayas de colores y poder observar el efecto de esta ilusión optica, se debe mantener presionado el mouse.</p><h3 id=solución-código-3>Solución (código):
-<a class=anchor href=#soluci%c3%b3n-c%c3%b3digo-3>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>width</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.4</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>gridHeight</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.5</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>distanceBetweenBars</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>400</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>numberOfBars</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>4</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>size</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>500</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>sizeSquareBars</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>squareSize</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>45</span>
+<a class=anchor href=#soluci%c3%b3n-c%c3%b3digo-3>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>ancho</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.4</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>alturaMalla</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.5</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>distanciaEntreBarras</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>400</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>numeroBarras</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>4</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>tamanio</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>500</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>tamanioBarrasCuadrado</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>tamanioCuadrado</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>45</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setup</span>() {
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>createCanvas</span>(<span style=color:#a6e22e>size</span><span style=color:#f92672>*</span><span style=color:#ae81ff>1.4</span>, <span style=color:#a6e22e>size</span>);
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>franjas</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>size</span><span style=color:#f92672>/</span>(<span style=color:#a6e22e>width</span><span style=color:#f92672>*</span><span style=color:#a6e22e>numberOfBars</span>)
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>createCanvas</span>(<span style=color:#a6e22e>tamanio</span><span style=color:#f92672>*</span><span style=color:#ae81ff>1.4</span>, <span style=color:#a6e22e>tamanio</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>franjas</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>tamanio</span><span style=color:#f92672>/</span>(<span style=color:#a6e22e>ancho</span><span style=color:#f92672>*</span><span style=color:#a6e22e>numeroBarras</span>)
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado1</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Square</span>(<span style=color:#a6e22e>squareSize</span>,<span style=color:#a6e22e>sizeSquareBars</span>,<span style=color:#ae81ff>100</span>,<span style=color:#ae81ff>60</span>, <span style=color:#e6db74>&#34;red&#34;</span>);
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado2</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Square</span>(<span style=color:#a6e22e>squareSize</span>,<span style=color:#a6e22e>sizeSquareBars</span>,<span style=color:#ae81ff>100</span>,<span style=color:#ae81ff>270</span>, <span style=color:#e6db74>&#34;green&#34;</span>);
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado3</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Square</span>(<span style=color:#a6e22e>squareSize</span>,<span style=color:#a6e22e>sizeSquareBars</span>,<span style=color:#ae81ff>100</span>,<span style=color:#ae81ff>460</span>, <span style=color:#e6db74>&#34;red&#34;</span>);
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado4</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Square</span>(<span style=color:#a6e22e>squareSize</span>,<span style=color:#a6e22e>sizeSquareBars</span>,<span style=color:#ae81ff>100</span>,<span style=color:#ae81ff>700</span>);
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado5</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Square</span>(<span style=color:#a6e22e>squareSize</span>,<span style=color:#a6e22e>sizeSquareBars</span>,<span style=color:#ae81ff>300</span>,<span style=color:#ae81ff>170</span>);
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado6</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Square</span>(<span style=color:#a6e22e>squareSize</span>,<span style=color:#a6e22e>sizeSquareBars</span>,<span style=color:#ae81ff>300</span>,<span style=color:#ae81ff>370</span>);
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado7</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Square</span>(<span style=color:#a6e22e>squareSize</span>,<span style=color:#a6e22e>sizeSquareBars</span>,<span style=color:#ae81ff>300</span>,<span style=color:#ae81ff>570</span>);
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado8</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Square</span>(<span style=color:#a6e22e>squareSize</span>,<span style=color:#a6e22e>sizeSquareBars</span>,<span style=color:#ae81ff>500</span>,<span style=color:#ae81ff>60</span>);
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado9</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Square</span>(<span style=color:#a6e22e>squareSize</span>,<span style=color:#a6e22e>sizeSquareBars</span>,<span style=color:#ae81ff>500</span>,<span style=color:#ae81ff>260</span>);
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado10</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Square</span>(<span style=color:#a6e22e>squareSize</span>,<span style=color:#a6e22e>sizeSquareBars</span>,<span style=color:#ae81ff>500</span>,<span style=color:#ae81ff>460</span>);
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado11</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Square</span>(<span style=color:#a6e22e>squareSize</span>,<span style=color:#a6e22e>sizeSquareBars</span>,<span style=color:#ae81ff>500</span>,<span style=color:#ae81ff>710</span>);
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado12</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Square</span>(<span style=color:#a6e22e>squareSize</span>,<span style=color:#a6e22e>sizeSquareBars</span>,<span style=color:#ae81ff>700</span>,<span style=color:#ae81ff>170</span>);
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado13</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Square</span>(<span style=color:#a6e22e>squareSize</span>,<span style=color:#a6e22e>sizeSquareBars</span>,<span style=color:#ae81ff>700</span>,<span style=color:#ae81ff>370</span>);
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado14</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Square</span>(<span style=color:#a6e22e>squareSize</span>,<span style=color:#a6e22e>sizeSquareBars</span>,<span style=color:#ae81ff>700</span>,<span style=color:#ae81ff>560</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado1</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Cuadrado</span>(<span style=color:#a6e22e>tamanioCuadrado</span>,<span style=color:#a6e22e>tamanioBarrasCuadrado</span>,<span style=color:#ae81ff>100</span>,<span style=color:#ae81ff>60</span>, <span style=color:#e6db74>&#34;red&#34;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado2</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Cuadrado</span>(<span style=color:#a6e22e>tamanioCuadrado</span>,<span style=color:#a6e22e>tamanioBarrasCuadrado</span>,<span style=color:#ae81ff>100</span>,<span style=color:#ae81ff>270</span>, <span style=color:#e6db74>&#34;green&#34;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado3</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Cuadrado</span>(<span style=color:#a6e22e>tamanioCuadrado</span>,<span style=color:#a6e22e>tamanioBarrasCuadrado</span>,<span style=color:#ae81ff>100</span>,<span style=color:#ae81ff>460</span>, <span style=color:#e6db74>&#34;red&#34;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado4</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Cuadrado</span>(<span style=color:#a6e22e>tamanioCuadrado</span>,<span style=color:#a6e22e>tamanioBarrasCuadrado</span>,<span style=color:#ae81ff>100</span>,<span style=color:#ae81ff>700</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado5</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Cuadrado</span>(<span style=color:#a6e22e>tamanioCuadrado</span>,<span style=color:#a6e22e>tamanioBarrasCuadrado</span>,<span style=color:#ae81ff>300</span>,<span style=color:#ae81ff>170</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado6</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Cuadrado</span>(<span style=color:#a6e22e>tamanioCuadrado</span>,<span style=color:#a6e22e>tamanioBarrasCuadrado</span>,<span style=color:#ae81ff>300</span>,<span style=color:#ae81ff>370</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado7</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Cuadrado</span>(<span style=color:#a6e22e>tamanioCuadrado</span>,<span style=color:#a6e22e>tamanioBarrasCuadrado</span>,<span style=color:#ae81ff>300</span>,<span style=color:#ae81ff>570</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado8</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Cuadrado</span>(<span style=color:#a6e22e>tamanioCuadrado</span>,<span style=color:#a6e22e>tamanioBarrasCuadrado</span>,<span style=color:#ae81ff>500</span>,<span style=color:#ae81ff>60</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado9</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Cuadrado</span>(<span style=color:#a6e22e>tamanioCuadrado</span>,<span style=color:#a6e22e>tamanioBarrasCuadrado</span>,<span style=color:#ae81ff>500</span>,<span style=color:#ae81ff>260</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado10</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Cuadrado</span>(<span style=color:#a6e22e>tamanioCuadrado</span>,<span style=color:#a6e22e>tamanioBarrasCuadrado</span>,<span style=color:#ae81ff>500</span>,<span style=color:#ae81ff>460</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado11</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Cuadrado</span>(<span style=color:#a6e22e>tamanioCuadrado</span>,<span style=color:#a6e22e>tamanioBarrasCuadrado</span>,<span style=color:#ae81ff>500</span>,<span style=color:#ae81ff>710</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado12</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Cuadrado</span>(<span style=color:#a6e22e>tamanioCuadrado</span>,<span style=color:#a6e22e>tamanioBarrasCuadrado</span>,<span style=color:#ae81ff>700</span>,<span style=color:#ae81ff>170</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado13</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Cuadrado</span>(<span style=color:#a6e22e>tamanioCuadrado</span>,<span style=color:#a6e22e>tamanioBarrasCuadrado</span>,<span style=color:#ae81ff>700</span>,<span style=color:#ae81ff>370</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado14</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Cuadrado</span>(<span style=color:#a6e22e>tamanioCuadrado</span>,<span style=color:#a6e22e>tamanioBarrasCuadrado</span>,<span style=color:#ae81ff>700</span>,<span style=color:#ae81ff>560</span>);
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>grid</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Grid</span>(<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>0</span>,<span style=color:#a6e22e>gridHeight</span>,<span style=color:#ae81ff>0</span>,<span style=color:#a6e22e>distanceBetweenBars</span>,<span style=color:#a6e22e>numberOfBars</span>, <span style=color:#a6e22e>franjas</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>malla</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Malla</span>(<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>0</span>,<span style=color:#a6e22e>alturaMalla</span>,<span style=color:#ae81ff>0</span>,<span style=color:#a6e22e>distanciaEntreBarras</span>,<span style=color:#a6e22e>numeroBarras</span>, <span style=color:#a6e22e>franjas</span>);
 </span></span><span style=display:flex><span>  
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
@@ -481,7 +484,7 @@ function backgroundCheckbox() {
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>noStroke</span>();
 </span></span><span style=display:flex><span>  
 </span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>mouseIsPressed</span> <span style=color:#f92672>===</span> <span style=color:#66d9ef>false</span>) {
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>grid</span>.<span style=color:#a6e22e>display</span>();
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>malla</span>.<span style=color:#a6e22e>display</span>();
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>  
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado1</span>.<span style=color:#a6e22e>display</span>();
@@ -498,12 +501,14 @@ function backgroundCheckbox() {
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado12</span>.<span style=color:#a6e22e>display</span>();
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado13</span>.<span style=color:#a6e22e>display</span>();
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado14</span>.<span style=color:#a6e22e>display</span>();
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// clase Grid
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Grid</span> {
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>builder</span>(<span style=color:#a6e22e>iw</span>, <span style=color:#a6e22e>ixp</span>, <span style=color:#a6e22e>ih</span>, <span style=color:#a6e22e>iyp</span>, <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>it</span>, <span style=color:#a6e22e>f</span>) {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>iw</span>; <span style=color:#75715e>// width de una barra
+</span></span><span style=display:flex><span><span style=color:#75715e>// clase Malla
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Malla</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>constructor</span>(<span style=color:#a6e22e>iw</span>, <span style=color:#a6e22e>ixp</span>, <span style=color:#a6e22e>ih</span>, <span style=color:#a6e22e>iyp</span>, <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>it</span>, <span style=color:#a6e22e>f</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>iw</span>; <span style=color:#75715e>// ancho de una barra
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>xpos</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ixp</span>; <span style=color:#75715e>// posición x del rectángulo
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>h</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ih</span>; <span style=color:#75715e>// altura del rectángulo
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>ypos</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>iyp</span>; <span style=color:#75715e>// posición y del rectángulo
@@ -513,27 +518,27 @@ function backgroundCheckbox() {
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>  }
 </span></span><span style=display:flex><span>  
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>display</span>() {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>green</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>color</span>(<span style=color:#ae81ff>105</span>,<span style=color:#ae81ff>229</span>,<span style=color:#ae81ff>174</span>)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>red</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>color</span>(<span style=color:#ae81ff>238</span>, <span style=color:#ae81ff>75</span>, <span style=color:#ae81ff>43</span>)
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>size</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>) {
-</span></span><span style=display:flex><span>      <span style=color:#a6e22e>fill</span>(<span style=color:#a6e22e>green</span>);
-</span></span><span style=display:flex><span>      <span style=color:#a6e22e>rect</span>(<span style=color:#ae81ff>0</span> , <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>ypos</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>*</span> (<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span>) , <span style=color:#a6e22e>size</span><span style=color:#f92672>*</span><span style=color:#ae81ff>1.5</span>, <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>verde</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>color</span>(<span style=color:#ae81ff>105</span>,<span style=color:#ae81ff>229</span>,<span style=color:#ae81ff>174</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>rojo</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>color</span>(<span style=color:#ae81ff>238</span>, <span style=color:#ae81ff>75</span>, <span style=color:#ae81ff>43</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>tamanio</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>fill</span>(<span style=color:#a6e22e>verde</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>rect</span>(<span style=color:#ae81ff>0</span> , <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>ypos</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>*</span> (<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span>) , <span style=color:#a6e22e>tamanio</span><span style=color:#f92672>*</span><span style=color:#ae81ff>1.5</span>, <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span>);
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// clase cuadrado con lines verdes
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Square</span>{
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>builder</span>(<span style=color:#a6e22e>lado</span>, <span style=color:#a6e22e>widthLines</span>, <span style=color:#a6e22e>x</span> , <span style=color:#a6e22e>y</span> ,<span style=color:#a6e22e>color</span>) {
+</span></span><span style=display:flex><span><span style=color:#75715e>// clase cuadrado con lineas verdes
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Cuadrado</span>{
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>constructor</span>(<span style=color:#a6e22e>lado</span>, <span style=color:#a6e22e>anchoLineas</span>, <span style=color:#a6e22e>x</span> , <span style=color:#a6e22e>y</span> ,<span style=color:#a6e22e>color</span>) {
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>lado</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>widthLines</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>anchoLineas</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>x</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>y</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>color</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>color</span>
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>  
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>display</span>() {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>lines</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span><span style=color:#f92672>/</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>lineas</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span><span style=color:#f92672>/</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span>
 </span></span><span style=display:flex><span>    <span style=color:#a6e22e>fill</span>(<span style=color:#ae81ff>185</span>,<span style=color:#ae81ff>182</span>,<span style=color:#ae81ff>233</span>)
 </span></span><span style=display:flex><span>    <span style=color:#a6e22e>rect</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>x</span>, <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>y</span>, <span style=color:#ae81ff>2</span><span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span>, <span style=color:#ae81ff>2</span><span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span>);
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>rayas</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Rayas</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span>, <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span>, <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>x</span>, <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>y</span>,<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>color</span>);
@@ -543,20 +548,20 @@ function backgroundCheckbox() {
 </span></span><span style=display:flex><span>    
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span><span style=color:#75715e>// clase cuadrado con lines rojas
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>SquareRed</span> {
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>builder</span>(<span style=color:#a6e22e>lado</span>, <span style=color:#a6e22e>widthLines</span>, <span style=color:#a6e22e>x</span> , <span style=color:#a6e22e>y</span> ) {
+</span></span><span style=display:flex><span><span style=color:#75715e>// clase cuadrado con lineas rojas
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CuadradoRed</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>constructor</span>(<span style=color:#a6e22e>lado</span>, <span style=color:#a6e22e>anchoLineas</span>, <span style=color:#a6e22e>x</span> , <span style=color:#a6e22e>y</span> ) {
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>lado</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>widthLines</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>anchoLineas</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>x</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>y</span>
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>  
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>display</span>() {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>lines</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span><span style=color:#f92672>/</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>lineas</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span><span style=color:#f92672>/</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span>
 </span></span><span style=display:flex><span>    <span style=color:#a6e22e>fill</span>(<span style=color:#ae81ff>185</span>,<span style=color:#ae81ff>182</span>,<span style=color:#ae81ff>233</span>)
 </span></span><span style=display:flex><span>    <span style=color:#a6e22e>rect</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>x</span>, <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>y</span>, <span style=color:#ae81ff>2</span><span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span>, <span style=color:#ae81ff>2</span><span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>lines</span><span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>lineas</span><span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>){
 </span></span><span style=display:flex><span>      <span style=color:#a6e22e>fill</span>(<span style=color:#ae81ff>238</span>, <span style=color:#ae81ff>75</span>, <span style=color:#ae81ff>43</span>);
 </span></span><span style=display:flex><span>      <span style=color:#a6e22e>rect</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>x</span>,
 </span></span><span style=display:flex><span>          <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>*</span> (<span style=color:#ae81ff>2</span><span style=color:#f92672>*</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span>)<span style=color:#f92672>+</span><span style=color:#ae81ff>10</span>,
@@ -568,17 +573,17 @@ function backgroundCheckbox() {
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Rayas</span>{ 
 </span></span><span style=display:flex><span>  
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>builder</span>(<span style=color:#a6e22e>lado</span>, <span style=color:#a6e22e>widthLines</span>, <span style=color:#a6e22e>x</span> , <span style=color:#a6e22e>y</span> , <span style=color:#a6e22e>color</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>constructor</span>(<span style=color:#a6e22e>lado</span>, <span style=color:#a6e22e>anchoLineas</span>, <span style=color:#a6e22e>x</span> , <span style=color:#a6e22e>y</span> , <span style=color:#a6e22e>color</span>) {
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>lado</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>widthLines</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>anchoLineas</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>x</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>y</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>color</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>color</span>
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>  
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>display</span>() {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>lines</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span><span style=color:#f92672>/</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>lines</span><span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>lineas</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span><span style=color:#f92672>/</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>lineas</span><span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>){
 </span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>color</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;red&#39;</span>){
 </span></span><span style=display:flex><span>        <span style=color:#a6e22e>fill</span>(<span style=color:#ae81ff>238</span>, <span style=color:#ae81ff>75</span>, <span style=color:#ae81ff>43</span>);
 </span></span><span style=display:flex><span>      }<span style=color:#66d9ef>else</span>{
@@ -589,6 +594,8 @@ function backgroundCheckbox() {
 </span></span><span style=display:flex><span>          <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>2</span>,
 </span></span><span style=display:flex><span>          <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span>)
 </span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><h3 id=resultado-3>Resultado:
@@ -606,34 +613,34 @@ function backgroundCheckbox() {
             <script>
               
 
-let width = 0.4;
-let gridHeight = 0.5;
-let distanceBetweenBars = 400;
-let numberOfBars = 4;
-let size = 500
-let sizeSquareBars = 10;
-let squareSize = 45
+let ancho = 0.4;
+let alturaMalla = 0.5;
+let distanciaEntreBarras = 400;
+let numeroBarras = 4;
+let tamanio = 500
+let tamanioBarrasCuadrado = 10;
+let tamanioCuadrado = 45
 
 function setup() {
-  createCanvas(size*1.4, size);
-  let franjas = size/(width*numberOfBars)
+  createCanvas(tamanio*1.4, tamanio);
+  let franjas = tamanio/(ancho*numeroBarras)
 
-  cuadrado1 = new Square(squareSize,sizeSquareBars,100,60, "red");
-  cuadrado2 = new Square(squareSize,sizeSquareBars,100,270, "green");
-  cuadrado3 = new Square(squareSize,sizeSquareBars,100,460, "red");
-  cuadrado4 = new Square(squareSize,sizeSquareBars,100,700);
-  cuadrado5 = new Square(squareSize,sizeSquareBars,300,170);
-  cuadrado6 = new Square(squareSize,sizeSquareBars,300,370);
-  cuadrado7 = new Square(squareSize,sizeSquareBars,300,570);
-  cuadrado8 = new Square(squareSize,sizeSquareBars,500,60);
-  cuadrado9 = new Square(squareSize,sizeSquareBars,500,260);
-  cuadrado10 = new Square(squareSize,sizeSquareBars,500,460);
-  cuadrado11 = new Square(squareSize,sizeSquareBars,500,710);
-  cuadrado12 = new Square(squareSize,sizeSquareBars,700,170);
-  cuadrado13 = new Square(squareSize,sizeSquareBars,700,370);
-  cuadrado14 = new Square(squareSize,sizeSquareBars,700,560);
+  cuadrado1 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,100,60, "red");
+  cuadrado2 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,100,270, "green");
+  cuadrado3 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,100,460, "red");
+  cuadrado4 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,100,700);
+  cuadrado5 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,300,170);
+  cuadrado6 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,300,370);
+  cuadrado7 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,300,570);
+  cuadrado8 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,500,60);
+  cuadrado9 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,500,260);
+  cuadrado10 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,500,460);
+  cuadrado11 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,500,710);
+  cuadrado12 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,700,170);
+  cuadrado13 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,700,370);
+  cuadrado14 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,700,560);
 
-  grid = new Grid(10,0,gridHeight,0,distanceBetweenBars,numberOfBars, franjas);
+  malla = new Malla(10,0,alturaMalla,0,distanciaEntreBarras,numeroBarras, franjas);
   
 }
 
@@ -644,7 +651,7 @@ function draw() {
   noStroke();
   
   if (mouseIsPressed === false) {
-    grid.display();
+    malla.display();
   }
   
   cuadrado1.display();
@@ -665,10 +672,10 @@ function draw() {
 
 }
 
-// clase Grid
-class Grid {
-  builder(iw, ixp, ih, iyp, id, it, f) {
-    this.w = iw; // width de una barra
+// clase Malla
+class Malla {
+  constructor(iw, ixp, ih, iyp, id, it, f) {
+    this.w = iw; // ancho de una barra
     this.xpos = ixp; // posición x del rectángulo
     this.h = ih; // altura del rectángulo
     this.ypos = iyp; // posición y del rectángulo
@@ -680,24 +687,25 @@ class Grid {
   display() {
     let verde = color(105,229,174)
     let rojo = color(238, 75, 43)
-    for (let i = 0; i < size; i++) {
+    for (let i = 0; i < tamanio; i++) {
       fill(verde);
-      rect(0 , this.ypos + i * (2*this.w) , size*1.5, this.w);
+      rect(0 , this.ypos + i * (2*this.w) , tamanio*1.5, this.w);
     }
   }
 }
 
-class Square{
-  builder(lado, widthLines, x , y ,color) {
+// clase cuadrado con lineas verdes
+class Cuadrado{
+  constructor(lado, anchoLineas, x , y ,color) {
     this.lado = lado
-    this.w = widthLines
+    this.w = anchoLineas
     this.x = x
     this.y = y
     this.color = color
   }
   
   display() {
-    let lines = this.lado/this.w
+    let lineas = this.lado/this.w
     fill(185,182,233)
     rect(this.x, this.y, 2*this.lado, 2*this.lado);
     let rayas = new Rayas(this.lado, this.w, this.x, this.y,this.color);
@@ -707,20 +715,20 @@ class Square{
     
   }
 }
-// clase cuadrado con lines rojas
-class SquareRed {
-  builder(lado, widthLines, x , y ) {
+// clase cuadrado con lineas rojas
+class CuadradoRed {
+  constructor(lado, anchoLineas, x , y ) {
     this.lado = lado
-    this.w = widthLines
+    this.w = anchoLineas
     this.x = x
     this.y = y
   }
   
   display() {
-    let lines = this.lado/this.w
+    let lineas = this.lado/this.w
     fill(185,182,233)
     rect(this.x, this.y, 2*this.lado, 2*this.lado);
-    for(let i = 0; i< lines-1; i++){
+    for(let i = 0; i< lineas-1; i++){
       fill(238, 75, 43);
       rect(this.x,
           this.y + i * (2*this.w)+10,
@@ -732,17 +740,17 @@ class SquareRed {
 
 class Rayas{ 
   
-  builder(lado, widthLines, x , y , color) {
+  constructor(lado, anchoLineas, x , y , color) {
     this.lado = lado
-    this.w = widthLines
+    this.w = anchoLineas
     this.x = x
     this.y = y
     this.color = color
   }
   
   display() {
-    let lines = this.lado/this.w
-    for(let i = 0; i< lines-1; i++){
+    let lineas = this.lado/this.w
+    for(let i = 0; i< lineas-1; i++){
       if(this.color === &#39;red&#39;){
         fill(238, 75, 43);
       }else{
@@ -753,6 +761,8 @@ class Rayas{
           this.lado * 2,
           this.w)
     }
+
+  
   }
 }
 
@@ -898,25 +908,25 @@ function draw() {
         </html>
       "></iframe><h2 id=6---barrier-grid-animation-and-stereography>6. Barrier grid animation and stereography
 <a class=anchor href=#6---barrier-grid-animation-and-stereography>#</a></h2><p>La animación de rejilla de barrera o animación de piquete es un efecto de animación creado moviendo una superposición transparente a rayas a través de una imagen entrelazada. La técnica de la rejilla de barrera se originó a finales de la década de 1890, coincidiendo con el desarrollo de la estereografía de paralaje (Relièphographie) para autoestereogramas 3D. La técnica también se ha utilizado para imágenes que cambian de color, pero en mucha menor medida.</p><p>El desarrollo de las tecnologías de rejilla de barrera también puede considerarse un paso hacia la impresión lenticular, aunque la técnica se ha mantenido tras la invención de las tecnologías lenticulares como una forma relativamente barata y sencilla de producir imágenes animadas impresas.</p><h3 id=solución-código-5>Solución (código):
-<a class=anchor href=#soluci%c3%b3n-c%c3%b3digo-5>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>width</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>gridHeight</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.4</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>distanceBetweenBars</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
-</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>numberOfBars</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>40</span>;
+<a class=anchor href=#soluci%c3%b3n-c%c3%b3digo-5>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>ancho</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>alturaMalla</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.4</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>distanciaEntreBarras</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>numeroBarras</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>40</span>;
 </span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>equivalencia</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>770</span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setup</span>() {
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>createCanvas</span>(<span style=color:#ae81ff>700</span>, <span style=color:#ae81ff>700</span>);
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>grid</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Grid</span>(<span style=color:#a6e22e>width</span>,<span style=color:#ae81ff>0</span>,<span style=color:#a6e22e>gridHeight</span>,<span style=color:#ae81ff>0</span>,<span style=color:#a6e22e>distanceBetweenBars</span>,<span style=color:#a6e22e>numberOfBars</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>malla</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Malla</span>(<span style=color:#a6e22e>ancho</span>,<span style=color:#ae81ff>0</span>,<span style=color:#a6e22e>alturaMalla</span>,<span style=color:#ae81ff>0</span>,<span style=color:#a6e22e>distanciaEntreBarras</span>,<span style=color:#a6e22e>numeroBarras</span>);
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>draw</span>() {
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>background</span>(<span style=color:#ae81ff>255</span>);
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>  
-</span></span><span style=display:flex><span>  <span style=color:#75715e>//Creación de la grid
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>grid</span>.<span style=color:#a6e22e>display</span>();
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>grid</span>.<span style=color:#a6e22e>move</span>(<span style=color:#a6e22e>mouseX</span>, <span style=color:#a6e22e>mouseY</span>);
+</span></span><span style=display:flex><span>  <span style=color:#75715e>//Creación de la malla
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>malla</span>.<span style=color:#a6e22e>display</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>malla</span>.<span style=color:#a6e22e>move</span>(<span style=color:#a6e22e>mouseX</span>, <span style=color:#a6e22e>mouseY</span>);
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>strokeWeight</span>(<span style=color:#ae81ff>2</span>);
 </span></span><span style=display:flex><span>
@@ -942,14 +952,14 @@ function draw() {
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>rect</span>(<span style=color:#ae81ff>494</span>, <span style=color:#ae81ff>307</span>, <span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>15</span>);
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>rect</span>(<span style=color:#ae81ff>497</span>, <span style=color:#ae81ff>324</span>, <span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>15</span>);
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#75715e>//Se crea grid principal
+</span></span><span style=display:flex><span>  <span style=color:#75715e>//Se crea malla principal
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>500</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>+=</span><span style=color:#ae81ff>10</span>){
 </span></span><span style=display:flex><span>    <span style=color:#a6e22e>strokeWeight</span>(<span style=color:#ae81ff>4</span>);
 </span></span><span style=display:flex><span>    <span style=color:#a6e22e>line</span>(<span style=color:#a6e22e>i</span>, <span style=color:#ae81ff>300</span>,<span style=color:#a6e22e>i</span>, <span style=color:#ae81ff>370</span>);
 </span></span><span style=display:flex><span>    <span style=color:#a6e22e>strokeWeight</span>(<span style=color:#ae81ff>2</span>);
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#75715e>//Se crea grid luego de pasar por la maquina
+</span></span><span style=display:flex><span>  <span style=color:#75715e>//Se crea malla luego de pasar por la maquina
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>480</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>&lt;=</span><span style=color:#ae81ff>1000</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>+=</span><span style=color:#ae81ff>10</span>){
 </span></span><span style=display:flex><span>    <span style=color:#a6e22e>strokeWeight</span>(<span style=color:#ae81ff>5</span>);
 </span></span><span style=display:flex><span>    <span style=color:#a6e22e>line</span>(<span style=color:#a6e22e>i</span>, <span style=color:#ae81ff>360</span>,<span style=color:#a6e22e>i</span>, <span style=color:#ae81ff>370</span>);
@@ -989,10 +999,10 @@ function draw() {
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>strokeWeight</span>(<span style=color:#ae81ff>2</span>);
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span><span style=color:#75715e>// clase Grid
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Grid</span> {
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>builder</span>(<span style=color:#a6e22e>iw</span>, <span style=color:#a6e22e>ixp</span>, <span style=color:#a6e22e>ih</span>, <span style=color:#a6e22e>iyp</span>, <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>it</span>) {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>iw</span>; <span style=color:#75715e>// width de una barra
+</span></span><span style=display:flex><span><span style=color:#75715e>// clase Malla
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Malla</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>constructor</span>(<span style=color:#a6e22e>iw</span>, <span style=color:#a6e22e>ixp</span>, <span style=color:#a6e22e>ih</span>, <span style=color:#a6e22e>iyp</span>, <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>it</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>iw</span>; <span style=color:#75715e>// ancho de una barra
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>xpos</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ixp</span>; <span style=color:#75715e>// posición x del rectángulo
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>h</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ih</span>; <span style=color:#75715e>// altura del rectángulo
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>ypos</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>iyp</span>; <span style=color:#75715e>// posición y del rectángulo
@@ -1035,25 +1045,25 @@ function draw() {
             <script>
               
 
-let width = 10;
-let gridHeight = 0.4;
-let distanceBetweenBars = 1;
-let numberOfBars = 40;
+let ancho = 10;
+let alturaMalla = 0.4;
+let distanciaEntreBarras = 1;
+let numeroBarras = 40;
 let equivalencia = 770
 function setup() {
 
   createCanvas(700, 700);
 
-  grid = new Grid(width,0,gridHeight,0,distanceBetweenBars,numberOfBars);
+  malla = new Malla(ancho,0,alturaMalla,0,distanciaEntreBarras,numeroBarras);
 }
 
 function draw() {
   background(255);
 
   
-  //Creación de la grid
-  grid.display();
-  grid.move(mouseX, mouseY);
+  //Creación de la malla
+  malla.display();
+  malla.move(mouseX, mouseY);
 
   strokeWeight(2);
 
@@ -1079,14 +1089,14 @@ function draw() {
   rect(494, 307, 3,15);
   rect(497, 324, 1,15);
 
-  //Se crea grid principal
+  //Se crea malla principal
   for (let i = 0; i<=500; i+=10){
     strokeWeight(4);
     line(i, 300,i, 370);
     strokeWeight(2);
   }
 
-  //Se crea grid luego de pasar por la maquina
+  //Se crea malla luego de pasar por la maquina
   for (let i = 480; i<=1000; i+=10){
     strokeWeight(5);
     line(i, 360,i, 370);
@@ -1126,10 +1136,10 @@ function draw() {
   strokeWeight(2);
 
 }
-// clase Grid
-class Grid {
-  builder(iw, ixp, ih, iyp, id, it) {
-    this.w = iw; // width de una barra
+// clase Malla
+class Malla {
+  constructor(iw, ixp, ih, iyp, id, it) {
+    this.w = iw; // ancho de una barra
     this.xpos = ixp; // posición x del rectángulo
     this.h = ih; // altura del rectángulo
     this.ypos = iyp; // posición y del rectángulo
@@ -1170,5 +1180,5 @@ class Grid {
 <a class=anchor href=#stepping-feet>#</a></h3><p>Movement illusions like this are an important remainder that our perception of movement and its timing is heavuly dependent on the background, and therefore should be tested and observed with in the required context to obtain the desired perception. This illusion could possibly be used as means to accentuate certain movements, specialy in comparison to the movement of other objects in the scene.</p><h3 id=ebbinghaus-illusion>Ebbinghaus Illusion
 <a class=anchor href=#ebbinghaus-illusion>#</a></h3><p>Our perception of size is heavly skewed by the context. With this knowledge, we can make certain objects in our scene be perceived as smaller of bigger in comparison by using artifacts of this kind. In this way we can draw focus to certain elements we want to make more noticeable.</p><h3 id=stereokinetic-effect>Stereokinetic Effect
 <a class=anchor href=#stereokinetic-effect>#</a></h3><h2 id=referencias>Referencias
-<a class=anchor href=#referencias>#</a></h2><p><a href=https://michaelbach.de/ot/>148 Optical Illusions & Visual Phenomena + Explanations</a> by Michael Bach</p><ul><li><a href=https://michaelbach.de/ot/mot-strob/index.html>Stroboscopic Artifacts</a></li><li><a href=https://michaelbach.de/ot/mot-feetLin/index.html>“Stepping feet” Motion Illusion</a></li><li><a href=https://michaelbach.de/ot/cog-Ebbinghaus/index.html>Ebbinghaus Illusion</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://jupachonc.github.io/showcase/commit/9e3c0e3b04ea73e9d94f2562d58e1d39c769ae65 title='Last modified by Julian Manosalva Manrique | March 10, 2023' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
+<a class=anchor href=#referencias>#</a></h2><p><a href=https://michaelbach.de/ot/>148 Optical Illusions & Visual Phenomena + Explanations</a> by Michael Bach</p><ul><li><a href=https://michaelbach.de/ot/mot-strob/index.html>Stroboscopic Artifacts</a></li><li><a href=https://michaelbach.de/ot/mot-feetLin/index.html>“Stepping feet” Motion Illusion</a></li><li><a href=https://michaelbach.de/ot/cog-Ebbinghaus/index.html>Ebbinghaus Illusion</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://jupachonc.github.io/showcase/commit/1bfaa8e48e2ecdb45f257ae16d7e0e327ee283e5 title='Last modified by Julian Manosalva Manrique | March 10, 2023' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
 <span>March 10, 2023</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#workshop-visual-illusions>Workshop: Visual Illusions</a></li><li><a href=#marco-teórico>Marco Teórico</a></li><li><a href=#1--stroboscopic-artifacts>1. Stroboscopic Artifacts</a><ul><li><a href=#solución-código>Solución (Código):</a></li><li><a href=#resultado>Resultado:</a></li></ul></li><li><a href=#2---contour-adaptation>2. Contour adaptation</a><ul><li><a href=#solución-código-1>Solución (Código):</a></li><li><a href=#resultado-1>Resultado:</a></li></ul></li><li><a href=#3--stepping-feet>3. Stepping feet</a><ul><li><a href=#solución-código-2>Solución (Código):</a></li><li><a href=#resultado-2>Resultado:</a></li></ul></li><li><a href=#4--the-confetti-illusion>4. The confetti illusion</a><ul><li><a href=#solución-código-3>Solución (código):</a></li><li><a href=#resultado-3>Resultado:</a></li></ul></li><li><a href=#5--ebbinghaus-illusion>5. Ebbinghaus Illusion</a><ul><li><a href=#solución-código-4>Solución (Código):</a></li><li><a href=#resultado-4>Resultado:</a></li></ul></li><li><a href=#6---barrier-grid-animation-and-stereography>6. Barrier grid animation and stereography</a><ul><li><a href=#solución-código-5>Solución (código):</a></li></ul></li><li><a href=#resultado-5>Resultado:</a></li><li><a href=#conclusionses>Conclusionses</a><ul><li><a href=#stroboscopic-artifacts>Stroboscopic Artifacts</a></li><li><a href=#stepping-feet>Stepping feet</a></li><li><a href=#ebbinghaus-illusion>Ebbinghaus Illusion</a></li><li><a href=#stereokinetic-effect>Stereokinetic Effect</a></li></ul></li><li><a href=#referencias>Referencias</a></li></ul></li></ul></nav></div></aside></main></body></html>
