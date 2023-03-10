@@ -1132,9 +1132,17 @@ class Malla {
 {{< /p5-global-iframe >}}
 
 
-## Conclusionses
+## Conclusiones
 
-1. 
+1. La ilusión óptica es una herramienta importante en la computación visual: Las ilusiones ópticas son una herramienta útil en la computación visual ya que pueden ser utilizadas para mejorar la percepción y la interpretación de las imágenes.
+
+2. Las ilusiones ópticas pueden ser creadas utilizando diversas técnicas: Los programadores pueden utilizar diversas técnicas para crear ilusiones ópticas en la computación visual, como la manipulación del color, el contraste y la perspectiva.
+
+3. Las ilusiones ópticas pueden ser utilizadas para mejorar la seguridad: En la seguridad informática, las ilusiones ópticas pueden ser utilizadas para ocultar información importante o para crear señuelos que engañen a los intrusos.
+
+4. Las ilusiones ópticas pueden ser utilizadas para mejorar la experiencia del usuario: En la industria del entretenimiento y los videojuegos, las ilusiones ópticas pueden ser utilizadas para crear efectos visuales impresionantes que mejoren la experiencia del usuario.
+
+5. Las ilusiones ópticas pueden ser utilizadas para estudiar la percepción visual: Las ilusiones ópticas han sido utilizadas por los científicos para estudiar la percepción visual y entender cómo el cerebro procesa la información visual.
 
 ## Referencias
 
