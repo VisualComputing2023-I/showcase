@@ -5,8 +5,6 @@
 Study, implement and discuss possible applications of some known visual phenomena and optical illusions.
 {{< /hint >}}
 
-## Marco Teórico
-
 # **Marco Teórico**
 
 
@@ -48,6 +46,8 @@ Las ilusiones cognitivas se dividen en:
 *   Ilusiones de distorsión: son los errores de percepción del tamaño, longitud, curvatura, ángulos o cualquier propiedad geométrica.
 *   Las ilusiones paradójicas: presentan objetos imposibles.
 *   Ilusiones ficticias (alucinaciones): se perciben imágenes que en realidad no existen. Las alucinaciones suelen ser consecuencia de estados de alteración mental.
+
+# **Ilusiones Ópticas**
 
 ## 1.  Stroboscopic Artifacts
 
