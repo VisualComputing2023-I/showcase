@@ -501,21 +501,18 @@ function backgroundCheckbox() {
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado12</span>.<span style=color:#a6e22e>display</span>();
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado13</span>.<span style=color:#a6e22e>display</span>();
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>cuadrado14</span>.<span style=color:#a6e22e>display</span>();
-</span></span><span style=display:flex><span>  
-</span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// clase Malla
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Malla</span> {
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Malla</span> {
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>constructor</span>(<span style=color:#a6e22e>iw</span>, <span style=color:#a6e22e>ixp</span>, <span style=color:#a6e22e>ih</span>, <span style=color:#a6e22e>iyp</span>, <span style=color:#a6e22e>id</span>, <span style=color:#a6e22e>it</span>, <span style=color:#a6e22e>f</span>) {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>iw</span>; <span style=color:#75715e>// ancho de una barra
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>xpos</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ixp</span>; <span style=color:#75715e>// posición x del rectángulo
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>h</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ih</span>; <span style=color:#75715e>// altura del rectángulo
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>ypos</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>iyp</span>; <span style=color:#75715e>// posición y del rectángulo
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>d</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>id</span>; <span style=color:#75715e>// distancia de una barra
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>t</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>it</span>; <span style=color:#75715e>// número de barras
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>f</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>f</span>; <span style=color:#75715e>//Franjas de colores en la imagen
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>iw</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>xpos</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ixp</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>h</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>ih</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>ypos</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>iyp</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>d</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>id</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>t</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>it</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>f</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>f</span>;
+</span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>  
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>display</span>() {
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>verde</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>color</span>(<span style=color:#ae81ff>105</span>,<span style=color:#ae81ff>229</span>,<span style=color:#ae81ff>174</span>)
@@ -527,8 +524,7 @@ function backgroundCheckbox() {
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// clase cuadrado con lineas verdes
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Cuadrado</span>{
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Cuadrado</span>{
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>constructor</span>(<span style=color:#a6e22e>lado</span>, <span style=color:#a6e22e>anchoLineas</span>, <span style=color:#a6e22e>x</span> , <span style=color:#a6e22e>y</span> ,<span style=color:#a6e22e>color</span>) {
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>lado</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>anchoLineas</span>
@@ -548,8 +544,8 @@ function backgroundCheckbox() {
 </span></span><span style=display:flex><span>    
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span><span style=color:#75715e>// clase cuadrado con lineas rojas
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CuadradoRed</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>CuadradoRed</span> {
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>constructor</span>(<span style=color:#a6e22e>lado</span>, <span style=color:#a6e22e>anchoLineas</span>, <span style=color:#a6e22e>x</span> , <span style=color:#a6e22e>y</span> ) {
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>lado</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>anchoLineas</span>
@@ -594,8 +590,6 @@ function backgroundCheckbox() {
 </span></span><span style=display:flex><span>          <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>lado</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>2</span>,
 </span></span><span style=display:flex><span>          <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>w</span>)
 </span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><h3 id=resultado-3>Resultado:
@@ -623,7 +617,7 @@ let tamanioCuadrado = 45
 
 function setup() {
   createCanvas(tamanio*1.4, tamanio);
-  
+
   let franjas = tamanio/(ancho*numeroBarras)
 
   cuadrado1 = new Cuadrado(tamanioCuadrado,tamanioBarrasCuadrado,100,60, "red");
@@ -669,8 +663,6 @@ function draw() {
   cuadrado12.display();
   cuadrado13.display();
   cuadrado14.display();
-  
-
 }
 
 class Malla {
@@ -711,7 +703,6 @@ class Cuadrado{
     if (mouseIsPressed === false) {
       rayas.display();
     }
-    
   }
 }
 
@@ -1177,5 +1168,5 @@ class Malla {
 <a class=anchor href=#stepping-feet>#</a></h3><p>Movement illusions like this are an important remainder that our perception of movement and its timing is heavuly dependent on the background, and therefore should be tested and observed with in the required context to obtain the desired perception. This illusion could possibly be used as means to accentuate certain movements, specialy in comparison to the movement of other objects in the scene.</p><h3 id=ebbinghaus-illusion>Ebbinghaus Illusion
 <a class=anchor href=#ebbinghaus-illusion>#</a></h3><p>Our perception of size is heavly skewed by the context. With this knowledge, we can make certain objects in our scene be perceived as smaller of bigger in comparison by using artifacts of this kind. In this way we can draw focus to certain elements we want to make more noticeable.</p><h3 id=stereokinetic-effect>Stereokinetic Effect
 <a class=anchor href=#stereokinetic-effect>#</a></h3><h2 id=referencias>Referencias
-<a class=anchor href=#referencias>#</a></h2><p><a href=https://michaelbach.de/ot/>148 Optical Illusions & Visual Phenomena + Explanations</a> by Michael Bach</p><ul><li><a href=https://michaelbach.de/ot/mot-strob/index.html>Stroboscopic Artifacts</a></li><li><a href=https://michaelbach.de/ot/mot-feetLin/index.html>“Stepping feet” Motion Illusion</a></li><li><a href=https://michaelbach.de/ot/cog-Ebbinghaus/index.html>Ebbinghaus Illusion</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://jupachonc.github.io/showcase/commit/d5b5dd797b4a4069aa403c018cd87ae6f28cc2ae title='Last modified by Julian Manosalva Manrique | March 10, 2023' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
+<a class=anchor href=#referencias>#</a></h2><p><a href=https://michaelbach.de/ot/>148 Optical Illusions & Visual Phenomena + Explanations</a> by Michael Bach</p><ul><li><a href=https://michaelbach.de/ot/mot-strob/index.html>Stroboscopic Artifacts</a></li><li><a href=https://michaelbach.de/ot/mot-feetLin/index.html>“Stepping feet” Motion Illusion</a></li><li><a href=https://michaelbach.de/ot/cog-Ebbinghaus/index.html>Ebbinghaus Illusion</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://jupachonc.github.io/showcase/commit/36124b479f9e8518c65210d4c50f55a8f703e71f title='Last modified by Julian Manosalva Manrique | March 10, 2023' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
 <span>March 10, 2023</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#workshop-visual-illusions>Workshop: Visual Illusions</a></li><li><a href=#marco-teórico>Marco Teórico</a></li><li><a href=#1--stroboscopic-artifacts>1. Stroboscopic Artifacts</a><ul><li><a href=#solución-código>Solución (Código):</a></li><li><a href=#resultado>Resultado:</a></li></ul></li><li><a href=#2---contour-adaptation>2. Contour adaptation</a><ul><li><a href=#solución-código-1>Solución (Código):</a></li><li><a href=#resultado-1>Resultado:</a></li></ul></li><li><a href=#3--stepping-feet>3. Stepping feet</a><ul><li><a href=#solución-código-2>Solución (Código):</a></li><li><a href=#resultado-2>Resultado:</a></li></ul></li><li><a href=#4--the-confetti-illusion>4. The confetti illusion</a><ul><li><a href=#solución-código-3>Solución (código):</a></li><li><a href=#resultado-3>Resultado:</a></li></ul></li><li><a href=#5--ebbinghaus-illusion>5. Ebbinghaus Illusion</a><ul><li><a href=#solución-código-4>Solución (Código):</a></li><li><a href=#resultado-4>Resultado:</a></li></ul></li><li><a href=#6---barrier-grid-animation-and-stereography>6. Barrier grid animation and stereography</a><ul><li><a href=#solución-código-5>Solución (código):</a></li></ul></li><li><a href=#resultado-5>Resultado:</a></li><li><a href=#conclusionses>Conclusionses</a><ul><li><a href=#stroboscopic-artifacts>Stroboscopic Artifacts</a></li><li><a href=#stepping-feet>Stepping feet</a></li><li><a href=#ebbinghaus-illusion>Ebbinghaus Illusion</a></li><li><a href=#stereokinetic-effect>Stereokinetic Effect</a></li></ul></li><li><a href=#referencias>Referencias</a></li></ul></li></ul></nav></div></aside></main></body></html>
