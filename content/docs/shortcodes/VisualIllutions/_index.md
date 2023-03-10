@@ -7,8 +7,47 @@ Study, implement and discuss possible applications of some known visual phenomen
 
 ## Marco Teórico
 
-AQUÍ VA EL MARCO TEÓRICO
-Poner información de cada fenómeno
+# **Marco Teórico**
+
+
+### **¿Qué es una ilusión óptica?**
+
+Una ilusión óptica es una imagen que engaña el sistema visual, desde el ojo al cerebro, y lo lleva a percibir la realidad de forma distorsionada.
+
+Las ilusiones ópticas pueden suceder de manera natural o ser creadas por efectos visuales específicos. Esta es el resultado del análisis de la información que se recibe del sistema visual. Este puede hacer que se perciba un objeto que no está presente, dando una imagen distorsionada de la realidad.
+
+El sistema visual humano tiene una tendencia de compensación de las variaciones lentas en el brillo para percibir tonos y colores en correspondencia con su entorno.
+ 
+
+### **¿Por qué se producen las ilusiones ópticas?**
+Se producen cuando se presentan varias formas en una imagen única y nuestro cerebro entra en conflicto.
+
+Los sentidos filtran la información del exterior para que luego esta sea procesada y modificada en el cerebro.
+
+Por ejemplo, las líneas diagonales crean una ilusión de perspectiva, así nuestro cerebro logra orientarse en el espacio tridimensional.
+
+Aún no comprendemos del todo el proceso mediante el cual el cerebro combina toda la información de las percepciones de color, forma, movimiento y textura, para generar una interpretación cohesiva.
+
+Pero sabemos que el cerebro no cuenta con la suficiente capacidad como para manejar toda la información que recibimos a través de la vista, así la mente se ve obligada a tomar atajo, eligiendo la interpretación que le parezca más lógica, por esta razón nuestros ojos pueden engañarnos.
+
+### **Tipos de ilusiones ópticas**
+ 
+
+Las ilusiones ópticas puede dividirse en dos grandes grupos: ilusiones ópticas fisiológicas e ilusiones ópticas cognitivas.
+
+***1. Ilusiones ópticas fisiológicas:***
+
+Un ejemplo de este tipo de ilusión óptica son las llamadas postimágenes. Estas son las imágenes que se quedan impresas en nuestra vista después de observar un objeto muy luminoso, o el estímulo adaptativo ante patrones cambiantes muy contrastados, o en definitiva, como consecuencia de un exceso de estímulo visual (brillo, movimiento, color, parpadeo, etc.)
+
+Esto se explica porque los estímulos tienen caminos neuronales individuales para las primeras fases del procesos visual, y estimular repetidamente algunos de esos caminos, provoca una confusión en el mecanismo visual.
+
+***2. Ilusiones ópticas cognitivas:***
+Este tipo de ilusiones ópticas pueden hacerse patente a través de diversos experimentos que se dedican a atacar determinada  vulnerabilidad de la visión. Un ejemplo son las figuras que al observarlas aparentan algo diferente lo que realmente representan.
+Las ilusiones cognitivas se dividen en:
+*   Ilusiones de ambigüedad: son figuras que presentan dos alternativas de percepción no simultáneas.
+*   Ilusiones de distorsión: son los errores de percepción del tamaño, longitud, curvatura, ángulos o cualquier propiedad geométrica.
+*   Las ilusiones paradójicas: presentan objetos imposibles.
+*   Ilusiones ficticias (alucinaciones): se perciben imágenes que en realidad no existen. Las alucinaciones suelen ser consecuencia de estados de alteración mental.
 
 ## 1.  Stroboscopic Artifacts
 
@@ -1132,7 +1171,7 @@ class Malla {
 {{< /p5-global-iframe >}}
 
 
-## Conclusiones
+# **Conclusiones**
 
 1. La ilusión óptica es una herramienta importante en la computación visual: Las ilusiones ópticas son una herramienta útil en la computación visual ya que pueden ser utilizadas para mejorar la percepción y la interpretación de las imágenes.
 
@@ -1144,9 +1183,22 @@ class Malla {
 
 5. Las ilusiones ópticas pueden ser utilizadas para estudiar la percepción visual: Las ilusiones ópticas han sido utilizadas por los científicos para estudiar la percepción visual y entender cómo el cerebro procesa la información visual.
 
-## Referencias
+# **Referencias**
 
-[148 Optical Illusions & Visual Phenomena + Explanations](https://michaelbach.de/ot/) by Michael Bach
-* [Stroboscopic Artifacts](https://michaelbach.de/ot/mot-strob/index.html)
-* [“Stepping feet” Motion Illusion](https://michaelbach.de/ot/mot-feetLin/index.html)
-* [Ebbinghaus Illusion](https://michaelbach.de/ot/cog-Ebbinghaus/index.html)
+*   [Ilusiones ópticas: ¿qué son y cómo funcionan?](https://www.oftalvist.es/blog/ilusiones-opticas)
+
+*   [148 Optical Illusions & Visual Phenomena + Explanations](https://michaelbach.de/ot/) by Michael Bach
+
+*   [Stroboscopic Artifacts](https://michaelbach.de/ot/mot-strob/)
+
+*   [Contour adaptation](https://michaelbach.de/ot/lum-contourAdapt/)
+
+*   [Stepping feet](https://michaelbach.de/ot/mot-feetLin/)
+
+*   [The confetti illusion](https://www.livescience.com/confetti-munker-white-optical-illusion.html)
+
+*   [Ebbinghaus Illusion](https://www.labvanced.com/content/research/blog/2022-03-ebbinghaus/#what-is-the-ebbinghaus-illusion)
+
+*   [Barrier grid animation and stereography](https://en.wikipedia.org/wiki/Barrier-grid_animation_and_stereography)
+
+
