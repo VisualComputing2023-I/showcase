@@ -899,8 +899,6 @@ function setup() {
 function draw() {
   background(255);
 
-  
-  //Creación de la malla
   malla.display();
   malla.move(mouseX, mouseY);
 
@@ -928,14 +926,12 @@ function draw() {
   rect(494, 307, 3,15);
   rect(497, 324, 1,15);
 
-  //Se crea malla principal
   for (let i = 0; i<=500; i+=10){
     strokeWeight(4);
     line(i, 300,i, 370);
     strokeWeight(2);
   }
 
-  //Se crea malla luego de pasar por la maquina
   for (let i = 480; i<=1000; i+=10){
     strokeWeight(5);
     line(i, 360,i, 370);
@@ -943,7 +939,6 @@ function draw() {
     line(i+3, 358,i+3, 372);
     line(i+4, 357,i+4, 372);
     strokeWeight(2);
-
   }
   
   let x = 0;
@@ -975,7 +970,6 @@ function draw() {
   strokeWeight(2);
 
 }
-// clase Malla
 class Malla {
   constructor(iw, ixp, ih, iyp, id, it) {
     this.w = iw; // ancho de una barra
@@ -1006,7 +1000,6 @@ class Malla {
     this.xpos = posX;
   }
 }
-
 ```
 
 ## Resultado:
@@ -1141,19 +1134,7 @@ class Malla {
 
 ## Conclusionses
 
-### Stroboscopic Artifacts
-
-It is very important to take into account the particularities of our color and movement perception when working with computer graphics. Specifically, the limitations and design of our display technology can impact and fundamentaly change how our animations are perceived.
-
-### Stepping feet
-
-Movement illusions like this are an important remainder that our perception of movement and its timing is heavuly dependent on the background, and therefore should be tested and observed with in the required context to obtain the desired perception. This illusion could possibly be used as means to accentuate certain movements, specialy in comparison to the movement of other objects in the scene.
-
-### Ebbinghaus Illusion
-
-Our perception of size is heavly skewed by the context. With this knowledge, we can make certain objects in our scene be perceived as smaller of bigger in comparison by using artifacts of this kind. In this way we can draw focus to certain elements we want to make more noticeable.
-
-### Stereokinetic Effect
+1. 
 
 ## Referencias
 
