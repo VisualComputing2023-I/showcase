@@ -95,3 +95,5 @@ function draw() {
 ### Resultado
 
 {{< p5-iframe sketch="/showcase/sketches/dino.js" width="500" height="500" >}}
+
+{{< p5-iframe sketch="/showcase/sketches/moire.js" width="700" height="700" >}}
