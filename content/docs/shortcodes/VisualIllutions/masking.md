@@ -56,7 +56,7 @@ function draw() {
 ```
 ### Resultado
 
-{{< p5-iframe sketch="/showcase/sketches/pacman.js" width="900" height="300" >}}
+{{< p5-iframe sketch="/showcase/sketches/pacman.js" width="700" height="300" >}}
 
 ### Dino Scanimation
 
@@ -96,4 +96,64 @@ function draw() {
 
 {{< p5-iframe sketch="/showcase/sketches/dino.js" width="500" height="500" >}}
 
-{{< p5-iframe sketch="/showcase/sketches/moire.js" width="700" height="700" >}}
+## Patrones de Moaré
+
+ Es un patrón de interferencia que se forma cuando se superponen dos rejillas de líneas, ya sean rectas o curvas, con un cierto ángulo3​ o cuando tales rejillas tienen tamaños ligeramente diferentes.
+
+Este efecto se manifiesta de muchas maneras. Las líneas pueden ser las fibras textiles de una tela de muaré (las cuales dan su nombre al efecto), o bien simples líneas en una pantalla de ordenador. La visión humana crea la ilusión de unas bandas oscuras y claras horizontales, que se superponen a las líneas finas que en realidad son las que forman el trazo. Patrones de muaré más complejos pueden formarse igualmente al superponer figuras complejas hechas de líneas curvas y entrelazadas. Si cada una de las rejillas tiene un color distinto, el patrón de muaré resultante será de un tercer color.
+
+Tomado de: [Wikipedia](https://es.wikipedia.org/wiki/Patr%C3%B3n_de_muar%C3%A9)
+
+### Patrones circulares
+
+### Código
+
+```js
+let x = 0
+let checkbox;
+let slider;
+
+function setup() {
+    createCanvas(520, 520);
+    checkbox = createCheckbox('Automático', true);
+    checkbox.position(10, 30)
+    slider = createSlider(-250, 800, -250);
+    slider.position(10, 10);
+    slider.style('width', '500px');
+    // Draw on canvas center
+    rectMode(CENTER)
+
+}
+
+function draw() {
+    background('white');
+    // Create 100 circles
+    for (let i = 0; i < 1000; i += 10) {
+        // First set of circles
+        stroke('yellow')
+        strokeWeight(3)
+        ellipse(x, 280, i - 500, i - 500)
+
+        // Second set of circles
+        noFill()
+        stroke('blue')
+        strokeWeight(3)
+        ellipse(260, 280, i, i)
+    }
+
+    // Automatic movement
+    if (checkbox.checked()) {
+        x = x > width ? 0 : x + 3
+    } else {
+        x = slider.value()
+    }
+    stroke('white')
+    fill('white')
+    rect(60, 42, 100, 25);
+
+}
+```
+
+### Resultado
+
+{{< p5-iframe sketch="/showcase/sketches/moire.js" width="520" height="520" >}}
