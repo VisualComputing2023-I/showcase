@@ -1,4 +1,4 @@
-# Masking
+# 2 - Masking
 
 {{< hint info >}}
 <b> Ejercicio</b>
