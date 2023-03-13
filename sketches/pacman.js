@@ -3,7 +3,7 @@ let flag = true
 
 function setup() {
   createCanvas(900, 300);
-  pacman = loadImage('./assets/pacman.png');
+  pacman = loadImage('/showcase/sketches/assets/pacman.png');
 }
 
 function draw() {
