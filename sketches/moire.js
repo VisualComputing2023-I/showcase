@@ -38,6 +38,6 @@ function draw() {
     }
     stroke('white')
     fill('white')
-    rect(60, 42, 100, 25);
+    rect(57, 38, 100, 25);
 
 }
