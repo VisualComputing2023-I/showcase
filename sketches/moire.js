@@ -3,11 +3,11 @@ let checkbox;
 let slider;
 
 function setup() {
-    createCanvas(700, 700);
+    createCanvas(520, 520);
     checkbox = createCheckbox('Automático', true);
-    slider = createSlider(-250, 1000, -250);
+    slider = createSlider(-250, 800, -250);
     slider.position(10, 10);
-    slider.style('width', '700px');
+    slider.style('width', '500px');
     // Draw on canvas center
     rectMode(CENTER)
 
@@ -26,7 +26,7 @@ function draw() {
         noFill()
         stroke('blue')
         strokeWeight(3)
-        ellipse(360, 280, i, i)
+        ellipse(260, 280, i, i)
     }
 
     // Automatic movement
