@@ -94,7 +94,7 @@ function draw() {
 
 ### Resultado
 
-{{< p5-iframe sketch="/showcase/sketches/dino.js" width="500" height="500" >}}
+{{< p5-iframe sketch="/showcase/sketches/dino.js" width="525" height="525" >}}
 
 ## Patrones de Moaré
 
@@ -156,4 +156,4 @@ function draw() {
 
 ### Resultado
 
-{{< p5-iframe sketch="/showcase/sketches/moire.js" width="520" height="520" >}}
+{{< p5-iframe sketch="/showcase/sketches/moire.js" width="545" height="545" >}}
