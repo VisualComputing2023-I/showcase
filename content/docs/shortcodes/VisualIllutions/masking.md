@@ -7,7 +7,7 @@ Implementar un kinegram y algunos patrones de moiré que están estrechamente re
 {{< /hint >}}
 
 ### Pacman Scanimation
-{{< p5-iframe sketch="/showcase/sketches/pacman.js" width="600" height="600" >}}
+{{< p5-iframe sketch="/showcase/sketches/pacman.js" width="900" height="300" >}}
 
 ### Código:
 
