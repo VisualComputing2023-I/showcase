@@ -5,6 +5,7 @@ let slider;
 function setup() {
     createCanvas(520, 520);
     checkbox = createCheckbox('Automático', true);
+    checkbox.position(10, 30)
     slider = createSlider(-250, 800, -250);
     slider.position(10, 10);
     slider.style('width', '500px');
@@ -35,4 +36,8 @@ function draw() {
     } else {
         x = slider.value()
     }
+    stroke('white')
+    fill('white')
+    rect(60, 42, 100, 25);
+
 }

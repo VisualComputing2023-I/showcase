@@ -2,7 +2,7 @@ let x = 900
 let flag = true
 
 function setup() {
-  createCanvas(900, 300);
+  createCanvas(700, 300);
   pacman = loadImage('/showcase/sketches/assets/pacman.png');
 }
 
