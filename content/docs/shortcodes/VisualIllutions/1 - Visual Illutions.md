@@ -5,8 +5,8 @@
 Estudiar, poner en práctica y discutir posibles aplicaciones de algunos fenómenos visuales e ilusiones ópticas conocidos.
 {{< /hint >}}
 
-# **Marco Teórico**
 
+# **Introducción**
 
 ### **¿Qué es una ilusión óptica?**
 
@@ -46,6 +46,12 @@ Las ilusiones cognitivas se dividen en:
 *   Ilusiones de distorsión: son los errores de percepción del tamaño, longitud, curvatura, ángulos o cualquier propiedad geométrica.
 *   Las ilusiones paradójicas: presentan objetos imposibles.
 *   Ilusiones ficticias (alucinaciones): se perciben imágenes que en realidad no existen. Las alucinaciones suelen ser consecuencia de estados de alteración mental.
+
+# **Antecedentes y trabajo previo**
+
+Las ilusiones ópticas son fenómenos visuales que pueden engañar al cerebro humano y hacer que percibamos cosas que no existen o que son diferentes a la realidad. La investigación en ilusiones ópticas ha sido un tema de interés durante muchos años en diferentes campos, incluyendo la psicología, la neurociencia y la computación visual. En el campo de la computación visual, las ilusiones ópticas se han utilizado como herramienta para entender cómo el cerebro procesa la información visual y cómo se puede mejorar la calidad de las imágenes generadas por los algoritmos de procesamiento de imágenes.
+
+El trabajo previo en ilusiones ópticas en computación visual ha abarcado diferentes áreas, desde el diseño de algoritmos de procesamiento de imágenes que pueden imitar algunas de las ilusiones ópticas más comunes hasta la creación de nuevas ilusiones ópticas utilizando técnicas de renderizado avanzadas. Uno de los objetivos de la investigación en este campo ha sido desarrollar algoritmos que puedan mejorar la calidad de las imágenes y videos, eliminando las distorsiones y efectos indeseados causados por las ilusiones ópticas. También se ha investigado cómo las ilusiones ópticas pueden ser utilizadas para mejorar la usabilidad de las interfaces de usuario y la interacción humano-computadora, por ejemplo, mediante la creación de interfaces de usuario que sean más intuitivas y fáciles de usar.
 
 # **Ilusiones Ópticas**
 
@@ -1182,6 +1188,15 @@ class Malla {
 4. Las ilusiones ópticas pueden ser utilizadas para mejorar la experiencia del usuario: En la industria del entretenimiento y los videojuegos, las ilusiones ópticas pueden ser utilizadas para crear efectos visuales impresionantes que mejoren la experiencia del usuario.
 
 5. Las ilusiones ópticas pueden ser utilizadas para estudiar la percepción visual: Las ilusiones ópticas han sido utilizadas por los científicos para estudiar la percepción visual y entender cómo el cerebro procesa la información visual.
+
+
+# **Trabajo futuro**
+
+Las ilusiones ópticas son fenómenos visuales que engañan a nuestros ojos y cerebro, haciéndonos percibir algo diferente a lo que realmente está presente en la imagen. Estas ilusiones han sido objeto de estudio de la psicología y la neurociencia durante mucho tiempo, pero también tienen aplicaciones en la computación visual. En este campo, las ilusiones ópticas se utilizan para desarrollar algoritmos y técnicas que pueden mejorar la calidad de la imagen, la detección de objetos y la identificación de patrones en imágenes.
+
+Por ejemplo, las ilusiones ópticas pueden ayudar a mejorar la calidad de la imagen al reducir el ruido en una imagen. Los algoritmos basados en ilusiones ópticas pueden eliminar ciertas características visuales que no son relevantes para la imagen, como líneas fantasmales y texturas no deseadas. También pueden utilizarse para detectar objetos en una imagen, ya que algunas ilusiones ópticas destacan ciertos patrones o formas que pueden ayudar a los algoritmos a identificar objetos en la imagen. En resumen, las ilusiones ópticas son una herramienta útil para la computación visual que permite mejorar la calidad de las imágenes, la detección de objetos y la identificación de patrones en las imágenes.
+
+Además, las ilusiones ópticas pueden ser utilizadas en la creación de interfaces de usuario más intuitivas y amigables. La percepción visual es una parte importante de cómo interactuamos con la tecnología, y las ilusiones ópticas pueden ser utilizadas para crear interfaces más atractivas y fáciles de usar. Por ejemplo, los efectos de ilusión óptica pueden ser utilizados para guiar la atención del usuario hacia ciertos elementos en la pantalla, o para crear un sentido de profundidad y tridimensionalidad en una imagen. En este sentido, las ilusiones ópticas pueden ser una herramienta poderosa para diseñar interfaces de usuario más efectivas y atractivas en el ámbito de la computación visual.
 
 # **Referencias**
 
