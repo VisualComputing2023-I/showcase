@@ -6,7 +6,9 @@ Implementar un kinegram y algunos patrones de moiré que están estrechamente re
 
 {{< /hint >}}
 
-## Kinegram - Scanimation
+# **Introducción**
+
+### **Kinegram - Scanimation**
 
 Los scanimations son un tipo de kinegramas. Estos son una ilusión óptica que se produce cuando un dibujo, fotograma opatrón gráfico adquiere movimiento.
 
@@ -20,6 +22,14 @@ El dibujo está formado en realidad por todos los fotogramas de una imagenanimad
 
 Tomado de: [Universidad de México](https://www.studocu.com/es-mx/document/universidad-de-mexico/tecnologias-de-la-informacion/los-scanimations-son-un-tipo-de-kinegramas/31686995)
 
+
+# **Antecedentes y trabajo previo**
+
+La ilusión óptica es un fenómeno fascinante que ha cautivado a las personas durante siglos. En el campo de la computación visual, las ilusiones ópticas se han estudiado y se han utilizado para comprender mejor cómo el cerebro procesa la información visual. Una técnica comúnmente utilizada en el estudio de las ilusiones ópticas es el "masking", que consiste en presentar un estímulo visual que enmascara el estímulo principal para determinar cómo se percibe el estímulo principal en presencia del enmascaramiento.
+
+En la investigación sobre el masking en ilusiones ópticas, se han utilizado diferentes tipos de máscaras para enmascarar el estímulo principal. Estas máscaras pueden ser patrones de luz o sombras, o patrones de color o textura. El objetivo de estas máscaras es ocultar parcial o completamente el estímulo principal para medir la sensibilidad de los sistemas visuales humanos a diferentes tipos de información visual. Los estudios sobre masking en ilusiones ópticas han arrojado resultados interesantes y han ayudado a los investigadores a entender mejor cómo el cerebro procesa y percibe la información visual.
+
+En cuanto al trabajo previo en el campo del masking en ilusiones ópticas en computación visual, se han desarrollado diferentes técnicas para generar máscaras y aplicarlas a los estímulos visuales. Una de las técnicas más utilizadas es la generación de máscaras de ruido aleatorio, que se aplican al estímulo visual para enmascarar la información en diferentes niveles de intensidad y frecuencia espacial. También se han utilizado técnicas de máscara adaptativa, en las que se ajusta la máscara según la sensibilidad visual del observador, y técnicas de máscara de enmascaramiento interocular, en las que se presenta una máscara diferente en cada ojo del observador para crear un efecto de enmascaramiento binocular. Estas técnicas han permitido a los investigadores estudiar la percepción visual en diferentes condiciones y han proporcionado nuevas perspectivas sobre el procesamiento visual humano.
 
 ### Pacman Scanimation
 
@@ -157,3 +167,25 @@ function draw() {
 ### Resultado
 
 {{< p5-iframe sketch="/showcase/sketches/moire.js" width="545" height="545" >}}
+
+
+# **Conclusiones**
+
+1. El masking es un fenómeno perceptual importante en la visión humana que ha sido objeto de estudio en la psicología y la neurociencia durante décadas.
+
+2. En la computación visual, el masking se utiliza para mejorar la eficacia de las técnicas de procesamiento de imágenes y la detección de objetos.
+
+3. Los métodos de masking han demostrado ser eficaces para reducir el ruido en las imágenes y aumentar la percepción de los detalles.
+
+4. El masking también se utiliza en la creación de ilusiones ópticas, lo que ha llevado a un mayor entendimiento de cómo funciona la visión humana y cómo se pueden engañar nuestros ojos.
+
+5. Aunque el masking ha sido estudiado durante décadas, todavía hay mucho por aprender sobre su funcionamiento en la visión humana y cómo se puede aplicar de manera efectiva en la computación visual. Por lo tanto, se espera que se realice más investigación en esta área en el futuro.
+
+
+# **Trabajo futuro**
+
+La ilusión óptica es un fenómeno intrigante y fascinante que ha cautivado la atención de las personas durante siglos. En los últimos años, los avances en la tecnología de la computación visual han permitido a los investigadores explorar en profundidad los mecanismos subyacentes a estas ilusiones y crear nuevas ilusiones ópticas mediante técnicas de procesamiento de imágenes. En particular, el "masking" o enmascaramiento es una técnica utilizada para estudiar la percepción visual que consiste en presentar una imagen visualmente ruidosa para enmascarar la imagen objetivo que se desea presentar al observador. El masking se ha utilizado ampliamente en la investigación de la percepción visual en el campo de la psicología y la neurociencia, y su uso en ilusiones ópticas promete ser aún más prometedor en el futuro.
+
+En el futuro, se espera que el masking se utilice en combinación con otras técnicas de procesamiento de imágenes para crear ilusiones ópticas aún más complejas y fascinantes. Por ejemplo, se podría utilizar el masking para crear ilusiones ópticas tridimensionales que parezcan saltar de la pantalla. También se podría utilizar el masking para estudiar cómo se procesa la información visual en el cerebro, lo que podría tener importantes implicaciones en el tratamiento de enfermedades neurológicas y psiquiátricas. En última instancia, el uso del masking en ilusiones ópticas promete ser una herramienta valiosa para entender mejor la percepción visual humana y llevar la tecnología de la computación visual a nuevas alturas.
+
+# **Referencias**
