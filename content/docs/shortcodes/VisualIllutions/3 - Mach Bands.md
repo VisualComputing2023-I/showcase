@@ -1,4 +1,4 @@
-# 2 - Masking
+# 3 - Mach Bands
 
 {{< hint info >}}
 <b> Ejercicio</b>
