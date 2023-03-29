@@ -98,7 +98,11 @@ Además, respecto a la generación procedural de terrenos, es posible lograr ter
 
 # **Referencias**
 [1] Alias Abdul Rahman, Digital Terrain Model Data Structures, Jabatan Geoinformatik, Fakulti Ukur Universi!i Teknologi Malaysia, Buletin Ukur, Jld. 5, No.1, ms. 61-72,1994
+
 [2] R. J. Fowler and J. J. Little. Automatic extraction of irregular network digital terrain models. Computer Graphics, 13(2):199-207, August 1979.
+
 [3] P. Cignoni, F. Ganovelli, E. Gobbetti‡, F. Marton, F. Ponchio, R. Scopigno. BDAM–BatchedDynamic Adaptive Meshes for High Performance Terrain Visualization, Volume 22 (2003), Number 3, 2003.
+
 [4] M. Duchaineau, M. Wolinsky, D. E. Sigeti, M. C. Miller, C. Aldrich and M. B. Mineev-Weinstein, "ROAMing terrain: Real-time Optimally Adapting Meshes," Proceedings. Visualization '97 (Cat. No. 97CB36155), Phoenix, AZ, USA, 1997, pp. 81-88, doi: 10.1109/VISUAL.1997.663860.
+
 [5] M. A. DeLoura, Game programming gems 2. Hingham, Mass: Charles River Media, 2001. 
