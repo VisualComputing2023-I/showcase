@@ -87,8 +87,14 @@ for (let y = 0; y < rows; ++y){
 
 # **Conclusiones**
 
+- Como se esperaba, generar un terreno usando el ruido de perlin es más fácil de controlar que usando una función de fractal o de FBM
+- Si bien usar una cuadrícula no es la manera más óptima de guardar información de superficies, es lo suficientemente buena para generación de terrenos simples usando ruido de perlin.
 
 # **Trabajo futuro**
+
+Aún se siguen desarrollando nuevos algoritmos que logren mejorar el rendimiento para renderizar terrenos, ya que este problema es uno muy interesante que requiere usos creativos de estructuras de datos, análisis de redes de tríangulos irregulares, manejo de memoria y optimización pensada para la CPU y la GPU. 
+
+Además, respecto a la generación procedural de terrenos, es posible lograr terrenos aleatorios muy realistas usando otros modelos, pero en especial se podría usar inteligencía artificial para poder lograr conseguir terrenos hyperrealistas que serían muy utiles para investigación. También se pueden aplicar los conceptos de estos modelos para generar otro tipo de estructuras, ya que por ejemplo el concepto de LOD no es solo de terrenos sino también todos los objetos 3D de un escenario, por lo tanto algunas ideas y algoritmos usados en este campo pueden ser aplicadas en otros para mejorar rendimientos o mejorar eficiencia en memoria.
 
 # **Referencias**
 [1] Alias Abdul Rahman, Digital Terrain Model Data Structures, Jabatan Geoinformatik, Fakulti Ukur Universi!i Teknologi Malaysia, Buletin Ukur, Jld. 5, No.1, ms. 61-72,1994
