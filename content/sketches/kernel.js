@@ -1,5 +1,10 @@
+/* 
+    Base Code for Kernel from: https://editor.p5js.org/jeffThompson/sketches/MyfhklBlv
+
+*/
+
 let kernels = {
-    "identity" : [
+  "identity" : [
       [0, 0, 0],
       [0, 1, 0],
       [0, 0, 0]
@@ -74,11 +79,6 @@ function setup() {
       selectkernel.option(key)
   }
   selectkernel.changed(applyKernel)
-
-
-  // apply the blur filter, passing the image
-  // to process and the kernel we want to use
-  img = kernelFilter(img, kernels['sharpen']);
 
 }
 

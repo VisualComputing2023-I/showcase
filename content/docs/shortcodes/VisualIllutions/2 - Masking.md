@@ -20,7 +20,6 @@ Esta ilusión se basa en el principio de la persistencia retiniana y el patrón 
 
 El dibujo está formado en realidad por todos los fotogramas de una imagenanimada, uno encima de otro y bien centrados. La función de la rejilla es tapartodos los fotogramas excepto uno, que es el que vemos ese momento. Losfotogramas están colocados de forma que a media que se desplaza la rejillahacia un lado vemos el siguiente fotograma tapando todos los demás y dandola impresión de movimiento.
 
-Tomado de: [Universidad de México](https://www.studocu.com/es-mx/document/universidad-de-mexico/tecnologias-de-la-informacion/los-scanimations-son-un-tipo-de-kinegramas/31686995)
 
 
 # **Antecedentes y trabajo previo**
@@ -112,8 +111,6 @@ function draw() {
 
 Este efecto se manifiesta de muchas maneras. Las líneas pueden ser las fibras textiles de una tela de muaré (las cuales dan su nombre al efecto), o bien simples líneas en una pantalla de ordenador. La visión humana crea la ilusión de unas bandas oscuras y claras horizontales, que se superponen a las líneas finas que en realidad son las que forman el trazo. Patrones de muaré más complejos pueden formarse igualmente al superponer figuras complejas hechas de líneas curvas y entrelazadas. Si cada una de las rejillas tiene un color distinto, el patrón de muaré resultante será de un tercer color.
 
-Tomado de: [Wikipedia](https://es.wikipedia.org/wiki/Patr%C3%B3n_de_muar%C3%A9)
-
 ### Patrones circulares
 
 ### Código
@@ -168,6 +165,195 @@ function draw() {
 
 {{< p5-iframe sketch="/showcase/sketches/moire.js" width="545" height="545" >}}
 
+## Kernels de Imagen
+
+{{< hint info >}}
+<b> Ejercicio</b>
+Implementar en software una aplicación web de procesamiento de imágenes compatible con diferentes kernels de imágenes
+
+{{< /hint >}}
+
+Un núcleo o kernel de imagen es una pequeña matriz que se utiliza para aplicar efectos como los que se pueden encontrar en Photoshop o Gimp, como desenfoque, nitidez, contorno o relieve. También se utilizan en el aprendizaje automático para la "extracción de características", una técnica para determinar las partes más importantes de una imagen. En este contexto, el proceso se denomina más generalmente "convolución".
+
+Para esta implemetación se usarán kernels de 3x3, los cuales serán aplicado a la imagen original.
+
+### Código
+
+```js
+/* 
+    Base Code for Kernel from: https://editor.p5js.org/jeffThompson/sketches/MyfhklBlv
+
+*/
+
+let kernels = {
+  "identity" : [
+      [0, 0, 0],
+      [0, 1, 0],
+      [0, 0, 0]
+  ],
+  "blur": [
+      [0.0625, 0.125, 0.0625],
+      [0.125, 0.25, 0.125],
+      [0.0625, 0.125, 0.0625]
+  ],
+  "sharpen" : [
+      [0, -1, 0],
+      [-1, 5, -1],
+      [0, -1, 0]
+  ],
+  "edge" : [
+      [-1, -1, -1],
+      [-1, 8, -1],
+      [-1, -1, -1]
+  ],
+  "bottomsobel" : [
+      [-1, -2, -1],
+      [0, 0, 0],
+      [1, 2, 1]
+  ],
+  "emboss" : [
+      [-2, -1, 0],
+      [-1, 1, 1],
+      [0, 1, 2]
+  ],
+  "leftsobel" : [
+      [1, 0, -1],
+      [2, 0, -2],
+      [1, 0, -1]
+  ],
+  "rigtsobel" : [
+      [-1, 0, 1],
+      [-2, 0, 2],
+      [-1, 0, 1]
+  ],
+  "topsobel" : [
+      [1, 2, 1],
+      [0, 0, 0],
+      [-1, -2, -1]
+  ],    
+}
+
+let originalimg;
+
+let img;
+
+let selectkernel;
+
+function preload() {
+  originalimg = loadImage('/showcase/sketches/assets/versalles.jpg');
+  img = originalimg;
+}
+
+
+function setup() {
+
+  // resize the image to fit the window, then 
+  // create the canvas at that size
+  img.resize(windowWidth, 0);
+  createCanvas(img.width, img.height);
+  noLoop();
+
+  // Select kernel
+
+  selectkernel = createSelect();
+  selectkernel.position(10, 10);
+  for(const key of Object.keys(kernels)){
+      selectkernel.option(key)
+  }
+  selectkernel.changed(applyKernel)
+
+}
+
+
+function draw() {
+  image(img, 0, 0);
+}
+
+function applyKernel(){
+  let k = selectkernel.value();
+  img = kernelFilter(originalimg, kernels[k]);
+  image(img, 0, 0);
+}
+
+function kernelFilter(input, kernel) {
+
+  // we need to access neighboring pixels, so we have
+  // to create a blank output image to work with
+  let output = createImage(input.width, input.height);
+
+  // start at 1 and end -1 from edge so our kernel
+  // doesn't try to grab pixels that don't exist!
+  input.loadPixels();
+  output.loadPixels();
+  for (let y = 1; y < input.height - 1; y++) {
+      for (let x = 1; x < input.width - 1; x++) {
+
+          // for each pixel, we add up rgb values for
+          // itself and its neighbors, weighted by the kernel
+          let sumR = 0;
+          let sumG = 0;
+          let sumB = 0;
+
+          // go through neighboring pixels
+          for (let offsetY = -1; offsetY <= 1; offsetY++) {
+              for (let offsetX = -1; offsetX <= 1; offsetX++) {
+
+                  // grab the current pixel
+                  let neighborIndex = ((y + offsetY) * input.width + (x + offsetX)) * 4;
+                  let r = input.pixels[neighborIndex];
+                  let g = input.pixels[neighborIndex + 1];
+                  let b = input.pixels[neighborIndex + 2];
+
+                  // apply kernel and add to the sum
+                  // (we +1 here so that we get the kernel index
+                  // from our offsetX/offsetY values)
+                  sumR += kernel[offsetY + 1][offsetX + 1] * r;
+                  sumG += kernel[offsetY + 1][offsetX + 1] * g;
+                  sumB += kernel[offsetY + 1][offsetX + 1] * b;
+              }
+          }
+
+          // having checked all neighbors, make sure final
+          // values are in range 0–255
+          sumR = constrain(sumR, 0, 255);
+          sumG = constrain(sumG, 0, 255);
+          sumB = constrain(sumB, 0, 255);
+
+          // change the pixel value
+          let index = (y * input.width + x) * 4;
+          output.pixels[index] = sumR;
+          output.pixels[index + 1] = sumG;
+          output.pixels[index + 2] = sumB;
+          output.pixels[index + 3] = 255;
+      }
+  }
+
+  // send the image back
+  output.updatePixels();
+  return output;
+}
+
+```
+
+### Resultado
+
+Se pueden aplicar los siguientes kernels:
+
+  * Identity (Ningún filtro a la imagen)
+  * Blur
+  * Sharpen
+  * Edge
+  * Bottomsobel
+  * Emboss
+  * Leftsobel
+  * Rigthsobel
+  * Topsobel
+
+Para variar entre kernels utilice el selector ubicado en la parte superior izquierda.
+
+
+{{< p5-iframe sketch="/showcase/sketches/kernel.js" width="925" height="600" >}}
+
 
 # **Conclusiones**
 
@@ -190,7 +376,10 @@ En el futuro, se espera que el masking se utilice en combinación con otras téc
 
 # **Referencias**
 
+* [Wikipedia - Patrones de Moaré](https://es.wikipedia.org/wiki/Patr%C3%B3n_de_muar%C3%A9)
 
-### Resultado
+* [Universidad de México - Scanimations](https://www.studocu.com/es-mx/document/universidad-de-mexico/tecnologias-de-la-informacion/los-scanimations-son-un-tipo-de-kinegramas/31686995)
 
-{{< p5-iframe sketch="/showcase/sketches/kernel.js" width="925" height="600" >}}
+* [Setosa.io - Image Kernels](https://setosa.io/ev/image-kernels/)
+
+
