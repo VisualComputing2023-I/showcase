@@ -10,6 +10,4 @@ Universidad Nacional de Colombia
 
 2023-1
 
-## Integrantes
-
 
