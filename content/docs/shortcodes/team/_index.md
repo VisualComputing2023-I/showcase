@@ -4,8 +4,10 @@ bookCollapseSection: true
 
 # Team
 
-Nuestro equipo para el desarrollo de la asignatura
+Nuestro equipo para el desarrollo de la asignatura Computación Visual 
 
-## Integrantes
+Universidad Nacional de Colombia
+
+2023-1
 
 
