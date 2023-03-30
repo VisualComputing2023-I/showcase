@@ -165,6 +165,262 @@ function draw() {
 
 {{< p5-iframe sketch="/showcase/sketches/moire.js" width="545" height="545" >}}
 
+## Barrier grid animation and stereography
+
+La animación de rejilla de barrera o animación de piquete es un efecto de animación creado moviendo una superposición transparente a rayas a través de una imagen entrelazada. La técnica de la rejilla de barrera se originó a finales de la década de 1890, coincidiendo con el desarrollo de la estereografía de paralaje (Relièphographie) para autoestereogramas 3D. La técnica también se ha utilizado para imágenes que cambian de color, pero en mucha menor medida.
+
+El desarrollo de las tecnologías de rejilla de barrera también puede considerarse un paso hacia la impresión lenticular, aunque la técnica se ha mantenido tras la invención de las tecnologías lenticulares como una forma relativamente barata y sencilla de producir imágenes animadas impresas.
+
+### Código
+
+```js
+let ancho = 10;
+let alturaMalla = 0.4;
+let distanciaEntreBarras = 1;
+let numeroBarras = 40;
+let equivalencia = 770
+function setup() {
+
+  createCanvas(700, 700);
+
+  malla = new Malla(ancho,0,alturaMalla,0,distanciaEntreBarras,numeroBarras);
+}
+
+function draw() {
+  background(255);
+
+  malla.display();
+  malla.move(mouseX, mouseY);
+
+  strokeWeight(2);
+
+  //Se dibuja la máquina
+  rect(410,150,100,100);
+  rect(420,250,80,20);
+  
+  rect(420,270,1,70)
+  for (let i = 425; i< 495; i+=10){
+    rect(i,270,7,7);
+  }
+  for (let i = 425; i< 495; i+=10){
+    rect(i,278,5,30);
+  }
+  for (let i = 485; i>= 425; i-=10){
+    rect(i,309,3,15);
+  }
+  for (let i = 485; i>= 425; i-=10){
+    rect(i+2,324,1,15);
+  }
+  rect(495, 270, 5,5);
+  rect(494, 278, 5,30);
+  rect(494, 307, 3,15);
+  rect(497, 324, 1,15);
+
+  for (let i = 0; i<=500; i+=10){
+    strokeWeight(4);
+    line(i, 300,i, 370);
+    strokeWeight(2);
+  }
+
+  for (let i = 480; i<=1000; i+=10){
+    strokeWeight(5);
+    line(i, 360,i, 370);
+    strokeWeight(1);
+    line(i+3, 358,i+3, 372);
+    line(i+4, 357,i+4, 372);
+    strokeWeight(2);
+  }
+  
+  let x = 0;
+  let y = 300;
+  for(let i = 0; i<= 8; i+=1){
+    strokeWeight(2);
+    line(x, y+5,x, y+73);
+    line(x-10, y+10,x-10, y+73);
+
+    line(x+2, y-2,x+2, y+76);
+    line(x-2, y-2,x-2, y+76);
+
+    line(x-13, y+8,x-13, y+75);
+    line(x-23, y+18,x-23, y+61);
+    line(x-12, y+25,x-12, y+58);
+    line(x-20, y+20,x-20, y+63);
+    line(x-22, y+16,x-22, y+59);
+
+    line(x+12, y+25,x+12, y+58);
+    line(x+10, y+10,x+10, y+73);
+    line(x+13, y+8,x+13, y+75);
+    line(x+23, y+18,x+23, y+63);
+    line(x+20, y+20,x+20, y+65);
+    line(x+30, y+30,x+30, y+55);
+
+    x+=60;  
+  }
+
+  strokeWeight(2);
+
+}
+class Malla {
+  constructor(iw, ixp, ih, iyp, id, it) {
+    this.w = iw; // ancho de una barra
+    this.xpos = ixp; // posición x del rectángulo
+    this.h = ih; // altura del rectángulo
+    this.ypos = iyp; // posición y del rectángulo
+    this.d = id; // distancia de una barra
+    this.t = it; // número de barras
+  }
+  
+  display() {
+    for (let i = 0; i < this.t; i++) {
+      let negro = color('black');
+      fill(negro);
+      stroke(255,255,255)
+      rect(
+        this.xpos + i * (this.d + this.w),
+        this.ypos,
+        this.w,
+        height * this.h
+      );
+      stroke(0,0,0)
+    }
+  }
+
+  move(posX, posY) {
+    this.ypos = posY;
+    this.xpos = posX;
+  }
+}
+```
+
+## Resultado:
+
+{{< p5-global-iframe id="kk" ver="1.4.2" width="700" height="500" >}}
+
+let ancho = 10;
+let alturaMalla = 0.4;
+let distanciaEntreBarras = 1;
+let numeroBarras = 40;
+let equivalencia = 770
+function setup() {
+
+  createCanvas(700, 700);
+
+  malla = new Malla(ancho,0,alturaMalla,0,distanciaEntreBarras,numeroBarras);
+}
+
+function draw() {
+  background(255);
+
+  
+  //Creación de la malla
+  malla.display();
+  malla.move(mouseX, mouseY);
+
+  strokeWeight(2);
+
+  //Se dibuja la máquina
+  rect(410,150,100,100);
+  rect(420,250,80,20);
+  
+  rect(420,270,1,70)
+  for (let i = 425; i< 495; i+=10){
+    rect(i,270,7,7);
+  }
+  for (let i = 425; i< 495; i+=10){
+    rect(i,278,5,30);
+  }
+  for (let i = 485; i>= 425; i-=10){
+    rect(i,309,3,15);
+  }
+  for (let i = 485; i>= 425; i-=10){
+    rect(i+2,324,1,15);
+  }
+  rect(495, 270, 5,5);
+  rect(494, 278, 5,30);
+  rect(494, 307, 3,15);
+  rect(497, 324, 1,15);
+
+  //Se crea malla principal
+  for (let i = 0; i<=500; i+=10){
+    strokeWeight(4);
+    line(i, 300,i, 370);
+    strokeWeight(2);
+  }
+
+  //Se crea malla luego de pasar por la maquina
+  for (let i = 480; i<=1000; i+=10){
+    strokeWeight(5);
+    line(i, 360,i, 370);
+    strokeWeight(1);
+    line(i+3, 358,i+3, 372);
+    line(i+4, 357,i+4, 372);
+    strokeWeight(2);
+
+  }
+  
+  let x = 0;
+  let y = 300;
+  for(let i = 0; i<= 8; i+=1){
+    strokeWeight(2);
+    line(x, y+5,x, y+73);
+    line(x-10, y+10,x-10, y+73);
+
+    line(x+2, y-2,x+2, y+76);
+    line(x-2, y-2,x-2, y+76);
+
+    line(x-13, y+8,x-13, y+75);
+    line(x-23, y+18,x-23, y+61);
+    line(x-12, y+25,x-12, y+58);
+    line(x-20, y+20,x-20, y+63);
+    line(x-22, y+16,x-22, y+59);
+
+    line(x+12, y+25,x+12, y+58);
+    line(x+10, y+10,x+10, y+73);
+    line(x+13, y+8,x+13, y+75);
+    line(x+23, y+18,x+23, y+63);
+    line(x+20, y+20,x+20, y+65);
+    line(x+30, y+30,x+30, y+55);
+
+    x+=60;  
+  }
+
+  strokeWeight(2);
+
+}
+// clase Malla
+class Malla {
+  constructor(iw, ixp, ih, iyp, id, it) {
+    this.w = iw; // ancho de una barra
+    this.xpos = ixp; // posición x del rectángulo
+    this.h = ih; // altura del rectángulo
+    this.ypos = iyp; // posición y del rectángulo
+    this.d = id; // distancia de una barra
+    this.t = it; // número de barras
+  }
+  
+  display() {
+    for (let i = 0; i < this.t; i++) {
+      let negro = color('black');
+      fill(negro);
+      stroke(255,255,255)
+      rect(
+        this.xpos + i * (this.d + this.w),
+        this.ypos,
+        this.w,
+        height * this.h
+      );
+      stroke(0,0,0)
+    }
+  }
+
+  move(posX, posY) {
+    this.ypos = posY;
+    this.xpos = posX;
+  }
+}
+
+{{< /p5-global-iframe >}}
+
 ## Kernels de Imagen
 
 {{< hint info >}}
@@ -353,6 +609,7 @@ Para variar entre kernels utilice el selector ubicado en la parte superior izqui
 
 
 {{< p5-iframe sketch="/showcase/sketches/kernel.js" width="925" height="600" >}}
+
 
 
 # **Conclusiones**
