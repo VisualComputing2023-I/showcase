@@ -84,11 +84,81 @@ for (let y = 0; y < rows; ++y){
 
 {{< p5-iframe sketch="/showcase/sketches/terrain1.js" width="630" height="630" >}}
 
+## Terreno con LOD simple
+
+En este ejercicio implemento un algoritmo para poder usar LOD usando arboles binarios de triangulos y ruido de Perlin para generar el terreno. La idea de esta implementación es sencilla, primero creo una matríz de terreno donde en cada espacio voy a guardar un nodo el cual será la raíz de un arbol binario.
+
+```js
+terrain = new Array(rows);
+  for (let i = 0; i < rows-1; ++i){
+    terrain[i] = new Array(cols);
+    for (let j = 0; j < cols-1; ++j){
+      y = i;
+      x = j;
+      
+      let a = createVector(x*scl, y*scl, heights[y*scl][x*scl]);
+      let b = createVector((x+1)*scl, y*scl, heights[y*scl][(x+1)*scl]);
+      let c = createVector((x+1)*scl, (y+1)*scl, heights[(y+1)*scl][(x+1)*scl]);
+      let d = createVector(x*scl, (y+1)*scl, heights[(y+1)*scl][x*scl]);
+      
+      // Left Child
+      let leftChild = new Triangle(a, b, c, 0, 0);
+      // Right Child
+      let rightChild = new Triangle(a, d, c, 0, 0);
+      //Root
+      terrain[i][j] = new Triangle(0,0,0, -1, -1, leftChild, rightChild);
+    }
+  }
+```
+
+Para renderizar los triangulos lo que hice es recorrer toda la matriz y por cada arbol binario renderizo los triangulos que esten en las hojas del arbol, luego para implementar un nivel de detalle se crea una función de división para que un arbol duplice sus hojas (es decir duplicar sus triangulos).
+
+```js
+split() {
+    let level = this.level + 1;
+
+    if (level % 2 == 1){
+      let a = this.a;
+      let b = this.b;
+      let c = p5.Vector.add(p5.Vector.div(p5.Vector.sub(this.c, this.a),2), a);
+      c.z = heights[c.y][c.x];
+      this.leftChild = new Triangle(a, b, c, level, this);
+
+      a = this.c;
+      b = this.b;
+      // c = p5.Vector.div(p5.Vector.sub(this.c, this.a),2);
+      // c.z = heights[floor(c.x)][floor(c.y)];
+      this.rightChild = new Triangle(a, b, c, level, this);
+    } else {
+      let a = this.a;
+      let b = p5.Vector.add(p5.Vector.div(p5.Vector.sub(this.b, this.a),2), a);
+      b.z = heights[b.y][b.x];
+      let c = this.c;
+      leftChild = new Triangle(a, b, c, level, this);
+      this.leftChild = leftChild;
+
+      a = this.b;
+      // b = p5.Vector.div(p5.Vector.sub(this.b, this.a),2);
+      // b.z = heights[floor(b.x)][floor(b.y)];
+      c = this.c;
+      rightChild = new Triangle(a, b, c, level, this);
+      this.rightChild = rightChild;
+    }
+  }
+```
+
+Y con p5 se sabe la ubicación en el canvas del mouse (en 2D) y con esto, entre más cerca este el mouse del terreno este tendra mayor detalle, entre más lejos menos detalle.
+
+{{< p5-iframe sketch="/showcase/sketches/terrain3.js" width="630" height="630" >}}
+
+Nota: Algo que le falta a esta implementación es considerar los vecindarios de un triangulo para que al dividir un triangulo, todos los nuevos vertices se puedan conectar con los vertices de los triangulos vecinos. Por esto es que se notan espacios vacios al aumentar el LOD.
+
 
 # **Conclusiones**
 
-- Como se esperaba, generar un terreno usando el ruido de perlin es más fácil de controlar que usando una función de fractal o de FBM
+- Como se esperaba, generar un terreno usando el ruido de perlin es más fácil de controlar que usando una función de fractal o de FBM.
 - Si bien usar una cuadrícula no es la manera más óptima de guardar información de superficies, es lo suficientemente buena para generación de terrenos simples usando ruido de perlin.
+- Implementar un buen algoritmo para niveles de detalle que tenga muy buen rendimiento en el CPU y en la GPU es una tarea compleja que amerita toda la investigación que hay detras.
 
 # **Trabajo futuro**
 
