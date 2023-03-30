@@ -151,7 +151,7 @@ Y con p5 se sabe la ubicación en el canvas del mouse (en 2D) y con esto, entre 
 
 {{< p5-iframe sketch="/showcase/sketches/terrain3.js" width="630" height="630" >}}
 
-Nota: Algo que le falta a esta implementación es considerar los vecindarios de un triangulo para que al dividir un triangulo, todos los nuevos vertices se puedan conectar con los vertices de los triangulos vecinos. Por esto es que se notan espacios vacios al aumentar el LOD.
+Nota: Se implementó la lógica para que los triangulos vecinos tengan el mismo LOD para que no queden vertices sueltos pero esta implementación no funciona correctamente.
 
 
 # **Conclusiones**
