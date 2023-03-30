@@ -189,3 +189,8 @@ La ilusión óptica es un fenómeno intrigante y fascinante que ha cautivado la 
 En el futuro, se espera que el masking se utilice en combinación con otras técnicas de procesamiento de imágenes para crear ilusiones ópticas aún más complejas y fascinantes. Por ejemplo, se podría utilizar el masking para crear ilusiones ópticas tridimensionales que parezcan saltar de la pantalla. También se podría utilizar el masking para estudiar cómo se procesa la información visual en el cerebro, lo que podría tener importantes implicaciones en el tratamiento de enfermedades neurológicas y psiquiátricas. En última instancia, el uso del masking en ilusiones ópticas promete ser una herramienta valiosa para entender mejor la percepción visual humana y llevar la tecnología de la computación visual a nuevas alturas.
 
 # **Referencias**
+
+
+### Resultado
+
+{{< p5-iframe sketch="/showcase/sketches/kernel.js" width="925" height="600" >}}
