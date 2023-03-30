@@ -26,6 +26,10 @@ class Triangle {
     this.parent = parent;
     this.leftChild = leftChild;
     this.rightChild = rightChild;
+    this.N = null;
+    this.E = null;
+    this.S = null;
+    this.W = null;
   }
 
   split() {
@@ -48,16 +52,19 @@ class Triangle {
       let b = p5.Vector.add(p5.Vector.div(p5.Vector.sub(this.b, this.a),2), a);
       b.z = heights[b.y][b.x];
       let c = this.c;
-      leftChild = new Triangle(a, b, c, level, this);
-      this.leftChild = leftChild;
+      this.leftChild = new Triangle(a, b, c, level, this);
 
       a = this.b;
       // b = p5.Vector.div(p5.Vector.sub(this.b, this.a),2);
       // b.z = heights[floor(b.x)][floor(b.y)];
       c = this.c;
-      rightChild = new Triangle(a, b, c, level, this);
-      this.rightChild = rightChild;
+      this.rightChild = new Triangle(a, b, c, level, this);
     }
+  }
+
+  merge() {
+    this.leftChild = null;
+    this.rightChild = null;
   }
 }
 
@@ -95,12 +102,31 @@ function setup() {
       let c = createVector((x+1)*scl, (y+1)*scl, heights[(y+1)*scl][(x+1)*scl]);
       let d = createVector(x*scl, (y+1)*scl, heights[(y+1)*scl][x*scl]);
       
-      // Left Child
-      let leftChild = new Triangle(a, b, c, 0, 0);
-      // Right Child
-      let rightChild = new Triangle(a, d, c, 0, 0);
       //Root
-      terrain[i][j] = new Triangle(0,0,0, -1, -1, leftChild, rightChild);
+      terrain[i][j] = new Triangle(0,0,0, -1, -1);
+      // Left Child
+      let leftChild = new Triangle(a, b, c, 0, terrain[i][j]);
+      terrain[i][j].leftChild = leftChild;
+      // Right Child
+      let rightChild = new Triangle(a, d, c, 0, terrain[i][j]);
+      terrain[i][j].rightChild = rightChild;
+    }
+  }
+
+  for (let i = 0; i < rows-1; ++i){
+    for (let j = 0; j < cols-1; ++j){
+      if (i-1 >= 0){
+        terrain[i][j].N = terrain[i-1][j].rightChild;
+      }
+      if (i+1 < rows-1){
+        terrain[i][j].S = terrain[i+1][j].leftChild;
+      }
+      if (j-1 >= 0){
+        terrain[i][j].W = terrain[i][j-1].leftChild;
+      }
+      if (j+1 < cols-1){
+        terrain[i][j].E = terrain[i][j+1].rightChild;
+      }
     }
   }
 
@@ -147,6 +173,9 @@ function RenderTriangles(t){
 }
 
 function SplitLeaves(t){
+  if (t === null){
+    return;
+  }
   if (t.leftChild === null && t.rightChild === null){
     t.split();
     return;
@@ -162,9 +191,11 @@ function SplitLeaves(t){
 }
 
 function getMaxLevel(t){
-  if (t.leftChild === null && t.rightChild === null){
-    t.level;
+  if (t === null){
     return;
+  }
+  if (t.leftChild === null && t.rightChild === null){
+    return t.level;
   }
 
   let left_level = 0;
@@ -184,53 +215,96 @@ function getMaxLevel(t){
   }
 }
 
+function fixNeighbours(t){
+  if (t.W !== null){
+    let level = getMaxLevel(t.rightChild);
+    let Wlevel = getMaxLevel(t.W.rightChild);
+    if (level % 2 == 0 && level > 0 && Wlevel > 0 && Wlevel < level){
+      // t.W.rightChild.split();
+      SplitLeaves(t.W.rightChild);
+    }
+  }
+  if (t.E !== null){
+    let level = getMaxLevel(t.leftChild);
+    let Elevel = getMaxLevel(t.E);
+    if (level % 2 == 0 && level > 0 && Elevel > 0 && Elevel < level){
+      // t.E.leftChild.split();
+      SplitLeaves(t.E.leftChild);
+    }
+  }
+  if (t.N !== null){
+    let level = getMaxLevel(t.leftChild);
+    let Nlevel = getMaxLevel(t.N.rightChild);
+    if (level % 2 == 0 && level > 0 && Nlevel > 0 && Nlevel < level){
+      // t.N.rightChild.split();
+      SplitLeaves(t.N.rightChild);
+    }
+  }
+  if (t.S !== null){
+    let level = getMaxLevel(t.rightChild);
+    let Slevel = getMaxLevel(t.S.leftChild);
+    if (level % 2 == 0 && level > 0 && Slevel > 0 && Slevel < level){
+      // t.S.leftChild.split();
+      SplitLeaves(t.S.leftChild);
+    }
+  }
+}
+
 function draw() {
 
   max_min = max_min_slider.value();
 
   for (let i = 0; i < rows-1; ++i){
     for (let j = 0; j < cols-1; ++j){
-      y = i;
-      x = j;
+      // y = i;
+      // x = j;
       
-      let a = createVector(x*scl, y*scl, heights[y*scl][x*scl]);
-      let b = createVector((x+1)*scl, y*scl, heights[y*scl][(x+1)*scl]);
-      let c = createVector((x+1)*scl, (y+1)*scl, heights[(y+1)*scl][(x+1)*scl]);
-      let d = createVector(x*scl, (y+1)*scl, heights[(y+1)*scl][x*scl]);
+      // let a = createVector(x*scl, y*scl, heights[y*scl][x*scl]);
+      // let b = createVector((x+1)*scl, y*scl, heights[y*scl][(x+1)*scl]);
+      // let c = createVector((x+1)*scl, (y+1)*scl, heights[(y+1)*scl][(x+1)*scl]);
+      // let d = createVector(x*scl, (y+1)*scl, heights[(y+1)*scl][x*scl]);
       
-      // Left Child
-      leftChild = new Triangle(a, b, c, 0, 0);
-      // Right Child
-      rightChild = new Triangle(a, d, c, 0, 0);
-      //Root
-      terrain[i][j] = new Triangle(0,0,0, -1, -1, leftChild, rightChild);
+      // // Left Child
+      // leftChild = new Triangle(a, b, c, 0, 0);
+      // // Right Child
+      // rightChild = new Triangle(a, d, c, 0, 0);
+      // //Root
+      // terrain[i][j] = new Triangle(0,0,0, -1, -1, leftChild, rightChild);
+      terrain[i][j].leftChild.merge();
+      terrain[i][j].rightChild.merge();
     }
   }
 
   // camPos = createVector(cam.eyeX, cam.eyeZ, cam.eyeY);
 
-  mousePos = createVector(winMouseX, winMouseY, 0);
-  // mousePos = createVector(mouseX, mouseY, 0);
+  // mousePos = createVector(winMouseX, winMouseY, 0);
+  mousePos = createVector(mouseX, mouseY, 0);
 
   for (let i = 0; i < rows-1; ++i){
     for (let j = 0; j < cols-1; ++j){
-      let distance = p5.Vector.dist(terrain[i][j].leftChild.a, mousePos);
+      center = p5.Vector.add(p5.Vector.div(p5.Vector.sub(terrain[i][j].leftChild.c, terrain[i][j].leftChild.a),2), terrain[i][j].leftChild.a);
+      let distance = p5.Vector.dist(center, mousePos);
       // print(i + " " + j + ": " + distance);
-      if (distance < 450){
+      if (distance < 600){
+        SplitLeaves(terrain[i][j]);
+      }
+      if (distance < 500){
         SplitLeaves(terrain[i][j]);
       }
       if (distance < 400){
         SplitLeaves(terrain[i][j]);
       }
-      if (distance < 350){
-        SplitLeaves(terrain[i][j]);
-      }
-      if (distance < 340){
+      if (distance < 300){
         SplitLeaves(terrain[i][j]);
       }
     }
   }
 
+  for (let i = 0; i < rows-1; ++i){
+    for (let j = 0; j < cols-1; ++j){
+      fixNeighbours(terrain[i][j]);
+    }
+  }
 
   background(0); 
   orbitControl();
