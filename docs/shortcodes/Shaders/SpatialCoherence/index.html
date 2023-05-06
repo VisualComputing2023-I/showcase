@@ -1,0 +1,178 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Spatial Coherence # Marco teórico Se define a la coherencia espacial como un fenómeno, donde los objetos y los colores definidos en ellos varían según la distancia y posición del espectador, brindando al mismo un espectro de información más completo sobre su entorno, su profundidad y distribución.
+Exercise
+Implement your own source dataset and a mechanism to select different images from it.
+SpatialCoherence.js 'use strict'; let image_src; let video_src; let mosaic; // ui let resolution; let video_on; let mode; let photoSelect; let photoA; function preload() { // paintings are stored locally in the /sketches/shaders/paintings dir // and named sequentially as: p1."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Spatial Coherence # Marco teórico Se define a la coherencia espacial como un fenómeno, donde los objetos y los colores definidos en ellos varían según la distancia y posición del espectador, brindando al mismo un espectro de información más completo sobre su entorno, su profundidad y distribución.
+Exercise
+Implement your own source dataset and a mechanism to select different images from it.
+SpatialCoherence.js 'use strict'; let image_src; let video_src; let mosaic; // ui let resolution; let video_on; let mode; let photoSelect; let photoA; function preload() { // paintings are stored locally in the /sketches/shaders/paintings dir // and named sequentially as: p1."><meta property="og:type" content="article"><meta property="og:url" content="https://visualcomputing2023-i.github.io/showcase/docs/shortcodes/Shaders/SpatialCoherence/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-05-06T13:49:09-05:00"><title>Spatial Coherence | Visual Computing 2023 I</title><link rel=manifest href=/showcase/manifest.json><link rel=icon href=/showcase/favicon.png type=image/x-icon><link rel=stylesheet href=/showcase/book.min.4b35fed0bea034bbc19c89c71e14b73fb9c68cfcc586b9382adfb9b7b103ba06.css integrity="sha256-SzX+0L6gNLvBnInHHhS3P7nGjPzFhrk4Kt+5t7EDugY=" crossorigin=anonymous><script defer src=/showcase/flexsearch.min.js></script>
+<script defer src=/showcase/en.search.min.3a8d658c77eb93c7f12a2b8af49a700131e474f288eefb605d9fa61576dbe5a7.js integrity="sha256-Oo1ljHfrk8fxKiuK9JpwATHkdPKI7vtgXZ+mFXbb5ac=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcase/><span>Visual Computing 2023 I</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Shortcodes</span><ul><li><input type=checkbox id=section-ec67a64aba70b9df3d2a9acd6c92e3bc class=toggle>
+<label for=section-ec67a64aba70b9df3d2a9acd6c92e3bc class="flex justify-between"><a href=/showcase/docs/shortcodes/p5/>P5</a></label><ul><li><a href=/showcase/docs/shortcodes/p5/iframe/>Iframe</a></li><li><a href=/showcase/docs/shortcodes/p5/div/>Div</a></li></ul></li><li><input type=checkbox id=section-37d133451a87125afc7e4d4a60cdb12b class=toggle checked>
+<label for=section-37d133451a87125afc7e4d4a60cdb12b class="flex justify-between"><a href=/showcase/docs/shortcodes/Shaders/>Shaders</a></label><ul><li><a href=/showcase/docs/shortcodes/Shaders/SpatialCoherence/ class=active>Spatial Coherence</a></li></ul></li><li><input type=checkbox id=section-5e90dfc1cda674fda3ec0abb0b45bf6a class=toggle>
+<label for=section-5e90dfc1cda674fda3ec0abb0b45bf6a class="flex justify-between"><a href=/showcase/docs/shortcodes/team/>Team</a></label><ul><li><a href=/showcase/docs/shortcodes/team/Diego-Alvarado/>Diego Alvarado</a></li><li><a href=/showcase/docs/shortcodes/team/Juli%C3%A1n-Manosalva/>Julián Manosalva</a></li><li><a href=/showcase/docs/shortcodes/team/Sebasti%C3%A1n-Pach%C3%B3n/>Sebastián Pachón</a></li></ul></li><li><input type=checkbox id=section-94839c8d59cd3fd9e827edbeb4e69371 class=toggle>
+<label for=section-94839c8d59cd3fd9e827edbeb4e69371 class="flex justify-between"><a href=/showcase/docs/shortcodes/VisualIllutions/>Visual Illutions</a></label><ul><li><a href=/showcase/docs/shortcodes/VisualIllutions/1-Visual-Illutions/>1 Visual Illutions</a></li><li><a href=/showcase/docs/shortcodes/VisualIllutions/2-Masking/>2 Masking</a></li><li><a href=/showcase/docs/shortcodes/VisualIllutions/3-Mach-Bands/>3 Mach Bands</a></li></ul></li></ul></li></ul><ul><li><a href=/showcase/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/showcase/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Spatial Coherence</strong>
+<label for=toc-control><img src=/showcase/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#spatial-coherence><strong>Spatial Coherence</strong></a></li></ul></nav></aside></header><article class=markdown><h1 id=spatial-coherence><strong>Spatial Coherence</strong>
+<a class=anchor href=#spatial-coherence>#</a></h1><p><strong>Marco teórico</strong>
+Se define a la <a href=https://visualcomputing.github.io/docs/illusions/spatial_coherence/>coherencia espacial</a> como un fenómeno, donde los objetos y los colores definidos en ellos varían según la distancia y posición del espectador, brindando al mismo un espectro de información más completo sobre su entorno, su profundidad y distribución.</p><blockquote class="book-hint info"><p><strong>Exercise</strong></p><p>Implement your own source dataset and a mechanism to select different images from it.</p></blockquote><iframe id=SpatCohe style=width:630px;height:630px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js></script>
+            
+            
+            
+            
+            
+            <script src=/showcase/sketches/SpatialCoherenceSketch/SpatCohe.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe>
+<details><summary>SpatialCoherence.js</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#e6db74>&#39;use strict&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>image_src</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>video_src</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>mosaic</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>// ui
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>resolution</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>video_on</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>mode</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>photoSelect</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>photoA</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>preload</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// paintings are stored locally in the /sketches/shaders/paintings dir
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// and named sequentially as: p1.jpg, p2.jpg, ... p30.jpg
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// so we pick up one randomly just for fun:
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>//image_src = loadImage(`/sketches/shaders/paintings/p${int(random(1, 3))}.jpg`);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>photoA</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>int</span>(<span style=color:#a6e22e>random</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>6</span>));
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>image_src</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>loadImage</span>(<span style=color:#e6db74>`/showcase/sketches/photos/Photo</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>photoA</span><span style=color:#e6db74>}</span><span style=color:#e6db74>.jpg`</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>video_src</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createVideo</span>([<span style=color:#e6db74>&#39;/showcase/sketches/mapache.webm&#39;</span>]);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>video_src</span>.<span style=color:#a6e22e>hide</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>mosaic</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>readShader</span>(<span style=color:#e6db74>&#39;/showcase/sketches/SHADERS/Spacial_Coherence/SC.frag&#39;</span>,
+</span></span><span style=display:flex><span>           { <span style=color:#a6e22e>matrices</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>Tree</span>.<span style=color:#a6e22e>NONE</span>, <span style=color:#a6e22e>varyings</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>Tree</span>.<span style=color:#a6e22e>texcoords2</span> });
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setup</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>createCanvas</span>(<span style=color:#ae81ff>600</span>, <span style=color:#ae81ff>600</span>, <span style=color:#a6e22e>WEBGL</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>textureMode</span>(<span style=color:#a6e22e>NORMAL</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>noStroke</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>shader</span>(<span style=color:#a6e22e>mosaic</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>resolution</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createSlider</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>30</span>, <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>resolution</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>35</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>resolution</span>.<span style=color:#a6e22e>style</span>(<span style=color:#e6db74>&#39;width&#39;</span>, <span style=color:#e6db74>&#39;80px&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>resolution</span>.<span style=color:#a6e22e>input</span>(() =&gt; <span style=color:#a6e22e>mosaic</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;resolution&#39;</span>, <span style=color:#a6e22e>resolution</span>.<span style=color:#a6e22e>value</span>()));
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>mosaic</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;resolution&#39;</span>, <span style=color:#a6e22e>resolution</span>.<span style=color:#a6e22e>value</span>());
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>video_on</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createCheckbox</span>(<span style=color:#e6db74>&#39;video&#39;</span>, <span style=color:#66d9ef>false</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>video_on</span>.<span style=color:#a6e22e>changed</span>(() =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>video_on</span>.<span style=color:#a6e22e>checked</span>()) {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>mosaic</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;source&#39;</span>, <span style=color:#a6e22e>video_src</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>video_src</span>.<span style=color:#a6e22e>loop</span>();
+</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>mosaic</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;source&#39;</span>, <span style=color:#a6e22e>image_src</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>video_src</span>.<span style=color:#a6e22e>pause</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>mosaic</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;source&#39;</span>, <span style=color:#a6e22e>image_src</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>video_on</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>55</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>mode</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createSelect</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>mode</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>75</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>mode</span>.<span style=color:#a6e22e>option</span>(<span style=color:#e6db74>&#39;original&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>mode</span>.<span style=color:#a6e22e>option</span>(<span style=color:#e6db74>&#39;pixelator&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>mode</span>.<span style=color:#a6e22e>selected</span>(<span style=color:#e6db74>&#39;pixelator&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>mode</span>.<span style=color:#a6e22e>changed</span>(() =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mosaic</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;original&#39;</span>, <span style=color:#a6e22e>mode</span>.<span style=color:#a6e22e>value</span>() <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;original&#39;</span>);
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>photoSelect</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createSelect</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>photoSelect</span>.<span style=color:#a6e22e>position</span>(<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>95</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>photoSelect</span>.<span style=color:#a6e22e>option</span>(<span style=color:#e6db74>&#39;Photo1&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>photoSelect</span>.<span style=color:#a6e22e>option</span>(<span style=color:#e6db74>&#39;Photo2&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>photoSelect</span>.<span style=color:#a6e22e>option</span>(<span style=color:#e6db74>&#39;Photo3&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>photoSelect</span>.<span style=color:#a6e22e>option</span>(<span style=color:#e6db74>&#39;Photo4&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>photoSelect</span>.<span style=color:#a6e22e>option</span>(<span style=color:#e6db74>&#39;Photo5&#39;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>photoSelect</span>.<span style=color:#a6e22e>selected</span>(<span style=color:#e6db74>`Photo</span><span style=color:#e6db74>${</span><span style=color:#a6e22e>photoA</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>)
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>photoSelect</span>.<span style=color:#a6e22e>changed</span>(() =&gt; {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>photoSelect</span>.<span style=color:#a6e22e>value</span>() <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;Photo1&#39;</span>){
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>image_src</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>loadImage</span>(<span style=color:#e6db74>`/showcase/sketches/photos/Photo1.jpg`</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>mosaic</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;source&#39;</span>, <span style=color:#a6e22e>image_src</span>);
+</span></span><span style=display:flex><span>      
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>photoSelect</span>.<span style=color:#a6e22e>value</span>() <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;Photo2&#39;</span>){
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>image_src</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>loadImage</span>(<span style=color:#e6db74>`/showcase/sketches/photos/Photo2.jpg`</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>mosaic</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;source&#39;</span>, <span style=color:#a6e22e>image_src</span>);
+</span></span><span style=display:flex><span>      
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>photoSelect</span>.<span style=color:#a6e22e>value</span>() <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;Photo3&#39;</span>){
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>image_src</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>loadImage</span>(<span style=color:#e6db74>`/showcase/sketches/photos/Photo3.jpg`</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>mosaic</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;source&#39;</span>, <span style=color:#a6e22e>image_src</span>);
+</span></span><span style=display:flex><span>      
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>photoSelect</span>.<span style=color:#a6e22e>value</span>() <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;Photo4&#39;</span>){
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>image_src</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>loadImage</span>(<span style=color:#e6db74>`/showcase/sketches/photos/Photo4.jpg`</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>mosaic</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;source&#39;</span>, <span style=color:#a6e22e>image_src</span>);
+</span></span><span style=display:flex><span>      
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>photoSelect</span>.<span style=color:#a6e22e>value</span>() <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;Photo5&#39;</span>){
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>image_src</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>loadImage</span>(<span style=color:#e6db74>`/showcase/sketches/photos/Photo5.jpg`</span>);
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>mosaic</span>.<span style=color:#a6e22e>setUniform</span>(<span style=color:#e6db74>&#39;source&#39;</span>, <span style=color:#a6e22e>image_src</span>);
+</span></span><span style=display:flex><span>      
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>draw</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// which previous exercise does this code actually solve?
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e>        y                  v
+</span></span></span><span style=display:flex><span><span style=color:#75715e>        |                  |
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  (-1,1)|     (1,1)        (0,1)     (1,1)
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  *_____|_____*            *__________*   
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  |     |     |            |          |        
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  |_____|_____|__x         | texture  |        
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  |     |     |            |  space   |
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  *_____|_____*            *__________*___ u
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  (-1,-1)    (1,-1)       (0,0)    (1,0) 
+</span></span></span><span style=display:flex><span><span style=color:#75715e>  */</span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>beginShape</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>vertex</span>(<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>vertex</span>(<span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>vertex</span>(<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>vertex</span>(<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>endShape</span>();
+</span></span><span style=display:flex><span>}</span></span></code></pre></div></div></details><details><summary>SpatialCoherence.frag</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#a6e22e>precision</span> <span style=color:#a6e22e>mediump</span> <span style=color:#66d9ef>float</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// source (image or video) is sent by the sketch
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>sampler2D</span> <span style=color:#a6e22e>source</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>// displays original
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>uniform</span> <span style=color:#a6e22e>bool</span> <span style=color:#a6e22e>original</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>// target horizontal &amp; vertical resolution
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>uniform</span> <span style=color:#66d9ef>float</span> <span style=color:#a6e22e>resolution</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// interpolated texcoord (same name and type as in vertex shader)
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// defined as a (normalized) vec2 in [0..1]
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>varying</span> <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>texcoords2</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>original</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>gl_FragColor</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>texture2D</span>(<span style=color:#a6e22e>source</span>, <span style=color:#a6e22e>texcoords2</span>);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// define stepCoord to sample the texture source as a 3-step process:
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// i. define stepCoord as a texcoords2 remapping in [0.0, resolution] ∈ R
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>vec2</span> <span style=color:#a6e22e>stepCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>texcoords2</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>resolution</span>;
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// ii. remap stepCoord in [0.0, resolution] ∈ Z
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// see: https://thebookofshaders.com/glossary/?search=floor
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>stepCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>floor</span>(<span style=color:#a6e22e>stepCoord</span>);
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// iii. remap stepCoord in [0.0, 1.0] ∈ R
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>stepCoord</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>stepCoord</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>vec2</span>(<span style=color:#a6e22e>resolution</span>);
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// source texel
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>gl_FragColor</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>texture2D</span>(<span style=color:#a6e22e>source</span>, <span style=color:#a6e22e>stepCoord</span>);
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// ✨ source texels may be used to compute image palette lookup keys,
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// such as in video &amp; photographic mosaics or ascii art visualizations.
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  }
+</span></span><span style=display:flex><span>}</span></span></code></pre></div></div></details><p><strong>Aplicaciones</strong></p><p>Este tipo de fenómenos pueden aplicarse para generar un efecto ya sea de enfoque o desenfoque en elementos específicos, como de profundidad y ambientación de espacios.</p><blockquote class="book-hint warning"><h3 id=referencias><strong>Referencias</strong>
+<a class=anchor href=#referencias>#</a></h3><ul><li><a href=https://visualcomputing.github.io/docs/shaders/spatial_coherence/>https://visualcomputing.github.io/docs/shaders/spatial_coherence/</a></li></ul></blockquote></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://jupachonc.github.io/showcase/commit/6e180c57c679082a6b55cf5782846082929431b6 title='Last modified by Julian Manosalva Manrique | May 6, 2023' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
+<span>May 6, 2023</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#spatial-coherence><strong>Spatial Coherence</strong></a></li></ul></nav></div></aside></main></body></html>
