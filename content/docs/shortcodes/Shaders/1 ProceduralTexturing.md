@@ -13,7 +13,7 @@ let colorShader;
 let brickShader;
 let dotsShader;
 let textura;
-const opcionesS  = {'None': 0, 'Truchet':1, 'Color':2,'Bricks':3,'Dots':4, 'Plasma':5};
+const opcionesS  = {'None': 0, 'truchet':1, 'color':2,'bricks':3,'dots':4, 'plasma':5};
 
 function preload() {
   // shader adapted from here: https://thebookofshaders.com/09/
