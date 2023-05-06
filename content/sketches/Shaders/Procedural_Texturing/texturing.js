@@ -9,15 +9,15 @@ const opcionesS  = {'None': 0, 'truchet':1, 'color':2,'bricks':3,'dots':4, 'plas
 
 function preload() {
   // shader adapted from here: https://thebookofshaders.com/09/
-  truchetShader = readShader('/showcase/sketches/SHADERS/texturing/texturing_truchet.frag',
+  truchetShader = readShader('/showcase/sketches/Shaders/Procedural_Texturing/texturing_truchet.frag',
                              { matrices: Tree.NONE, varyings: Tree.NONE });
-  colorShader = readShader('/showcase/sketches/SHADERS/texturing/texturing_color.frag',
+  colorShader = readShader('/showcase/sketches/Shaders/Procedural_Texturing/texturing_color.frag',
                              { matrices: Tree.NONE, varyings: Tree.NONE });
-  brickShader = readShader('/showcase/sketches/SHADERS/texturing/texturing_bricks.frag',
+  brickShader = readShader('/showcase/sketches/Shaders/Procedural_Texturing/texturing_bricks.frag',
                              { matrices: Tree.NONE, varyings: Tree.NONE });   
-  dotsShader = readShader('/showcase/sketches/SHADERS/texturing/texturing_dots.frag',
+  dotsShader = readShader('/showcase/sketches/Shaders/Procedural_Texturing/texturing_dots.frag',
                              { matrices: Tree.NONE, varyings: Tree.NONE }); 
-  plasmaShader = readShader('/showcase/sketches/SHADERS/texturing/texturing_plasma.frag',
+  plasmaShader = readShader('/showcase/sketches/Shaders/Procedural_Texturing/texturing_plasma.frag',
                              { matrices: Tree.NONE, varyings: Tree.NONE })                                                 
 }
 
