@@ -1,9 +1,12 @@
+// Author @patriciogv ( patriciogonzalezvivo.com ) - 2015
+
 #ifdef GL_ES
 precision mediump float;
 #endif
 
 uniform vec2 u_resolution;
 uniform float u_time;
+uniform float u_zoom;
 
 vec2 brickTile(vec2 _st, float _zoom){
     _st *= _zoom;
@@ -30,7 +33,7 @@ void main(void){
     // st /= vec2(2.15,0.65)/1.5;
 
     // Apply the brick tiling
-    st = brickTile(st,5.0);
+    st = brickTile(st, u_zoom);
 
     color = vec3(box(st,vec2(0.9)));
 
