@@ -1,182 +1,266 @@
-# **Spatial Coherence**
+## **Procedural texturing**
 
-**Marco teórico**
-Se define a la [coherencia espacial](https://visualcomputing.github.io/docs/illusions/spatial_coherence/) como un fenómeno, donde los objetos y los colores definidos en ellos varían según la distancia y posición del espectador, brindando al mismo un espectro de información más completo sobre su entorno, su profundidad y distribución.
+En computación gráfica, una [textura procedimental](https://en.wikipedia.org/wiki/Procedural_texture) es una textura creada mediante una descripción matemática (es decir, un algoritmo), en lugar de datos almacenados directamente. La ventaja de este enfoque es el bajo coste de almacenamiento, la resolución ilimitada de las texturas y la facilidad de mapeo de las mismas.
 
-
-{{<hint info>}}
-**Exercise**
-
-Implement your own source dataset and a mechanism to select different images from it.
-{{</hint>}}
-
-
-{{< p5-iframe sketch="/showcase/sketches/SHADERS/Spacial_Coherence/SC.js" width="630" height="630" >}}
-
-{{< details title="SpatialCoherence.js" open=false >}}
+{{< p5-iframe sketch="/showcase/sketches/SHADERS/texturing/texturing.js" width="425" height="425" >}}
+{{< details title="procedural texturing js" open=false >}}
 {{< highlight js >}}
-
-'use strict';
-
-let image_src;
-let video_src;
-let mosaic;
-// ui
-let resolution;
-let video_on;
-let mode;
-let photoSelect;
-let photoA;
+let pg;
+let colt;
+let truchetShader;
+let colorShader;
+let brickShader;
+let dotsShader;
+let textura;
+const opcionesS  = {'None': 0, 'truchet':1, 'color':2,'bricks':3,'dots':4, 'plasma':5};
 
 function preload() {
-  // paintings are stored locally in the /sketches/shaders/paintings dir
-  // and named sequentially as: p1.jpg, p2.jpg, ... p30.jpg
-  // so we pick up one randomly just for fun:
-  //image_src = loadImage(`/sketches/shaders/paintings/p${int(random(1, 3))}.jpg`);
-  photoA = int(random(1, 6));
-  image_src = loadImage(`/showcase/sketches/photos/Photo${photoA}.jpg`);
-  video_src = createVideo(['/showcase/sketches/mapache.webm']);
-  video_src.hide();
-  mosaic = readShader('/showcase/sketches/SHADERS/Spacial_Coherence/SC.frag',
-           { matrices: Tree.NONE, varyings: Tree.texcoords2 });
+  // shader adapted from here: https://thebookofshaders.com/09/
+  truchetShader = readShader('/showcase/sketches/SHADERS/texturing/texturing_truchet.frag',
+                             { matrices: Tree.NONE, varyings: Tree.NONE });
+  colorShader = readShader('/showcase/sketches/SHADERS/texturing/texturing_color.frag',
+                             { matrices: Tree.NONE, varyings: Tree.NONE });
+  brickShader = readShader('/showcase/sketches/SHADERS/texturing/texturing_bricks.frag',
+                             { matrices: Tree.NONE, varyings: Tree.NONE });   
+  dotsShader = readShader('/showcase/sketches/SHADERS/texturing/texturing_dots.frag',
+                             { matrices: Tree.NONE, varyings: Tree.NONE }); 
+  plasmaShader = readShader('/showcase/sketches/SHADERS/texturing/texturing_plasma.frag',
+                             { matrices: Tree.NONE, varyings: Tree.NONE })                                                 
 }
 
 function setup() {
-  createCanvas(600, 600, WEBGL);
+  createCanvas(400, 400, WEBGL);
+  // create frame buffer object to render the procedural texture
+  pg = createGraphics(400, 400, WEBGL);
   textureMode(NORMAL);
   noStroke();
-  shader(mosaic);
-  resolution = createSlider(1, 100, 30, 1);
-  resolution.position(10, 35);
-  resolution.style('width', '80px');
-  resolution.input(() => mosaic.setUniform('resolution', resolution.value()));
-  mosaic.setUniform('resolution', resolution.value());
-  video_on = createCheckbox('video', false);
-  video_on.changed(() => {
-    if (video_on.checked()) {
-      mosaic.setUniform('source', video_src);
-      video_src.loop();
-    } else {
-      mosaic.setUniform('source', image_src);
-      video_src.pause();
-    }
-  });
-  mosaic.setUniform('source', image_src);
-  video_on.position(10, 55);
-  mode = createSelect();
-  mode.position(10, 75);
-  mode.option('original');
-  mode.option('pixelator');
-  mode.selected('pixelator');
-  mode.changed(() => {
-    mosaic.setUniform('original', mode.value() === 'original');
-  });
-  photoSelect = createSelect();
-  photoSelect.position(10, 95);
-  photoSelect.option('Photo1');
-  photoSelect.option('Photo2');
-  photoSelect.option('Photo3');
-  photoSelect.option('Photo4');
-  photoSelect.option('Photo5');
-  photoSelect.selected(`Photo${photoA}`)
-  photoSelect.changed(() => {
-    if (photoSelect.value() == 'Photo1'){
-      image_src = loadImage(`/showcase/sketches/photos/Photo1.jpg`);
-      mosaic.setUniform('source', image_src);
-      
-    }
-    if (photoSelect.value() == 'Photo2'){
-      image_src = loadImage(`/showcase/sketches/photos/Photo2.jpg`);
-      mosaic.setUniform('source', image_src);
-      
-    }
-    if (photoSelect.value() == 'Photo3'){
-      image_src = loadImage(`/showcase/sketches/photos/Photo3.jpg`);
-      mosaic.setUniform('source', image_src);
-      
-    }
-    if (photoSelect.value() == 'Photo4'){
-      image_src = loadImage(`/showcase/sketches/photos/Photo4.jpg`);
-      mosaic.setUniform('source', image_src);
-      
-    }
-    if (photoSelect.value() == 'Photo5'){
-      image_src = loadImage(`/showcase/sketches/photos/Photo5.jpg`);
-      mosaic.setUniform('source', image_src);
-      
-    }
-  });
+  texturaD = 'None'
+  textura = createSelect();
+  textura.position(15, 15);
+  textura.style('width', '90px');
+  textura.option('None'); 
+  textura.option('truchet'); 
+  textura.option('color');
+  textura.option('bricks');
+  textura.option('dots');
+  textura.option('plasma');
+
 }
 
 function draw() {
-  // which previous exercise does this code actually solve?
-  /*
-        y                  v
-        |                  |
-  (-1,1)|     (1,1)        (0,1)     (1,1)
-  *_____|_____*            *__________*   
-  |     |     |            |          |        
-  |_____|_____|__x         | texture  |        
-  |     |     |            |  space   |
-  *_____|_____*            *__________*___ u
-  (-1,-1)    (1,-1)       (0,0)    (1,0) 
-  */
-  beginShape();
-  vertex(-1, -1, 0, 0, 1);
-  vertex(1, -1, 0, 1, 1);
-  vertex(1, 1, 0, 1, 0);
-  vertex(-1, 1, 0, 0, 0);
-  endShape();
+  background(33);
+  orbitControl();
+  cylinder(100, 200);
+  console.log(opcionesS[textura.value()]);  
+  if(opcionesS[textura.value()] == 0){
+    pg.textureMode(NORMAL);
+    pg.noStroke();
+    pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+    texture(pg);
+  }
+  else if(opcionesS[textura.value()] == 1){
+    pg.textureMode(NORMAL);
+    pg.noStroke();
+    pg.shader(truchetShader);
+    // emitResolution, see:
+    // https://github.com/VisualComputing/p5.treegl#macros
+    pg.emitResolution(truchetShader);
+    // https://p5js.org/reference/#/p5.Shader/setUniform
+    truchetShader.setUniform('u_zoom', 3);
+    // pg clip-space quad (i.e., both x and y vertex coordinates ∈ [-1..1])
+    pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+    // set pg as texture
+    texture(pg);
+  }
+  else if (opcionesS[textura.value()] == 2){
+    pg.textureMode(NORMAL);
+    pg.noStroke();
+    pg.shader(colorShader);
+    pg.emitResolution(colorShader);
+    //colorShader.setUniform('u_zoom', 3);
+    pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+    texture(pg);
+  }
+  else if (opcionesS[textura.value()] == 3){
+    pg.textureMode(NORMAL);
+    pg.noStroke();
+    pg.shader(brickShader);
+    pg.emitResolution(brickShader);
+    //brickShader.setUniform('u_zoom', 3);
+    pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+    texture(pg);
+  }
+  else if (opcionesS[textura.value()] == 4){
+    pg.textureMode(NORMAL);
+    pg.noStroke();
+    pg.shader(dotsShader);
+    pg.emitResolution(dotsShader);
+    //dotsShader.setUniform('u_zoom', 3);
+    pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+    texture(pg);
+  }
+  else if (opcionesS[textura.value()] == 5){
+    pg.textureMode(NORMAL);
+    pg.noStroke();
+    pg.shader(plasmaShader);
+    pg.emitResolution(plasmaShader);
+    //dotsShader.setUniform('u_zoom', 3);
+    pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+    texture(pg);
+  }
 }
 
+function mouseMoved() {
+  // https://p5js.org/reference/#/p5.Shader/setUniform
+  truchetShader.setUniform('_zoom', int(map(mouseX, 0, width, 1, 30)));
+  // pg clip-space quad (i.e., both x and y vertex coordinates ∈ [-1..1])
+  pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+}
 {{< /highlight >}}
 {{< /details >}}
 
-{{< details title="SpatialCoherence.frag" open=false >}}
+{{< details title="fragment shader truchet" open=false >}}
 {{< highlight js >}}
-
+#ifdef GL_ES
 precision mediump float;
+#endif
 
-// source (image or video) is sent by the sketch
-uniform sampler2D source;
-// displays original
-uniform bool original;
-// target horizontal & vertical resolution
-uniform float resolution;
+#define PI 3.14159265358979323846
 
-// interpolated texcoord (same name and type as in vertex shader)
-// defined as a (normalized) vec2 in [0..1]
-varying vec2 texcoords2;
+uniform vec2 u_resolution;
+uniform float u_time;
 
-void main() {
-  if (original) {
-    gl_FragColor = texture2D(source, texcoords2);
-  }
-  else {
-    // define stepCoord to sample the texture source as a 3-step process:
-    // i. define stepCoord as a texcoords2 remapping in [0.0, resolution] ∈ R
-    vec2 stepCoord = texcoords2 * resolution;
-    // ii. remap stepCoord in [0.0, resolution] ∈ Z
-    // see: https://thebookofshaders.com/glossary/?search=floor
-    stepCoord = floor(stepCoord);
-    // iii. remap stepCoord in [0.0, 1.0] ∈ R
-    stepCoord = stepCoord / vec2(resolution);
-    // source texel
-    gl_FragColor = texture2D(source, stepCoord);
-    // ✨ source texels may be used to compute image palette lookup keys,
-    // such as in video & photographic mosaics or ascii art visualizations.
-  }
+vec2 rotate2D (vec2 _st, float _angle) {
+    _st -= 0.5;
+    _st =  mat2(cos(_angle),-sin(_angle),
+                sin(_angle),cos(_angle)) * _st;
+    _st += 0.5;
+    return _st;
 }
 
+vec2 tile (vec2 _st, float _zoom) {
+    _st *= _zoom;
+    return fract(_st);
+}
+
+vec2 rotateTilePattern(vec2 _st){
+
+    //  Scale the coordinate system by 2x2
+    _st *= 2.0;
+
+    //  Give each cell an index number
+    //  according to its position
+    float index = 0.0;
+    index += step(1., mod(_st.x,2.0));
+    index += step(1., mod(_st.y,2.0))*2.0;
+
+    //      |
+    //  2   |   3
+    //      |
+    //--------------
+    //      |
+    //  0   |   1
+    //      |
+
+    // Make each cell between 0.0 - 1.0
+    _st = fract(_st);
+
+    // Rotate each cell according to the index
+    if(index == 1.0){
+        //  Rotate cell 1 by 90 degrees
+        _st = rotate2D(_st,PI*0.5);
+    } else if(index == 2.0){
+        //  Rotate cell 2 by -90 degrees
+        _st = rotate2D(_st,PI*-0.5);
+    } else if(index == 3.0){
+        //  Rotate cell 3 by 180 degrees
+        _st = rotate2D(_st,PI);
+    }
+
+    return _st;
+}
+
+void main (void) {
+    vec2 st = gl_FragCoord.xy/u_resolution.xy;
+
+    st = tile(st,3.0);
+    st = rotateTilePattern(st);
+
+    // Make more interesting combinations
+    st = tile(st,2.0);
+    st = rotate2D(st,-PI*u_time*0.25);
+    st = rotateTilePattern(st*2.);
+    st = rotate2D(st,PI*u_time*0.25);
+
+    // step(st.x,st.y) just makes a b&w triangles
+    // but you can use whatever design you want.
+    gl_FragColor = vec4(vec3(step(st.x,st.y)),1.0);
+}
+{{< /highlight >}}
+{{< /details >}}
+
+{{< details title="fragment shader plasma" open=false >}}
+{{< highlight js >}}
+#ifdef GL_ES
+precision mediump float;
+#endif
+
+uniform vec2 u_resolution;
+uniform vec2 u_mouse;
+uniform float u_time;
+
+float random (in vec2 st) {
+    return fract(sin(dot(st.xy,
+                         vec2(12.9898,78.233)))*
+        43758.5453123);
+}
+
+vec2 random2(vec2 p) {
+    return fract(sin(vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3))))*43758.5453);
+}
+
+float cellular(vec2 p) {
+    vec2 i_st = floor(p);
+    vec2 f_st = fract(p);
+    float m_dist = 10.;
+    for (int j=-1; j<=1; j++ ) {
+        for (int i=-1; i<=1; i++ ) {
+            vec2 neighbor = vec2(float(i),float(j));
+            vec2 point = random2(i_st + neighbor);
+            point = 0.5 + 0.5*sin(6.2831*point);
+            vec2 diff = neighbor + point - f_st;
+            float dist = length(diff);
+            if( dist < m_dist ) {
+                m_dist = dist;
+            }
+        }
+    }
+    return m_dist;
+}
+
+void main() {
+    vec2 st = gl_FragCoord.xy / u_resolution.xy;
+    st.x *= u_resolution.x / u_resolution.y;
+    st *= 5.0;
+    float r = cellular(st);
+    float b = cellular(st - vec2(0.0, sin(u_time * 0.5) * 0.5));
+    gl_FragColor = vec4(r, 0.0, b, 1.0);
+}
 {{< /highlight >}}
 {{< /details >}}
 
 **Aplicaciones**
 
-Este tipo de fenómenos pueden aplicarse para generar un efecto ya sea de enfoque o desenfoque en elementos específicos, como de profundidad y ambientación de espacios.
+Este tipo de texturas son utilizadas, debido a sus características, para el modelamiento de representaciones superficiales de elementos naturales, como lo podrían ser madera, mármol, piera, entre otros. Es por esto, que esta forma de representación podría ser utilizada en la ambientación de espacios, sobretodo en aquellos que, por sus mecánicas, pudieran requerir alto dinamismo y velocidad.
+
+**Conclusiones**
+
+- Las texturas procedimentales son una muestra de que existen mecanismos para el modelamiento de diferentes elementos de maneras altamente eficientes y efectivas.
+- El uso de las texturas sobre sólidos permite emular elementos o estructuras para generar ambientación.
 
 {{<hint warning>}}
-### **Referencias**
-- https://visualcomputing.github.io/docs/shaders/spatial_coherence/
+**Referencias**
+- https://en.wikipedia.org/wiki/Procedural_texture
+- Shaders tomados de The Book of Shaders, https://thebookofshaders.com/09/
+-  Fuente shader plasma: https://thebookofshaders.com/edit.php?log=161127235422
 {{</hint>}}
-
