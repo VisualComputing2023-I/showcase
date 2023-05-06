@@ -2,9 +2,10 @@
 
 En computación gráfica, una [textura procedimental](https://en.wikipedia.org/wiki/Procedural_texture) es una textura creada mediante una descripción matemática (es decir, un algoritmo), en lugar de datos almacenados directamente. La ventaja de este enfoque es el bajo coste de almacenamiento, la resolución ilimitada de las texturas y la facilidad de mapeo de las mismas.
 
-{{< p5-iframe sketch="/showcase/content/content/sketches/Shaders/Procedural_Texturing/Procedural_Texturing.js" width="425" height="425" >}}
+{{< p5-iframe sketch="/showcase/content/sketches/Shaders/Procedural_Texturing/Procedural_Texturing.js" width="425" height="425" >}}
 
-VisualComputing2023-I/showcase/content/content/sketches/Shaders/Procedural_Texturing/texturing_bricks.frag
+VisualComputing2023-I/showcase/content/sketches/Shaders/Procedural_Texturing/texturing_bricks.frag
+JuanCll/showcase/content/sketches/SHADERS/texturing/texturing.js
 
 {{< details title="procedural Procedural_Texturing js" open=false >}}
 {{< highlight js >}}
