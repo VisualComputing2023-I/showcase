@@ -188,22 +188,9 @@ El procesamiento de imágenes tiene muchos campos de acción. Gracias  a su gran
 
 - <b>Medicina</b> : Es de gran utilidad para la visualización de imágenes como radiografías, resonancias, tacs, entre otros exámenes que funcionan bajo este método.
 
-<center>
-<img src="/showcase/sketches/image_processing\mislow-neurosurgclinnam2009-fig3.jpeg">
-</center>
-
-
 - <b> Agricultura </b> : Ayuda a identificar eficazmente los frutos, y diferenciar la maleza de la planta en general.
 
-<center>
-<img src="/showcase/sketches/image_processing\Como-procesar-imagenes-multiespectrales-en-agricultura.jpg">
-</center>
-
 - <b> Espacio Exterior </b> : Ha permitido a la humanidad avistar grandes planetas, galaxias entre otras, y el logro más reciente de este método fue poder visualizar de una manera clara un hoyo negro.
-
-<center>
-<img src="/showcase/sketches/image_processing\hubble-aniversario-treinta.jpg">
-</center>
 
 ## Conclusiones
 
