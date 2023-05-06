@@ -2,7 +2,10 @@
 
 En computación gráfica, una [textura procedimental](https://en.wikipedia.org/wiki/Procedural_texture) es una textura creada mediante una descripción matemática (es decir, un algoritmo), en lugar de datos almacenados directamente. La ventaja de este enfoque es el bajo coste de almacenamiento, la resolución ilimitada de las texturas y la facilidad de mapeo de las mismas.
 
-{{< p5-iframe sketch="/showcase/sketches/Shaders/Procedural_Texturing/Procedural_Texturing.js" width="425" height="425" >}}
+{{< p5-iframe sketch="/showcase/content/content/sketches/Shaders/Procedural_Texturing/Procedural_Texturing.js" width="425" height="425" >}}
+
+VisualComputing2023-I/showcase/content/content/sketches/Shaders/Procedural_Texturing/texturing_bricks.frag
+
 {{< details title="procedural Procedural_Texturing js" open=false >}}
 {{< highlight js >}}
 let pg;
@@ -16,15 +19,15 @@ const opcionesS  = {'None': 0, 'truchet':1, 'color':2,'bricks':3,'dots':4, 'plas
 
 function preload() {
   // shader adapted from here: https://thebookofshaders.com/09/
-  truchetShader = readShader('/showcase/sketches/shaders/Procedural_Texturing/texturing_truchet.frag',
+  truchetShader = readShader('/showcase/content/sketches/shaders/Procedural_Texturing/texturing_truchet.frag',
                              { matrices: Tree.NONE, varyings: Tree.NONE });
-  colorShader = readShader('/showcase/sketches/shaders/Procedural_Texturing/texturing_color.frag',
+  colorShader = readShader('/showcase/content/sketches/shaders/Procedural_Texturing/texturing_color.frag',
                              { matrices: Tree.NONE, varyings: Tree.NONE });
-  brickShader = readShader('/showcase/sketches/shaders/Procedural_Texturing/texturing_bricks.frag',
+  brickShader = readShader('/showcase/content/sketches/shaders/Procedural_Texturing/texturing_bricks.frag',
                              { matrices: Tree.NONE, varyings: Tree.NONE });   
-  dotsShader = readShader('/showcase/sketches/shaders/Procedural_Texturing/texturing_dots.frag',
+  dotsShader = readShader('/showcase/content/sketches/shaders/Procedural_Texturing/texturing_dots.frag',
                              { matrices: Tree.NONE, varyings: Tree.NONE }); 
-  plasmaShader = readShader('/showcase/sketches/shaders/Procedural_Texturing/texturing_plasma.frag',
+  plasmaShader = readShader('/showcase/content/sketches/shaders/Procedural_Texturing/texturing_plasma.frag',
                              { matrices: Tree.NONE, varyings: Tree.NONE })                                                 
 }
 
