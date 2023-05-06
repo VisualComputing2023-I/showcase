@@ -4,9 +4,6 @@ En computación gráfica, una [textura procedimental](https://en.wikipedia.org/w
 
 {{< p5-iframe sketch="/showcase/content/sketches/Shaders/Procedural_Texturing/Procedural_Texturing.js" width="425" height="425" >}}
 
-VisualComputing2023-I/showcase/content/sketches/Shaders/Procedural_Texturing/texturing_bricks.frag
-JuanCll/showcase/content/sketches/SHADERS/texturing/texturing.js
-
 {{< details title="procedural Procedural_Texturing js" open=false >}}
 {{< highlight js >}}
 let pg;
