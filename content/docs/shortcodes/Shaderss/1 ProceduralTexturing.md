@@ -4,7 +4,7 @@ En computación gráfica, una [textura procedimental](https://en.wikipedia.org/w
 
 {{< p5-iframe sketch="/showcase/sketches/Shaders/Procedural_Texturing/texturing.js" width="425" height="425" >}}
 
-{{< details title="procedural Procedural_Texturing js" open=false >}}
+{{< details title="Procedural Texturing" open=false >}}
 {{< highlight js >}}
 let pg;
 let colt;
