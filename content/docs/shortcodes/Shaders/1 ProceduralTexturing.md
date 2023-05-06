@@ -1,4 +1,4 @@
-# Procedural texturing ⚽
+# Procedural texturing
 
 {{< hint danger >}}
 <b> Exercise </b>
@@ -6,7 +6,7 @@
 Adapte otros patrones del <a href="https://thebookofshaders.com/09/" target="_blank">libro de shaders</a> y apliquelos a otras figuras 3D.
 {{< /hint >}}
 
-## Source Code (Ejercicio 1)
+## Source Code
 
 Los fragment shaders correspondientes fueron tomados de el <a href="https://thebookofshaders.com/09/" target="_blank">libro de shaders</a>.
 
