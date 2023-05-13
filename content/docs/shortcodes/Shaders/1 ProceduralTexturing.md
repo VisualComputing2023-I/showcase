@@ -114,9 +114,9 @@ Se espera que los avances en técnicas de aprendizaje automático permitan la cr
 
 # **Referencias**
 
-*   [Primera para la implementación de los ejercicios](https://thebookofshaders.com/09/)
+*   [Primera guía para la implementación de los ejercicios](https://thebookofshaders.com/09/)
 
-*   [Segunda para la implementación de los ejercicios](https://www.shadertoy.com/)
+*   [Segunda guía para la implementación de los ejercicios](https://www.shadertoy.com/)
 
 *   [repositorio de ejemplos de p5.js](https://p5js.org/examples/)
 
