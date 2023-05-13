@@ -4,6 +4,8 @@
 <b> Ejercicio </b>
 
 Adapte otros patrones del <a href="https://thebookofshaders.com/09/" target="_blank">libro de shaders</a> y apliquelos a otras figuras 3D.
+
+Adapta otros patrones del <a href="https://www.shadertoy.com/" target="_blank">libro de shaders</a> (consulta también la colección <a href="https://thebookofshaders.com/09/" target="_blank">shadertoy</a>) y mapeelos como texturas sobre otras formas 3D.
 {{< /hint >}}
 
 # **Introducción**
