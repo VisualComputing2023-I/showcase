@@ -118,7 +118,7 @@ Se espera que los avances en técnicas de aprendizaje automático permitan la cr
 
 *   [Segunda guía para la implementación de los ejercicios](https://www.shadertoy.com/)
 
-*   [repositorio de ejemplos de p5.js](https://p5js.org/examples/)
+*   [Repositorio de ejemplos de p5.js](https://p5js.org/examples/)
 
 *   [Edición de texto](https://chat.openai.com/)
 
