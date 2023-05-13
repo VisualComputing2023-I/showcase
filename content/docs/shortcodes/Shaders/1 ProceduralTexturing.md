@@ -105,7 +105,8 @@ function mouseMoved() {
 
 4. Es posible realizar ajustes y modificaciones rápidos en las texturas durante el proceso de creación de efectos visuales mediante el texturizado procedural, lo que proporciona una mayor flexibilidad y adaptabilidad en función de las necesidades del proyecto. Además, estos ajustes se pueden realizar en tiempo real, lo que acelera el proceso de creación y evita la necesidad de volver a crear las texturas desde cero en caso de que se produzcan cambios en el diseño.
 
-5. 
+5. Dado que el texturizado procedural implica la creación de texturas a través de procedimientos y reglas matemáticas, se necesita tener conocimientos especializados en programación y matemáticas para poder utilizar esta técnica. Por lo tanto, su uso puede estar restringido a artistas digitales con habilidades técnicas avanzadas.
+
 
 # **Trabajo futuro**
 
