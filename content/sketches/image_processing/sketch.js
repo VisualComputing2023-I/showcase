@@ -42,14 +42,14 @@ let kernels = {
 };
 
 function preload() {
-  video = createVideo(["/showcase/sketches/image_processing/video.mp4"]);
+  video = createVideo(["/showcase/sketches/image_processing/earth.mp4"]);
   video.hide();
 
   myShader = readShader("/showcase/sketches/image_processing/color.frag", {
     varyings: Tree.texcoords2,
   });
 
-  img = loadImage("/showcase/sketches/image_processing/animal.jpg");
+  img = loadImage("/showcase/sketches/image_processing/elephants.jpg");
 }
 
 function setup() {
