@@ -1,7 +1,7 @@
-# Image/Video processing 🖼️
+# 2 - Image And Video Processing
 
-{{< hint danger >}}
-<b> Workshop </b>
+{{< hint info >}}
+<b> Exercise </b>
 
 Implement an image / video processing app supporting different masks, including other kernel sizes different than 3x3, and:
 
@@ -10,60 +10,10 @@ Implement an image / video processing app supporting different masks, including 
 - Integrate luma and other coloring brightness tools.
   {{< /hint >}}
 
-## Marco teórico
+# **Introducción**
+### **Hablar más del tema**
 
-### Kernel
-
-Un kernel o mascara es una matriz usada para aplicar algun tipo de efecto como difuminado, detección de bordes
-, sobre una imagen. Eso se logra realizando una convolución entre el kernel y la imagen.
-{{< hint info >}}
-**¿Qué es una convolución?**  
-En procesamiento de imagenes, una convolución consiste en multiplicar cada píxel de la imagen por la entrada correspondiente del kernel, luego al sumar todos los resultados, se obtiene el valor del nuevo píxel.
-{{< /hint >}}
-
-A modo de ejemplo, se escogieron los siguientes kernels para mostrar su aplicación:
-
-{{< details "Sharpening" closed >}}
-{{< katex display>}}
-\begin{bmatrix}
-0 & -1 & 0\\
--1 & 5 & -1\\
-0 & -1 & 0\\
-\end{bmatrix}
-{{< /katex >}}
-{{< /details >}}
-
-{{< details "Emboss" closed >}}
-{{< katex display>}}
-\begin{bmatrix}
--2 & -1 & 0\\
--1 & 1 & 1\\
-0 & 1 & 2\\
-\end{bmatrix}
-{{< /katex >}}
-{{< /details >}}
-
-{{< details "Blur" closed >}}
-{{< katex display>}}
-\begin{bmatrix}
-0.0625 & 0.125 & 0.0625\\
-0.125 & 0.25 & 0.125\\
-0.0625 & 0.125 & 0.0625\\
-\end{bmatrix}
-{{< /katex >}}
-{{< /details >}}
-
-{{< details "Edge detection" closed >}}
-{{< katex display>}}
-\begin{bmatrix}
--1 & -1 & -1\\
--1 & 8 & -1\\
--1 & -1 & -1\\
-\end{bmatrix}
-{{< /katex >}}
-{{< /details >}}
-
-## Solución y resultados
+### Solución (Código):
 
 A continuación se muestran los fragmentos más relevante del código del fragment shader usado.  
 Primero, estas son las variables usadas:
@@ -155,6 +105,8 @@ Por último, para realizar el efecto de lupa:
 
 {{< details "Lupa" closed >}}
 
+### Resultado:
+
 ```glsl
 vec2 mouseDist = gl_FragCoord.xy - mouse;
 
@@ -181,35 +133,11 @@ gl_FragColor = zoomedTexel;
 
 </div>
 
+# **Conclusiones**
 
-## Aplicaciones 
+1. 
 
-El procesamiento de imágenes tiene muchos campos de acción. Gracias  a su gran utilidad se ha extendido de  gran manera en toda la vida y lo podemos observar aplicado por ejemplo en  la medicina, la agricultura y  el espacio exterior.
-
-- <b>Medicina</b> : Es de gran utilidad para la visualización de imágenes como radiografías, resonancias, tacs, entre otros exámenes que funcionan bajo este método.
-
-<center>
-<img src="/showcase/sketches/image_processing\mislow-neurosurgclinnam2009-fig3.jpeg">
-</center>
-
-
-- <b> Agricultura </b> : Ayuda a identificar eficazmente los frutos, y diferenciar la maleza de la planta en general.
-
-<center>
-<img src="/showcase/sketches/image_processing\Como-procesar-imagenes-multiespectrales-en-agricultura.jpg">
-</center>
-
-- <b> Espacio Exterior </b> : Ha permitido a la humanidad avistar grandes planetas, galaxias entre otras, y el logro más reciente de este método fue poder visualizar de una manera clara un hoyo negro.
-
-<center>
-<img src="/showcase/sketches/image_processing\hubble-aniversario-treinta.jpg">
-</center>
-
-## Conclusiones
-
-- La forma del area de interes o de la lupa se puede cambiar usando diferentes aproximaciones
-- Las coordenadas de cada fragmento se deben normalizar
-- El eje y se debe invertir
+# **Trabajo futuro**
 
 # Referencias
 
