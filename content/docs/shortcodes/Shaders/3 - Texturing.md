@@ -1,20 +1,17 @@
 # Texturing
 
-## Planteamiento del problema
-LUMA: El luma representa el brillo de una imagen (la parte "en blanco y negro" o acromática de la imagen). El luma suele ir emparejado con la crominancia. El luma representa la imagen acromática, mientras que los componentes del croma representan la información del color. Es un término comúnmente utilizado en el procesamiento digital de imágenes para caracterizar a cada píxel.
-En los formatos digitales que siguen el estándar CCIR_601, la luma Y de un píxel se calcula con la fórmula Y = 0,299R + 0,587G + 0,114B.
+{{< hint info >}}
+<b> Exercise </b>
 
-Inverso del color. Una forma de pensar en la inversión del color es utilizar un modelo de color RGB. Se puede decir que todos los colores pueden representarse como una combinación de niveles de tres colores primarios diferentes: rojo, azul y verde. Por ejemplo, el azul puro sería 0% rojo, 0% verde y 100% azul. Si se resta cada uno de ellos de 100 para invertir sus valores, se obtiene un 100% de rojo, un 100% de verde y un 0% de azul. El rojo + el verde resultantes dan el amarillo, que es el color complementario del azul. El negro es 0% rojo, 0% verde y 0% azul, por lo que el inverso sería 100% rojo, 100% verde y 100% azul, que es el blanco. El gris podría representarse como un 50% de rojo, un 50% de verde y un 50% de azul (o algo parecido), por lo que el inverso del gris sería el gris. Por lo que basados en el modelo RGB obtenemos que el inverso del color es su color complementario, que puede ser encontrado al restar en una escala de 0 a 100, 100 a cada uno de sus valores correspondientes, rojo, verde y azul.
+1. Implement other coloring brightness tools such as HSV value V, HSL lightness L or Component average.
+2. Implement texture tinting by mixing color and texel interpolated data.
 
-Teñido. En este caso lo que se busca es teñir o tinturar una textura a partir de un color, para esto lo que se hace es multiplicar cada una de las componentes rgb del pixel de la textura con su correspondiente componente rgb del color de teñido, se realiza una multiplicación pues experimentalmente se halló que esta da un mejor realce al color de teñido, y permite que los valores se mantengan dentro del rango requerido, debido a que la multiplicación no supera los límites.
+{{< /hint >}}
 
-Eliminación. Dentro de la eliminación de un color, la idea fundamental es sustraer de la imagen y de cada pixel un porcentaje del color a eliminar, así por ejemplo, si lo que se desea es sustraer de una imagen las tonalidades azul, basándonos en un modelo de color RGB, lo adecuado es sustraerle a cada punto de color 0 en el espectro del rojo, 0 en el del verde y finalmente 100 en el azul, de tal manera que se elimina cualquier tonalidad de azul presente en la pintura y la imagen quedará ilustrada en términos de los colores restantes, rojo y verde.
+# **Introducción**
+### **Hablar más del tema**
 
-Teñido con interpolado. En este caso lo que se hizo fue generar una textura base con la cual se iba a teñir la textura objetivo, esta textura base se creó por medio de un cuadrado en el cual cada una de sus puntas tenía un color diferente y se generaba un degradado entre cada uno de los colores para llegar a los otros, luego de la misma manera que en el caso del primer teñido se multiplicó los componentes rgb del teñido objetivo por su correspondiente componente rgb pero esta vez no de un solo color de teñido sino del rgb del píxel correspondiente en la textura base.
-
-Foco de luz. El efecto de foco de luz se realizó mediante una técnica simillar a la de teñido con interpolado y a la de región de interés, por lo que se hace un teñido con tonos blancos, que es más fuerte conforme más cerca estén los pixeles del sitio donde se encuentren del mouse, y conforme esta distancia va aumentando estos tonos se van oscureciendo en una escala de grises hasta llegar al negro.
-
-## Código (solución) y resultados
+### Solución (Código) y resultado:
 Instrucciones de uso:
 - Se tiene un selector donde se puede escoger cual es la textura que se desea aplicar.
 - El botón de chequeo de “Cámara” permite activar la cámara para que sea eso lo que se pasa al shader.
@@ -23,7 +20,7 @@ Instrucciones de uso:
 - El botón “Randomize” permite generar valores aleatorios para las cuatro esquinas cuando se está en la textura teñida 2.
 
 
-{{< details title="Código fragment shader" open=false >}}
+{{< details title="Fragment Shader - Código" open=false >}}
 ```js
 precision mediump float;
 
@@ -259,7 +256,31 @@ function randomizeColor() {
   c4 = [random(0,255),random(0,255),random(0,255)]; 
 }{{< /p5-global-iframe >}}
 
-## Conclusiones y trabajo futuro
-Durante el desarrollo del ejercicio se estudiaron distintas manipulaciones de los colores de la imagen, pudiendo observar interesantes resultados que creemos son de utilidad para la industria de las artes gráficas y audiovisuales, dichos efectos explorados pueden ser usados para la evocación de sensaciones en los espectadores, adicionalmente de la capacidad que tiene para transformar la imagen percibida. Como trabajo futuro recomendamos estudiar nuevas formas o combinaciones de colores, esperando que tal vez combinaciones más complejas tanto en el campo de la iluminación como en el de los colores puedan ofrecer nuevas alternativas a las modificaciones que se pueden lograr. Así mismo durante el desarrollo pudimos evidenciar que para la técnica de teñido la multiplicación de los valores genera un resultado más natural para el ojo humano que una suma promedio entre los dos valores.
+# **Conclusiones**
 
-Adicionalmente, se motiva al desarrollo de una interfaz que permita una manipulación por áreas de la imagen, procurando permitir que el usuario delimite qué espacios de quieren que se vean afectados por el efecto otorgando así mayor libertad a la hora de usar el software.
+1. 
+
+# **Trabajo futuro**
+
+# Referencias
+
+{{< hint danger >}}
+
+- Rubio, O. (2020, 2 octubre). Procesamiento de imagenes. https://www.vistronica.com/blog/post/procesamiento-de-imagenes.html
+
+{{< /hint >}}
+
+
+<style>
+#cbat{
+  background-color: white;
+  opacity: 1;
+  background-image: radial-gradient(#444cf7 0.5px, white 0.5px);
+  background-size: 10px 10px;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+#cbat iframe{
+  border: none;
+}
+</style>
