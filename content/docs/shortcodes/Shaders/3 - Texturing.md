@@ -115,7 +115,7 @@ let c1, c2, c3, c4;
 
 function preload(){ 
   Shader = loadShader('/showcase/sketches/texturing.vert', '/showcase/sketches/texturing.frag'); 
-  tex = loadImage('/showcase/sketches/Turner.jpg'); }
+  tex = loadImage('/showcase/sketches/VanGogh.jpg'); }
 
 function setup() { 
   createCanvas(740, 550, WEBGL);
