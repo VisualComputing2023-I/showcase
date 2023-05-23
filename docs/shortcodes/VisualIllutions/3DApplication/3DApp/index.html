@@ -1,0 +1,1201 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Workshop: 3D WebGL app # Workshop
+Implement a 3d webgl application. The p5.treegl or any other libraries may be used. Problem statement # Design and implement a 3D Application using WebGL, through some library or framwork based on it.
+Background # WebGL # WebGL is an API for creating 3D graphics on web browsers without the need for any additional plug-ins, and is itself based on the OpenGL API. It uses the Canvas element from HTML to visualize the resulting graphics, and therefore is integrated with the DOM model."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Workshop: 3D WebGL app # Workshop
+Implement a 3d webgl application. The p5.treegl or any other libraries may be used. Problem statement # Design and implement a 3D Application using WebGL, through some library or framwork based on it.
+Background # WebGL # WebGL is an API for creating 3D graphics on web browsers without the need for any additional plug-ins, and is itself based on the OpenGL API. It uses the Canvas element from HTML to visualize the resulting graphics, and therefore is integrated with the DOM model."><meta property="og:type" content="article"><meta property="og:url" content="https://visualcomputing2023-i.github.io/showcase/docs/shortcodes/VisualIllutions/3DApplication/3DApp/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-05-23T16:50:02-05:00"><title>3 Dapp | Visual Computing 2023 I</title><link rel=manifest href=/showcase/manifest.json><link rel=icon href=/showcase/favicon.png type=image/x-icon><link rel=stylesheet href=/showcase/book.min.4b35fed0bea034bbc19c89c71e14b73fb9c68cfcc586b9382adfb9b7b103ba06.css integrity="sha256-SzX+0L6gNLvBnInHHhS3P7nGjPzFhrk4Kt+5t7EDugY=" crossorigin=anonymous><script defer src=/showcase/flexsearch.min.js></script>
+<script defer src=/showcase/en.search.min.3a8d658c77eb93c7f12a2b8af49a700131e474f288eefb605d9fa61576dbe5a7.js integrity="sha256-Oo1ljHfrk8fxKiuK9JpwATHkdPKI7vtgXZ+mFXbb5ac=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcase/><span>Visual Computing 2023 I</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Shortcodes</span><ul><li><input type=checkbox id=section-ec67a64aba70b9df3d2a9acd6c92e3bc class=toggle>
+<label for=section-ec67a64aba70b9df3d2a9acd6c92e3bc class="flex justify-between"><a href=/showcase/docs/shortcodes/p5/>P5</a></label><ul><li><a href=/showcase/docs/shortcodes/p5/iframe/>Iframe</a></li><li><a href=/showcase/docs/shortcodes/p5/div/>Div</a></li></ul></li><li><input type=checkbox id=section-37d133451a87125afc7e4d4a60cdb12b class=toggle>
+<label for=section-37d133451a87125afc7e4d4a60cdb12b class="flex justify-between"><a href=/showcase/docs/shortcodes/Shaders/>Shaders</a></label><ul><li><a href=/showcase/docs/shortcodes/Shaders/1-ProceduralTexturing/>1 Procedural Texturing</a></li><li><a href=/showcase/docs/shortcodes/Shaders/2-ImageProcessing/>2 Image Processing</a></li></ul></li><li><input type=checkbox id=section-46ef92ed4553b248f8f108332fae886a class=toggle>
+<label for=section-46ef92ed4553b248f8f108332fae886a class="flex justify-between"><a href=/showcase/docs/shortcodes/Team/>Team</a></label><ul><li><a href=/showcase/docs/shortcodes/Team/Diego-Alvarado/>Diego Alvarado</a></li><li><a href=/showcase/docs/shortcodes/Team/Juli%C3%A1n-Manosalva/>Julián Manosalva</a></li><li><a href=/showcase/docs/shortcodes/Team/Sebasti%C3%A1n-Pach%C3%B3n/>Sebastián Pachón</a></li></ul></li><li><input type=checkbox id=section-94839c8d59cd3fd9e827edbeb4e69371 class=toggle checked>
+<label for=section-94839c8d59cd3fd9e827edbeb4e69371 class="flex justify-between"><a href=/showcase/docs/shortcodes/VisualIllutions/>Visual Illutions</a></label><ul><li><a href=/showcase/docs/shortcodes/VisualIllutions/1-Visual-Illutions/>1 Visual Illutions</a></li><li><a href=/showcase/docs/shortcodes/VisualIllutions/2-Masking/>2 Masking</a></li><li><a href=/showcase/docs/shortcodes/VisualIllutions/3-Mach-Bands/>3 Mach Bands</a></li><li><a href=/showcase/docs/shortcodes/VisualIllutions/3DApplication/3DApp/ class=active>3 Dapp</a></li></ul></li></ul></li></ul><ul><li><a href=/showcase/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/showcase/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>3 Dapp</strong>
+<label for=toc-control><img src=/showcase/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#workshop-3d-webgl-app>Workshop: 3D WebGL app</a><ul><li><a href=#problem-statement>Problem statement</a></li><li><a href=#background>Background</a><ul><li><a href=#webgl>WebGL</a></li><li><a href=#threejs>Three.js</a></li></ul></li><li><a href=#code-solution--results>Code (solution) & results</a><ul><li><a href=#car-perspective-game>Car perspective game</a></li></ul></li><li><a href=#conclusions--future-work>Conclusions & future work</a></li><li><a href=#sources>Sources</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=workshop-3d-webgl-app>Workshop: 3D WebGL app
+<a class=anchor href=#workshop-3d-webgl-app>#</a></h1><blockquote class="book-hint info"><strong>Workshop</strong><br>Implement a 3d webgl application. The p5.treegl or any other libraries may be used.</blockquote><h2 id=problem-statement>Problem statement
+<a class=anchor href=#problem-statement>#</a></h2><p>Design and implement a 3D Application using WebGL, through some library or framwork based on it.</p><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><h3 id=webgl>WebGL
+<a class=anchor href=#webgl>#</a></h3><p>WebGL is an API for creating 3D graphics on web browsers without the need for any additional plug-ins, and is itself based on the OpenGL API. It uses the Canvas element from HTML to visualize the resulting graphics, and therefore is integrated with the DOM model. The API is managed by the <a href=https://www.khronos.org/>Kronos Group</a>.</p><h3 id=threejs>Three.js
+<a class=anchor href=#threejs>#</a></h3><p>Three.js is an open-source JavaScript library used to create GPU-accelerated 3D animations inside of websites. It is based on the WebGL API, and therefore does not require additional plug-ins. It provides a higher level API for creating complex 3D graphics and animations.</p><h2 id=code-solution--results>Code (solution) & results
+<a class=anchor href=#code-solution--results>#</a></h2><h3 id=car-perspective-game>Car perspective game
+<a class=anchor href=#car-perspective-game>#</a></h3><p>Our code is based on <a href=https://www.freecodecamp.org/news/three-js-tutorial/>Hunor Marton&rsquo;s tutorial</a> for a basic 3D game with textures. We removed the additional computer-controlled cars. Afterwards, we added support for multidirectional controls that used the current position and rotation to updated the cars properties, so that the inputs are now given with respect of the cars point of view regardless of the of the camera perspective. In addition to the existing orthografic camera, we added support for a perspective camera that sits right behind and a little over the car, and set up a key press to change the camera perspective from the original <code>OrthographicCamera</code> to the new <code>PerspectiveCamera</code> and viceversa.</p><details><summary>JavaScript code</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span>window.<span style=color:#a6e22e>focus</span>(); <span style=color:#75715e>// Capture keys right away (by default focus is on editor)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Pick a random value from an array
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>pickRandom</span>(<span style=color:#a6e22e>array</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>array</span>[Math.<span style=color:#a6e22e>floor</span>(Math.<span style=color:#a6e22e>random</span>() <span style=color:#f92672>*</span> <span style=color:#a6e22e>array</span>.<span style=color:#a6e22e>length</span>)];
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>vehicleColors</span> <span style=color:#f92672>=</span> [
+</span></span><span style=display:flex><span>  <span style=color:#ae81ff>0xa52523</span>,
+</span></span><span style=display:flex><span>  <span style=color:#ae81ff>0xef2d56</span>,
+</span></span><span style=display:flex><span>  <span style=color:#ae81ff>0x0ad3ff</span>,
+</span></span><span style=display:flex><span>  <span style=color:#ae81ff>0xff9f1c</span> <span style=color:#75715e>/*0xa52523, 0xbdb638, 0x78b14b*/</span>
+</span></span><span style=display:flex><span>];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>lavaRed</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;#7cfc00&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>trackColor</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;black&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>blockColor</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;#BF9742&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>mountainColor</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;#A47E3B&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>baseColor</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;#61481C&#34;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>wheelGeometry</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>BoxBufferGeometry</span>(<span style=color:#ae81ff>12</span>, <span style=color:#ae81ff>33</span>, <span style=color:#ae81ff>12</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>wheelMaterial</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>MeshLambertMaterial</span>({
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>color</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>0x333333</span>
+</span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>config</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>shadows</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>, <span style=color:#75715e>// Use shadow
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>trees</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>, <span style=color:#75715e>// Add trees to the map
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>curbs</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>, <span style=color:#75715e>// Show texture on the extruded geometry
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>grid</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>false</span> <span style=color:#75715e>// Show grid helper
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>playerAngleInitial</span> <span style=color:#f92672>=</span> Math.<span style=color:#a6e22e>PI</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>playerAngleMoved</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>accelerate</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>; <span style=color:#75715e>// Is the player accelerating
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>decelerate</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>; <span style=color:#75715e>// Is the player decelerating
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>turnLeft</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>; <span style=color:#75715e>// Is player turning left
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>turnRight</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>; <span style=color:#75715e>// Is player turning right
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>inOrthographicView</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>ready</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>lastTimestamp</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>trackRadius</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>225</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>trackWidth</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>45</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>innerTrackRadius</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>trackRadius</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>trackWidth</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>outerTrackRadius</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>trackRadius</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>trackWidth</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>arcAngle1</span> <span style=color:#f92672>=</span> (<span style=color:#ae81ff>1</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>3</span>) <span style=color:#f92672>*</span> Math.<span style=color:#a6e22e>PI</span>; <span style=color:#75715e>// 60 degrees
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>deltaY</span> <span style=color:#f92672>=</span> Math.<span style=color:#a6e22e>sin</span>(<span style=color:#a6e22e>arcAngle1</span>) <span style=color:#f92672>*</span> <span style=color:#a6e22e>innerTrackRadius</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>arcAngle2</span> <span style=color:#f92672>=</span> Math.<span style=color:#a6e22e>asin</span>(<span style=color:#a6e22e>deltaY</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>outerTrackRadius</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>arcCenterX</span> <span style=color:#f92672>=</span>
+</span></span><span style=display:flex><span>  (Math.<span style=color:#a6e22e>cos</span>(<span style=color:#a6e22e>arcAngle1</span>) <span style=color:#f92672>*</span> <span style=color:#a6e22e>innerTrackRadius</span> <span style=color:#f92672>+</span>
+</span></span><span style=display:flex><span>    Math.<span style=color:#a6e22e>cos</span>(<span style=color:#a6e22e>arcAngle2</span>) <span style=color:#f92672>*</span> <span style=color:#a6e22e>outerTrackRadius</span>) <span style=color:#f92672>/</span>
+</span></span><span style=display:flex><span>  <span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>arcAngle3</span> <span style=color:#f92672>=</span> Math.<span style=color:#a6e22e>acos</span>(<span style=color:#a6e22e>arcCenterX</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>innerTrackRadius</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>arcAngle4</span> <span style=color:#f92672>=</span> Math.<span style=color:#a6e22e>acos</span>(<span style=color:#a6e22e>arcCenterX</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>outerTrackRadius</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Set up physics
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>world</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>World</span>();
+</span></span><span style=display:flex><span><span style=color:#a6e22e>world</span>.<span style=color:#a6e22e>gravity</span>.<span style=color:#a6e22e>set</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>9.82</span>); 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>lavaMesh</span>, <span style=color:#a6e22e>lavaBody</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>trackMesh</span>, <span style=color:#a6e22e>trackBody</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>blockMesh</span>, <span style=color:#a6e22e>blockBody</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>mountainMesh</span>, <span style=color:#a6e22e>mountainBody</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>baseMesh</span>, <span style=color:#a6e22e>baseBody</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>groundPhysMat</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Material</span>();
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>carPhysMat</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Material</span>();
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>groundBoxContactMat</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>ContactMaterial</span>(
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>groundPhysMat</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>carPhysMat</span>,
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>friction</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>0.04</span>,
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>restitution</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Initialize ThreeJs
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// Set up camera
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>aspectRatio</span> <span style=color:#f92672>=</span> window.<span style=color:#a6e22e>innerWidth</span> <span style=color:#f92672>/</span> window.<span style=color:#a6e22e>innerHeight</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>cameraWidth</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>960</span>;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>cameraHeight</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>cameraWidth</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>aspectRatio</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>camera</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>OrthographicCamera</span>(
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cameraWidth</span> <span style=color:#f92672>/</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>, <span style=color:#75715e>// left
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>cameraWidth</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>, <span style=color:#75715e>// right
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>cameraHeight</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>, <span style=color:#75715e>// top
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>cameraHeight</span> <span style=color:#f92672>/</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>, <span style=color:#75715e>// bottom
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#ae81ff>5</span>, <span style=color:#75715e>// near plane
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#ae81ff>2000</span> <span style=color:#75715e>// far plane
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>camera</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>set</span>(<span style=color:#ae81ff>200</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>500</span>, <span style=color:#ae81ff>630</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>camera</span>.<span style=color:#a6e22e>up</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>Vector3</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>camera</span>.<span style=color:#a6e22e>lookAt</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>scene</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>Scene</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>playerCar</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>Car</span>();
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>carBody</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Body</span>({
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>mass</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>20</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>shape</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Box</span>(<span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Vec3</span>(<span style=color:#ae81ff>60</span>, <span style=color:#ae81ff>30</span>, <span style=color:#ae81ff>15</span>)),
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>material</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>carPhysMat</span>
+</span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span><span style=color:#a6e22e>world</span>.<span style=color:#a6e22e>addBody</span>(<span style=color:#a6e22e>carBody</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>scene</span>.<span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>playerCar</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>renderMap</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>world</span>.<span style=color:#a6e22e>addContactMaterial</span>(<span style=color:#a6e22e>groundBoxContactMat</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Set up lights
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>ambientLight</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>AmbientLight</span>(<span style=color:#ae81ff>0xffffff</span>, <span style=color:#ae81ff>0.6</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>scene</span>.<span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>ambientLight</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>dirLight</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>DirectionalLight</span>(<span style=color:#ae81ff>0xffffff</span>, <span style=color:#ae81ff>0.6</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>dirLight</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>set</span>(<span style=color:#ae81ff>100</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>300</span>, <span style=color:#ae81ff>300</span>);
+</span></span><span style=display:flex><span><span style=color:#a6e22e>dirLight</span>.<span style=color:#a6e22e>castShadow</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>dirLight</span>.<span style=color:#a6e22e>shadow</span>.<span style=color:#a6e22e>mapSize</span>.<span style=color:#a6e22e>width</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1024</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>dirLight</span>.<span style=color:#a6e22e>shadow</span>.<span style=color:#a6e22e>mapSize</span>.<span style=color:#a6e22e>height</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1024</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>dirLight</span>.<span style=color:#a6e22e>shadow</span>.<span style=color:#a6e22e>camera</span>.<span style=color:#a6e22e>left</span> <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>800</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>dirLight</span>.<span style=color:#a6e22e>shadow</span>.<span style=color:#a6e22e>camera</span>.<span style=color:#a6e22e>right</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>700</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>dirLight</span>.<span style=color:#a6e22e>shadow</span>.<span style=color:#a6e22e>camera</span>.<span style=color:#a6e22e>top</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>800</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>dirLight</span>.<span style=color:#a6e22e>shadow</span>.<span style=color:#a6e22e>camera</span>.<span style=color:#a6e22e>bottom</span> <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>300</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>dirLight</span>.<span style=color:#a6e22e>shadow</span>.<span style=color:#a6e22e>camera</span>.<span style=color:#a6e22e>near</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>100</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>dirLight</span>.<span style=color:#a6e22e>shadow</span>.<span style=color:#a6e22e>camera</span>.<span style=color:#a6e22e>far</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>800</span>;
+</span></span><span style=display:flex><span><span style=color:#a6e22e>scene</span>.<span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>dirLight</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// const cameraHelper = new THREE.CameraHelper(dirLight.shadow.camera);
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// scene.add(cameraHelper);
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>grid</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>gridHelper</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>GridHelper</span>(<span style=color:#ae81ff>80</span>, <span style=color:#ae81ff>8</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>gridHelper</span>.<span style=color:#a6e22e>rotation</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>=</span> Math.<span style=color:#a6e22e>PI</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>scene</span>.<span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>gridHelper</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Set up renderer
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>renderer</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>WebGLRenderer</span>({
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>antialias</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>powerPreference</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;high-performance&#34;</span>,
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>alpha</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span><span style=color:#a6e22e>renderer</span>.<span style=color:#a6e22e>setSize</span>(window.<span style=color:#a6e22e>innerWidth</span>, window.<span style=color:#a6e22e>innerHeight</span>);
+</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>config</span>.<span style=color:#a6e22e>shadows</span>) <span style=color:#a6e22e>renderer</span>.<span style=color:#a6e22e>shadowMap</span>.<span style=color:#a6e22e>enabled</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>document.<span style=color:#a6e22e>body</span>.<span style=color:#a6e22e>appendChild</span>(<span style=color:#a6e22e>renderer</span>.<span style=color:#a6e22e>domElement</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>reset</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>reset</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Reset position
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>playerAngleMoved</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>300</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>300</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>z</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>50</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>rotation</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>rotation</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>rotation</span>.<span style=color:#a6e22e>z</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>lastTimestamp</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>undefined</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Reset physics
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>carBody</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>copy</span>(<span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>position</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>carBody</span>.<span style=color:#a6e22e>quaternion</span>.<span style=color:#a6e22e>copy</span>(<span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>quaternion</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Place the player&#39;s car to the starting position
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>movePlayerCar</span>(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Render the scene
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>renderer</span>.<span style=color:#a6e22e>render</span>(<span style=color:#a6e22e>scene</span>, <span style=color:#a6e22e>camera</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>ready</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>startGame</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>ready</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>ready</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>renderer</span>.<span style=color:#a6e22e>setAnimationLoop</span>(<span style=color:#a6e22e>animation</span>);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>renderMap</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>lavaDimensions</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>x</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>2000</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>y</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>2000</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>pos_z</span><span style=color:#f92672>:</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>200</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>trackDimensions</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>x</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>800</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>y</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>700</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>pos_z</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>10</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>blockDimensions</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>x</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>100</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>y</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>50</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>pos_z</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>mountainDimensions</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>x</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>150</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>y</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>100</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>pos_z</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>baseDimensions</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>x</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>400</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>y</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>400</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>pos_z</span><span style=color:#f92672>:</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>200</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Lava
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>lavaBody</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Body</span>({
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>shape</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Box</span>(<span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Vec3</span>(<span style=color:#a6e22e>lavaDimensions</span>.<span style=color:#a6e22e>x</span><span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>, <span style=color:#a6e22e>lavaDimensions</span>.<span style=color:#a6e22e>y</span><span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>0.1</span>)),
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>type</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Body</span>.<span style=color:#a6e22e>STATIC</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>material</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>groundPhysMat</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>position</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Vec3</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>lavaDimensions</span>.<span style=color:#a6e22e>pos_z</span>),
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>world</span>.<span style=color:#a6e22e>addBody</span>(<span style=color:#a6e22e>lavaBody</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>lavaGeo</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>PlaneGeometry</span>(<span style=color:#a6e22e>lavaDimensions</span>.<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>lavaDimensions</span>.<span style=color:#a6e22e>y</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>lavaMat</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>MeshBasicMaterial</span>({ 
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>color</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>lavaRed</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>side</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>DoubleSide</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>wireframe</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>false</span> 
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>lavaMesh</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>Mesh</span>(<span style=color:#a6e22e>lavaGeo</span>, <span style=color:#a6e22e>lavaMat</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>scene</span>.<span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>lavaMesh</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Track
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>trackBody</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Body</span>({
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>shape</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Box</span>(<span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Vec3</span>(<span style=color:#a6e22e>trackDimensions</span>.<span style=color:#a6e22e>x</span><span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>, <span style=color:#a6e22e>trackDimensions</span>.<span style=color:#a6e22e>y</span><span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>0.1</span>)),
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>type</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Body</span>.<span style=color:#a6e22e>STATIC</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>material</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>groundPhysMat</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>position</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Vec3</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>trackDimensions</span>.<span style=color:#a6e22e>pos_z</span>),
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>world</span>.<span style=color:#a6e22e>addBody</span>(<span style=color:#a6e22e>trackBody</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>trackGeo</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>PlaneGeometry</span>(<span style=color:#a6e22e>trackDimensions</span>.<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>trackDimensions</span>.<span style=color:#a6e22e>y</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>trackMat</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>MeshBasicMaterial</span>({ 
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>color</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>trackColor</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>side</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>DoubleSide</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>wireframe</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>false</span> 
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>trackMesh</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>Mesh</span>(<span style=color:#a6e22e>trackGeo</span>, <span style=color:#a6e22e>trackMat</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>scene</span>.<span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>trackMesh</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Block
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>blockBody</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Body</span>({
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>shape</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Box</span>(<span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Vec3</span>(<span style=color:#a6e22e>blockDimensions</span>.<span style=color:#a6e22e>x</span><span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>, <span style=color:#a6e22e>blockDimensions</span>.<span style=color:#a6e22e>y</span><span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>1000</span>)),
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>type</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Body</span>.<span style=color:#a6e22e>STATIC</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>material</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>groundPhysMat</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>position</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Vec3</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>blockDimensions</span>.<span style=color:#a6e22e>pos_z</span>),
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>world</span>.<span style=color:#a6e22e>addBody</span>(<span style=color:#a6e22e>blockBody</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>blockGeo</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>BoxGeometry</span>(<span style=color:#a6e22e>blockDimensions</span>.<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>blockDimensions</span>.<span style=color:#a6e22e>y</span>, <span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>blockMat</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>MeshBasicMaterial</span>({ 
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>color</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>blockColor</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>side</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>DoubleSide</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>wireframe</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>false</span> 
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>blockMesh</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>Mesh</span>(<span style=color:#a6e22e>blockGeo</span>, <span style=color:#a6e22e>blockMat</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>scene</span>.<span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>blockMesh</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Mountain
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>mountainBody</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Body</span>({
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>shape</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Box</span>(<span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Vec3</span>(<span style=color:#a6e22e>mountainDimensions</span>.<span style=color:#a6e22e>x</span><span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>, <span style=color:#a6e22e>mountainDimensions</span>.<span style=color:#a6e22e>y</span><span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>700</span>)),
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>type</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Body</span>.<span style=color:#a6e22e>STATIC</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>material</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>groundPhysMat</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>position</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Vec3</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>mountainDimensions</span>.<span style=color:#a6e22e>pos_z</span>),
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>world</span>.<span style=color:#a6e22e>addBody</span>(<span style=color:#a6e22e>mountainBody</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>mountainGeo</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>BoxGeometry</span>(<span style=color:#a6e22e>mountainDimensions</span>.<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>mountainDimensions</span>.<span style=color:#a6e22e>y</span>, <span style=color:#ae81ff>700</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>mountainMat</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>MeshBasicMaterial</span>({ 
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>color</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>mountainColor</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>side</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>DoubleSide</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>wireframe</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>false</span> 
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>mountainMesh</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>Mesh</span>(<span style=color:#a6e22e>mountainGeo</span>, <span style=color:#a6e22e>mountainMat</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>scene</span>.<span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>mountainMesh</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Base
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>baseBody</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Body</span>({
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>shape</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Box</span>(<span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Vec3</span>(<span style=color:#a6e22e>baseDimensions</span>.<span style=color:#a6e22e>x</span><span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>, <span style=color:#a6e22e>baseDimensions</span>.<span style=color:#a6e22e>y</span><span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>500</span>)),
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>type</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Body</span>.<span style=color:#a6e22e>STATIC</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>material</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>groundPhysMat</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>position</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Vec3</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>baseDimensions</span>.<span style=color:#a6e22e>pos_z</span>),
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>world</span>.<span style=color:#a6e22e>addBody</span>(<span style=color:#a6e22e>baseBody</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>baseGeo</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>BoxGeometry</span>(<span style=color:#a6e22e>baseDimensions</span>.<span style=color:#a6e22e>x</span>, <span style=color:#a6e22e>baseDimensions</span>.<span style=color:#a6e22e>y</span>, <span style=color:#ae81ff>500</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>baseMat</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>MeshBasicMaterial</span>({ 
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>color</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>baseColor</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>side</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>DoubleSide</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>wireframe</span><span style=color:#f92672>:</span> <span style=color:#66d9ef>false</span> 
+</span></span><span style=display:flex><span>  });
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>baseMesh</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>Mesh</span>(<span style=color:#a6e22e>baseGeo</span>, <span style=color:#a6e22e>baseMat</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>scene</span>.<span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>baseMesh</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getCarFrontTexture</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>canvas</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;canvas&#34;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>canvas</span>.<span style=color:#a6e22e>width</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>64</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>canvas</span>.<span style=color:#a6e22e>height</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>32</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>context</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>canvas</span>.<span style=color:#a6e22e>getContext</span>(<span style=color:#e6db74>&#34;2d&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>fillStyle</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;#ffffff&#34;</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>fillRect</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>64</span>, <span style=color:#ae81ff>32</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>fillStyle</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;#666666&#34;</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>fillRect</span>(<span style=color:#ae81ff>8</span>, <span style=color:#ae81ff>8</span>, <span style=color:#ae81ff>48</span>, <span style=color:#ae81ff>24</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>CanvasTexture</span>(<span style=color:#a6e22e>canvas</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getCarSideTexture</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>canvas</span> <span style=color:#f92672>=</span> document.<span style=color:#a6e22e>createElement</span>(<span style=color:#e6db74>&#34;canvas&#34;</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>canvas</span>.<span style=color:#a6e22e>width</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>128</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>canvas</span>.<span style=color:#a6e22e>height</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>32</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>context</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>canvas</span>.<span style=color:#a6e22e>getContext</span>(<span style=color:#e6db74>&#34;2d&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>fillStyle</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;#ffffff&#34;</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>fillRect</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>128</span>, <span style=color:#ae81ff>32</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>fillStyle</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;#666666&#34;</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>fillRect</span>(<span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>8</span>, <span style=color:#ae81ff>38</span>, <span style=color:#ae81ff>24</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>fillRect</span>(<span style=color:#ae81ff>58</span>, <span style=color:#ae81ff>8</span>, <span style=color:#ae81ff>60</span>, <span style=color:#ae81ff>24</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>CanvasTexture</span>(<span style=color:#a6e22e>canvas</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>Car</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>car</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>Group</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>color</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pickRandom</span>(<span style=color:#a6e22e>vehicleColors</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>main</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>Mesh</span>(
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>BoxBufferGeometry</span>(<span style=color:#ae81ff>60</span>, <span style=color:#ae81ff>30</span>, <span style=color:#ae81ff>15</span>),
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>MeshLambertMaterial</span>({
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>color</span>
+</span></span><span style=display:flex><span>    })
+</span></span><span style=display:flex><span>  );
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>main</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>z</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>12</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>main</span>.<span style=color:#a6e22e>castShadow</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>main</span>.<span style=color:#a6e22e>receiveShadow</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>car</span>.<span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>main</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>carFrontTexture</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>getCarFrontTexture</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>carFrontTexture</span>.<span style=color:#a6e22e>center</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>Vector2</span>(<span style=color:#ae81ff>0.5</span>, <span style=color:#ae81ff>0.5</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>carFrontTexture</span>.<span style=color:#a6e22e>rotation</span> <span style=color:#f92672>=</span> Math.<span style=color:#a6e22e>PI</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>carBackTexture</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>getCarFrontTexture</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>carBackTexture</span>.<span style=color:#a6e22e>center</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>Vector2</span>(<span style=color:#ae81ff>0.5</span>, <span style=color:#ae81ff>0.5</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>carBackTexture</span>.<span style=color:#a6e22e>rotation</span> <span style=color:#f92672>=</span> <span style=color:#f92672>-</span>Math.<span style=color:#a6e22e>PI</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>carLeftSideTexture</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>getCarSideTexture</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>carLeftSideTexture</span>.<span style=color:#a6e22e>flipY</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>carRightSideTexture</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>getCarSideTexture</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>cabin</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>Mesh</span>(<span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>BoxBufferGeometry</span>(<span style=color:#ae81ff>33</span>, <span style=color:#ae81ff>24</span>, <span style=color:#ae81ff>12</span>), [
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>MeshLambertMaterial</span>({
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>map</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>carFrontTexture</span>
+</span></span><span style=display:flex><span>    }),
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>MeshLambertMaterial</span>({
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>map</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>carBackTexture</span>
+</span></span><span style=display:flex><span>    }),
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>MeshLambertMaterial</span>({
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>map</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>carLeftSideTexture</span>
+</span></span><span style=display:flex><span>    }),
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>MeshLambertMaterial</span>({
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>map</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>carRightSideTexture</span>
+</span></span><span style=display:flex><span>    }),
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>MeshLambertMaterial</span>({
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>color</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>0xffffff</span>
+</span></span><span style=display:flex><span>    }), <span style=color:#75715e>// top
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>MeshLambertMaterial</span>({
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>color</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>0xffffff</span>
+</span></span><span style=display:flex><span>    }) <span style=color:#75715e>// bottom
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  ]);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cabin</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>6</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cabin</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>z</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>25.5</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cabin</span>.<span style=color:#a6e22e>castShadow</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>cabin</span>.<span style=color:#a6e22e>receiveShadow</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>car</span>.<span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>cabin</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>backWheel</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Wheel</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>backWheel</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>18</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>car</span>.<span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>backWheel</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>frontWheel</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Wheel</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>frontWheel</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>18</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>car</span>.<span style=color:#a6e22e>add</span>(<span style=color:#a6e22e>frontWheel</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>car</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>Wheel</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>wheel</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>Mesh</span>(<span style=color:#a6e22e>wheelGeometry</span>, <span style=color:#a6e22e>wheelMaterial</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>wheel</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>z</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>6</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>wheel</span>.<span style=color:#a6e22e>castShadow</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>wheel</span>.<span style=color:#a6e22e>receiveShadow</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>wheel</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>window.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#34;keydown&#34;</span>, <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>event</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>key</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;ArrowUp&#34;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>startGame</span>();
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>accelerate</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>key</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;ArrowDown&#34;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>decelerate</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>key</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;ArrowLeft&#34;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>turnLeft</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>key</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;ArrowRight&#34;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>turnRight</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>key</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;R&#34;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>key</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;r&#34;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>reset</span>();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>key</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;C&#34;</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>key</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;c&#34;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>inOrthographicView</span>) <span style=color:#a6e22e>inOrthographicView</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>inOrthographicView</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>      <span style=color:#a6e22e>setUpOrthographicCamera</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>window.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#34;keyup&#34;</span>, <span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>event</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>key</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;ArrowUp&#34;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>accelerate</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>key</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;ArrowDown&#34;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>decelerate</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>key</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;ArrowLeft&#34;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>turnLeft</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>event</span>.<span style=color:#a6e22e>key</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;ArrowRight&#34;</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>turnRight</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>false</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>});
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>animation</span>(<span style=color:#a6e22e>timestamp</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span><span style=color:#a6e22e>lastTimestamp</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>lastTimestamp</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>timestamp</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>timeDelta</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>timestamp</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>lastTimestamp</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>movePlayerCar</span>(<span style=color:#a6e22e>timeDelta</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Apply gravity
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>timeStep</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>60</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>world</span>.<span style=color:#a6e22e>step</span>(<span style=color:#a6e22e>timeStep</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Update THREE car position
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>copy</span>(<span style=color:#a6e22e>carBody</span>.<span style=color:#a6e22e>position</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>quaternion</span>.<span style=color:#a6e22e>copy</span>(<span style=color:#a6e22e>carBody</span>.<span style=color:#a6e22e>quaternion</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>lavaMesh</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>copy</span>(<span style=color:#a6e22e>lavaBody</span>.<span style=color:#a6e22e>position</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>lavaMesh</span>.<span style=color:#a6e22e>quaternion</span>.<span style=color:#a6e22e>copy</span>(<span style=color:#a6e22e>lavaBody</span>.<span style=color:#a6e22e>quaternion</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>trackMesh</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>copy</span>(<span style=color:#a6e22e>trackBody</span>.<span style=color:#a6e22e>position</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>trackMesh</span>.<span style=color:#a6e22e>quaternion</span>.<span style=color:#a6e22e>copy</span>(<span style=color:#a6e22e>trackBody</span>.<span style=color:#a6e22e>quaternion</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>blockMesh</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>copy</span>(<span style=color:#a6e22e>blockBody</span>.<span style=color:#a6e22e>position</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>blockMesh</span>.<span style=color:#a6e22e>quaternion</span>.<span style=color:#a6e22e>copy</span>(<span style=color:#a6e22e>blockBody</span>.<span style=color:#a6e22e>quaternion</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>renderer</span>.<span style=color:#a6e22e>render</span>(<span style=color:#a6e22e>scene</span>, <span style=color:#a6e22e>camera</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>lastTimestamp</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>timestamp</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>movePlayerCar</span>(<span style=color:#a6e22e>timeDelta</span>) {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>playerSpeed</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>getPlayerSpeed</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>playerAngleMoved</span> <span style=color:#f92672>+=</span> <span style=color:#a6e22e>playerSpeed</span>.<span style=color:#a6e22e>sideways</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>timeDelta</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>totalPlayerAngle</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>playerAngleInitial</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>playerAngleMoved</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>rotation</span>.<span style=color:#a6e22e>z</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>totalPlayerAngle</span> <span style=color:#f92672>-</span> Math.<span style=color:#a6e22e>PI</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>carBody</span>.<span style=color:#a6e22e>quaternion</span>.<span style=color:#a6e22e>copy</span>(<span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>quaternion</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>forwardMovement</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>playerSpeed</span>.<span style=color:#a6e22e>forward</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>timeDelta</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>deltaX</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>forwardMovement</span> <span style=color:#f92672>*</span> Math.<span style=color:#a6e22e>cos</span>(<span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>rotation</span>.<span style=color:#a6e22e>z</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>deltaY</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>forwardMovement</span> <span style=color:#f92672>*</span> Math.<span style=color:#a6e22e>sin</span>(<span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>rotation</span>.<span style=color:#a6e22e>z</span>);
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// playerCar.position.x += deltaX;
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// playerCar.position.y += deltaY;
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>impulse</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Vec3</span>(<span style=color:#a6e22e>playerSpeed</span>.<span style=color:#a6e22e>forward</span>, <span style=color:#ae81ff>0</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>carBody</span>.<span style=color:#a6e22e>applyLocalImpulse</span>(<span style=color:#a6e22e>impulse</span>,<span style=color:#66d9ef>new</span> <span style=color:#a6e22e>CANNON</span>.<span style=color:#a6e22e>Vec3</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>inOrthographicView</span> <span style=color:#f92672>==</span> <span style=color:#66d9ef>false</span>) <span style=color:#a6e22e>setUpPerspectiveCamera</span>();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>getPlayerSpeed</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>baseSpeedForward</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>20</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>baseSpeedSideways</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0.004</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>speedObject</span> <span style=color:#f92672>=</span> {
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>forward</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>0</span>,
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>sideways</span><span style=color:#f92672>:</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>accelerate</span> <span style=color:#f92672>==</span> <span style=color:#a6e22e>decelerate</span>) <span style=color:#a6e22e>speedObject</span>.<span style=color:#a6e22e>forward</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>accelerate</span>) <span style=color:#a6e22e>speedObject</span>.<span style=color:#a6e22e>forward</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>baseSpeedForward</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>decelerate</span>) <span style=color:#a6e22e>speedObject</span>.<span style=color:#a6e22e>forward</span> <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#a6e22e>baseSpeedForward</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>turnLeft</span> <span style=color:#f92672>==</span> <span style=color:#a6e22e>turnRight</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>speedObject</span>.<span style=color:#a6e22e>forward</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) <span style=color:#a6e22e>speedObject</span>.<span style=color:#a6e22e>sideways</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>turnLeft</span>) <span style=color:#a6e22e>speedObject</span>.<span style=color:#a6e22e>sideways</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>baseSpeedSideways</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>turnRight</span>) <span style=color:#a6e22e>speedObject</span>.<span style=color:#a6e22e>sideways</span> <span style=color:#f92672>=</span> <span style=color:#f92672>-</span><span style=color:#a6e22e>baseSpeedSideways</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>speedObject</span>;
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setUpOrthographicCamera</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>camera</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>OrthographicCamera</span>(
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>cameraWidth</span> <span style=color:#f92672>/</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>, <span style=color:#75715e>// left
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>cameraWidth</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>, <span style=color:#75715e>// right
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>cameraHeight</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>, <span style=color:#75715e>// top
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>cameraHeight</span> <span style=color:#f92672>/</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>, <span style=color:#75715e>// bottom
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#ae81ff>5</span>, <span style=color:#75715e>// near plane
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#ae81ff>2000</span> <span style=color:#75715e>// far plane
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  );
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>camera</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>set</span>(<span style=color:#ae81ff>200</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>500</span>, <span style=color:#ae81ff>630</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>camera</span>.<span style=color:#a6e22e>up</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>Vector3</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>camera</span>.<span style=color:#a6e22e>lookAt</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>renderer</span>.<span style=color:#a6e22e>render</span>(<span style=color:#a6e22e>scene</span>, <span style=color:#a6e22e>camera</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setUpPerspectiveCamera</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>camera</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>PerspectiveCamera</span>(<span style=color:#ae81ff>45</span>, <span style=color:#a6e22e>aspectRatio</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>deltaCameraX</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>200</span> <span style=color:#f92672>*</span> Math.<span style=color:#a6e22e>cos</span>(<span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>rotation</span>.<span style=color:#a6e22e>z</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>deltaCameraY</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>200</span> <span style=color:#f92672>*</span> Math.<span style=color:#a6e22e>sin</span>(<span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>rotation</span>.<span style=color:#a6e22e>z</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>camera</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>set</span>(<span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>deltaCameraX</span>, <span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>deltaCameraY</span>, <span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>z</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>150</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>camera</span>.<span style=color:#a6e22e>up</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>THREE</span>.<span style=color:#a6e22e>Vector3</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>camera</span>.<span style=color:#a6e22e>lookAt</span>(<span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>x</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>deltaCameraX</span>, <span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>y</span> <span style=color:#f92672>+</span> <span style=color:#a6e22e>deltaCameraY</span>, <span style=color:#a6e22e>playerCar</span>.<span style=color:#a6e22e>position</span>.<span style=color:#a6e22e>z</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>20</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>camera</span>.<span style=color:#a6e22e>updateProjectionMatrix</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>renderer</span>.<span style=color:#a6e22e>render</span>(<span style=color:#a6e22e>scene</span>, <span style=color:#a6e22e>camera</span>);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>window.<span style=color:#a6e22e>addEventListener</span>(<span style=color:#e6db74>&#34;resize&#34;</span>, () =&gt; {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>&#34;resize&#34;</span>, window.<span style=color:#a6e22e>innerWidth</span>, window.<span style=color:#a6e22e>innerHeight</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Adjust camera
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>inOrthographicView</span>) <span style=color:#a6e22e>setUpOrthographicCamera</span>();
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>else</span> <span style=color:#a6e22e>setUpPerspectiveCamera</span>();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// Reset renderer
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>renderer</span>.<span style=color:#a6e22e>setSize</span>(window.<span style=color:#a6e22e>innerWidth</span>, window.<span style=color:#a6e22e>innerHeight</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>renderer</span>.<span style=color:#a6e22e>render</span>(<span style=color:#a6e22e>scene</span>, <span style=color:#a6e22e>camera</span>);
+</span></span><span style=display:flex><span>});
+</span></span></code></pre></div></div></details><ul><li>Use the arrow keys to move the car.</li><li>Press the <code>R</code> key to reset the car&rsquo;s position and orientation.</li><li>Press the <code>C</code> key tho switch betwee the orthographic and perspective camera.</li></ul><iframe id=breath style=width:700px;height:700px srcdoc='
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js></script>
+            
+            
+            
+            
+            
+            <script>
+              
+function setup() {
+  importThree();
+}
+
+function draw() {}
+
+function importThree(){
+  const script = document.createElement(&#39;script&#39;);
+  script.src = &#39;https://threejs.org/build/three.js&#39;;
+  script.async = true;
+  script.onload = () => {
+    console.log(&#39;Script loaded successfuly&#39;);
+    importCannon();
+  };
+  script.onerror = () => {
+    console.log(&#39;Error occurred while loading script&#39;);
+  };
+  document.body.appendChild(script);
+}
+
+function importCannon(){
+  const script = document.createElement(&#39;script&#39;);
+  script.src = &#39;https://cdnjs.cloudflare.com/ajax/libs/cannon.js/0.6.2/cannon.js&#39;;
+  script.async = true;
+  script.onload = () => {
+    console.log(&#39;Script loaded successfuly&#39;);
+    setUpApp();
+  };
+  script.onerror = () => {
+    console.log(&#39;Error occurred while loading script&#39;);
+  };
+  document.body.appendChild(script);
+}
+
+function setUpApp() {
+  window.focus(); // Capture keys right away (by default focus is on editor)
+
+  // Pick a random value from an array
+  function pickRandom(array) {
+    return array[Math.floor(Math.random() * array.length)];
+  }
+
+  const vehicleColors = [
+    0xa52523,
+    0xef2d56,
+    0x0ad3ff,
+    0xff9f1c /*0xa52523, 0xbdb638, 0x78b14b*/
+  ];
+
+  const lavaRed = "#7cfc00";
+  const trackColor = "black";
+  const blockColor = "#BF9742";
+  const mountainColor = "#A47E3B";
+  const baseColor = "#61481C";
+
+  const wheelGeometry = new THREE.BoxBufferGeometry(12, 33, 12);
+  const wheelMaterial = new THREE.MeshLambertMaterial({
+    color: 0x333333
+  });
+
+  const config = {
+    shadows: true, // Use shadow
+    trees: true, // Add trees to the map
+    curbs: true, // Show texture on the extruded geometry
+    grid: false // Show grid helper
+  };
+
+  const playerAngleInitial = Math.PI;
+  let playerAngleMoved;
+  let accelerate = false; // Is the player accelerating
+  let decelerate = false; // Is the player decelerating
+  let turnLeft = false; // Is player turning left
+  let turnRight = false; // Is player turning right
+  let inOrthographicView = true;
+
+  let ready;
+  let lastTimestamp;
+
+  const trackRadius = 225;
+  const trackWidth = 45;
+  const innerTrackRadius = trackRadius - trackWidth;
+  const outerTrackRadius = trackRadius + trackWidth;
+
+  const arcAngle1 = (1 / 3) * Math.PI; // 60 degrees
+
+  const deltaY = Math.sin(arcAngle1) * innerTrackRadius;
+  const arcAngle2 = Math.asin(deltaY / outerTrackRadius);
+
+  const arcCenterX =
+    (Math.cos(arcAngle1) * innerTrackRadius +
+      Math.cos(arcAngle2) * outerTrackRadius) /
+    2;
+
+  const arcAngle3 = Math.acos(arcCenterX / innerTrackRadius);
+
+  const arcAngle4 = Math.acos(arcCenterX / outerTrackRadius);
+
+  // Set up physics
+  const world = new CANNON.World();
+  world.gravity.set(0, 0, -9.82); 
+  var lavaMesh, lavaBody;
+  var trackMesh, trackBody;
+  var blockMesh, blockBody;
+  var mountainMesh, mountainBody;
+  var baseMesh, baseBody;
+  const groundPhysMat = new CANNON.Material();
+  const carPhysMat = new CANNON.Material();
+  const groundBoxContactMat = new CANNON.ContactMaterial(
+      groundPhysMat,
+      carPhysMat,
+      {
+        friction: 0.04,
+        restitution: 0
+      }
+  );
+
+  // Initialize ThreeJs
+  // Set up camera
+  const aspectRatio = window.innerWidth / window.innerHeight;
+  const cameraWidth = 960;
+  const cameraHeight = cameraWidth / aspectRatio;
+
+  let camera = new THREE.OrthographicCamera(
+    cameraWidth / -2, // left
+    cameraWidth / 2, // right
+    cameraHeight / 2, // top
+    cameraHeight / -2, // bottom
+    5, // near plane
+    2000 // far plane
+  );
+
+  camera.position.set(200, -500, 630);
+  camera.up = new THREE.Vector3(0, 0, 1);
+  camera.lookAt(0, 0, 0);
+
+  const scene = new THREE.Scene();
+  
+  const playerCar = Car();
+  const carBody = new CANNON.Body({
+      mass: 20,
+      shape: new CANNON.Box(new CANNON.Vec3(60, 30, 15)),
+      material: carPhysMat
+  });
+  world.addBody(carBody);
+  scene.add(playerCar);
+
+  renderMap();
+
+  world.addContactMaterial(groundBoxContactMat);
+
+  // Set up lights
+  const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+  scene.add(ambientLight);
+
+  const dirLight = new THREE.DirectionalLight(0xffffff, 0.6);
+  dirLight.position.set(100, -300, 300);
+  dirLight.castShadow = true;
+  dirLight.shadow.mapSize.width = 1024;
+  dirLight.shadow.mapSize.height = 1024;
+  dirLight.shadow.camera.left = -800;
+  dirLight.shadow.camera.right = 700;
+  dirLight.shadow.camera.top = 800;
+  dirLight.shadow.camera.bottom = -300;
+  dirLight.shadow.camera.near = 100;
+  dirLight.shadow.camera.far = 800;
+  scene.add(dirLight);
+
+  // const cameraHelper = new THREE.CameraHelper(dirLight.shadow.camera);
+  // scene.add(cameraHelper);
+
+  if (config.grid) {
+    const gridHelper = new THREE.GridHelper(80, 8);
+    gridHelper.rotation.x = Math.PI / 2;
+    scene.add(gridHelper);
+  }
+
+  // Set up renderer
+  const renderer = new THREE.WebGLRenderer({
+    antialias: true,
+    powerPreference: "high-performance",
+    alpha: true
+  });
+  renderer.setSize(window.innerWidth-50, window.innerHeight-150);
+  if (config.shadows) renderer.shadowMap.enabled = true;
+  document.body.appendChild(renderer.domElement);
+
+  reset();
+
+  function reset() {
+    // Reset position
+    playerAngleMoved = 0;
+    playerCar.position.x = -300;
+    playerCar.position.y = -300;
+    playerCar.position.z = 50;
+    playerCar.rotation.x = 0;
+    playerCar.rotation.y = 0;
+    playerCar.rotation.z = 0;
+    lastTimestamp = undefined;
+
+    // Reset physics
+    carBody.position.copy(playerCar.position);
+    carBody.quaternion.copy(playerCar.quaternion);
+
+    // Place the player&#39;s car to the starting position
+    movePlayerCar(0);
+
+    // Render the scene
+    renderer.render(scene, camera);
+
+    ready = true;
+  }
+
+  function startGame() {
+    if (ready) {
+      ready = false;
+      renderer.setAnimationLoop(animation);
+    }
+  }
+
+  function renderMap() {
+    const lavaDimensions = {
+      x: 2000,
+      y: 2000,
+      pos_z: -200
+    }
+    const trackDimensions = {
+      x: 800,
+      y: 700,
+      pos_z: 10
+    }
+    const blockDimensions = {
+      x: 100,
+      y: 50,
+      pos_z: 0
+    }
+    const mountainDimensions = {
+      x: 150,
+      y: 100,
+      pos_z: 0
+    }
+    const baseDimensions = {
+      x: 400,
+      y: 400,
+      pos_z: -200
+    }
+
+
+    // Lava
+    lavaBody = new CANNON.Body({
+      shape: new CANNON.Box(new CANNON.Vec3(lavaDimensions.x/2, lavaDimensions.y/2, 0.1)),
+      type: CANNON.Body.STATIC,
+      material: groundPhysMat,
+      position: new CANNON.Vec3(0, 0, lavaDimensions.pos_z),
+    });
+    world.addBody(lavaBody);
+
+    const lavaGeo = new THREE.PlaneGeometry(lavaDimensions.x, lavaDimensions.y);
+    const lavaMat = new THREE.MeshBasicMaterial({ 
+      color: lavaRed,
+      side: THREE.DoubleSide,
+      wireframe: false 
+    });
+    lavaMesh = new THREE.Mesh(lavaGeo, lavaMat);
+    scene.add(lavaMesh);
+    
+    // Track
+    trackBody = new CANNON.Body({
+      shape: new CANNON.Box(new CANNON.Vec3(trackDimensions.x/2, trackDimensions.y/2, 0.1)),
+      type: CANNON.Body.STATIC,
+      material: groundPhysMat,
+      position: new CANNON.Vec3(0, 0, trackDimensions.pos_z),
+    });
+    world.addBody(trackBody);
+
+    const trackGeo = new THREE.PlaneGeometry(trackDimensions.x, trackDimensions.y);
+    const trackMat = new THREE.MeshBasicMaterial({ 
+      color: trackColor,
+      side: THREE.DoubleSide,
+      wireframe: false 
+    });
+    trackMesh = new THREE.Mesh(trackGeo, trackMat);
+    scene.add(trackMesh);
+    
+    // Block
+    blockBody = new CANNON.Body({
+      shape: new CANNON.Box(new CANNON.Vec3(blockDimensions.x/2, blockDimensions.y/2, 1000)),
+      type: CANNON.Body.STATIC,
+      material: groundPhysMat,
+      position: new CANNON.Vec3(0, 0, blockDimensions.pos_z),
+    });
+    world.addBody(blockBody);
+
+    const blockGeo = new THREE.BoxGeometry(blockDimensions.x, blockDimensions.y, 1000);
+    const blockMat = new THREE.MeshBasicMaterial({ 
+      color: blockColor,
+      side: THREE.DoubleSide,
+      wireframe: false 
+    });
+    blockMesh = new THREE.Mesh(blockGeo, blockMat);
+    scene.add(blockMesh);
+
+    // Mountain
+    mountainBody = new CANNON.Body({
+      shape: new CANNON.Box(new CANNON.Vec3(mountainDimensions.x/2, mountainDimensions.y/2, 700)),
+      type: CANNON.Body.STATIC,
+      material: groundPhysMat,
+      position: new CANNON.Vec3(0, 0, mountainDimensions.pos_z),
+    });
+    world.addBody(mountainBody);
+
+    const mountainGeo = new THREE.BoxGeometry(mountainDimensions.x, mountainDimensions.y, 700);
+    const mountainMat = new THREE.MeshBasicMaterial({ 
+      color: mountainColor,
+      side: THREE.DoubleSide,
+      wireframe: false 
+    });
+    mountainMesh = new THREE.Mesh(mountainGeo, mountainMat);
+    scene.add(mountainMesh);
+
+    // Base
+    baseBody = new CANNON.Body({
+      shape: new CANNON.Box(new CANNON.Vec3(baseDimensions.x/2, baseDimensions.y/2, 500)),
+      type: CANNON.Body.STATIC,
+      material: groundPhysMat,
+      position: new CANNON.Vec3(0, 0, baseDimensions.pos_z),
+    });
+    world.addBody(baseBody);
+
+    const baseGeo = new THREE.BoxGeometry(baseDimensions.x, baseDimensions.y, 500);
+    const baseMat = new THREE.MeshBasicMaterial({ 
+      color: baseColor,
+      side: THREE.DoubleSide,
+      wireframe: false 
+    });
+    baseMesh = new THREE.Mesh(baseGeo, baseMat);
+    scene.add(baseMesh);
+  }
+
+  function getCarFrontTexture() {
+    const canvas = document.createElement("canvas");
+    canvas.width = 64;
+    canvas.height = 32;
+    const context = canvas.getContext("2d");
+
+    context.fillStyle = "#ffffff";
+    context.fillRect(0, 0, 64, 32);
+
+    context.fillStyle = "#666666";
+    context.fillRect(8, 8, 48, 24);
+
+    return new THREE.CanvasTexture(canvas);
+  }
+
+  function getCarSideTexture() {
+    const canvas = document.createElement("canvas");
+    canvas.width = 128;
+    canvas.height = 32;
+    const context = canvas.getContext("2d");
+
+    context.fillStyle = "#ffffff";
+    context.fillRect(0, 0, 128, 32);
+
+    context.fillStyle = "#666666";
+    context.fillRect(10, 8, 38, 24);
+    context.fillRect(58, 8, 60, 24);
+
+    return new THREE.CanvasTexture(canvas);
+  }
+
+  function Car() {
+    const car = new THREE.Group();
+
+    const color = pickRandom(vehicleColors);
+
+    const main = new THREE.Mesh(
+      new THREE.BoxBufferGeometry(60, 30, 15),
+      new THREE.MeshLambertMaterial({
+        color
+      })
+    );
+    main.position.z = 12;
+    main.castShadow = true;
+    main.receiveShadow = true;
+    car.add(main);
+
+    const carFrontTexture = getCarFrontTexture();
+    carFrontTexture.center = new THREE.Vector2(0.5, 0.5);
+    carFrontTexture.rotation = Math.PI / 2;
+
+    const carBackTexture = getCarFrontTexture();
+    carBackTexture.center = new THREE.Vector2(0.5, 0.5);
+    carBackTexture.rotation = -Math.PI / 2;
+
+    const carLeftSideTexture = getCarSideTexture();
+    carLeftSideTexture.flipY = false;
+
+    const carRightSideTexture = getCarSideTexture();
+
+    const cabin = new THREE.Mesh(new THREE.BoxBufferGeometry(33, 24, 12), [
+      new THREE.MeshLambertMaterial({
+        map: carFrontTexture
+      }),
+      new THREE.MeshLambertMaterial({
+        map: carBackTexture
+      }),
+      new THREE.MeshLambertMaterial({
+        map: carLeftSideTexture
+      }),
+      new THREE.MeshLambertMaterial({
+        map: carRightSideTexture
+      }),
+      new THREE.MeshLambertMaterial({
+        color: 0xffffff
+      }), // top
+      new THREE.MeshLambertMaterial({
+        color: 0xffffff
+      }) // bottom
+    ]);
+    cabin.position.x = -6;
+    cabin.position.z = 25.5;
+    cabin.castShadow = true;
+    cabin.receiveShadow = true;
+    car.add(cabin);
+
+    const backWheel = new Wheel();
+    backWheel.position.x = -18;
+    car.add(backWheel);
+
+    const frontWheel = new Wheel();
+    frontWheel.position.x = 18;
+    car.add(frontWheel);
+
+    return car;
+  }
+
+  function Wheel() {
+    const wheel = new THREE.Mesh(wheelGeometry, wheelMaterial);
+    wheel.position.z = 6;
+    wheel.castShadow = false;
+    wheel.receiveShadow = false;
+    return wheel;
+  }
+
+  window.addEventListener("keydown", function (event) {
+    if (event.key == "ArrowUp") {
+      startGame();
+      accelerate = true;
+      return;
+    }
+    if (event.key == "ArrowDown") {
+      decelerate = true;
+      return;
+    }
+    if (event.key == "ArrowLeft") {
+      turnLeft = true;
+      return;
+    }
+    if (event.key == "ArrowRight") {
+      turnRight = true;
+      return;
+    }
+    if (event.key == "R" || event.key == "r") {
+      reset();
+      return;
+    }
+    if (event.key == "C" || event.key == "c") {
+      if (inOrthographicView) inOrthographicView = false;
+      else {
+        inOrthographicView = true;
+        setUpOrthographicCamera();
+      }
+      return;
+    }
+  });
+
+  window.addEventListener("keyup", function (event) {
+    if (event.key == "ArrowUp") {
+      accelerate = false;
+      return;
+    }
+    if (event.key == "ArrowDown") {
+      decelerate = false;
+      return;
+    }
+    if (event.key == "ArrowLeft") {
+      turnLeft = false;
+      return;
+    }
+    if (event.key == "ArrowRight") {
+      turnRight = false;
+      return;
+    }
+  });
+
+  function animation(timestamp) {
+    if (!lastTimestamp) {
+      lastTimestamp = timestamp;
+      return;
+    }
+
+    const timeDelta = timestamp - lastTimestamp;
+    movePlayerCar(timeDelta);
+
+    // Apply gravity
+    const timeStep = 1 / 60;
+    world.step(timeStep);
+
+    // Update THREE car position
+    playerCar.position.copy(carBody.position);
+    playerCar.quaternion.copy(carBody.quaternion);
+
+    lavaMesh.position.copy(lavaBody.position);
+    lavaMesh.quaternion.copy(lavaBody.quaternion);
+    trackMesh.position.copy(trackBody.position);
+    trackMesh.quaternion.copy(trackBody.quaternion);
+    blockMesh.position.copy(blockBody.position);
+    blockMesh.quaternion.copy(blockBody.quaternion);
+
+    renderer.render(scene, camera);
+    lastTimestamp = timestamp;
+  }
+
+  function movePlayerCar(timeDelta) {
+    const playerSpeed = getPlayerSpeed();
+
+    playerAngleMoved += playerSpeed.sideways * timeDelta;
+    const totalPlayerAngle = playerAngleInitial + playerAngleMoved;
+    playerCar.rotation.z = totalPlayerAngle - Math.PI / 2;
+    carBody.quaternion.copy(playerCar.quaternion);
+
+    const forwardMovement = playerSpeed.forward * timeDelta;
+    const deltaX = forwardMovement * Math.cos(playerCar.rotation.z);
+    const deltaY = forwardMovement * Math.sin(playerCar.rotation.z);
+    // playerCar.position.x += deltaX;
+    // playerCar.position.y += deltaY;
+
+    const impulse = new CANNON.Vec3(playerSpeed.forward, 0, -1);
+    carBody.applyLocalImpulse(impulse,new CANNON.Vec3(0, 0, 0));
+
+    if (inOrthographicView == false) setUpPerspectiveCamera();
+  }
+
+  function getPlayerSpeed() {
+    const baseSpeedForward = 20;
+    const baseSpeedSideways = 0.004;
+    let speedObject = {
+      forward: 0,
+      sideways: 0
+    }
+    if (accelerate == decelerate) speedObject.forward = 0;
+    else if (accelerate) speedObject.forward = baseSpeedForward;
+    else if (decelerate) speedObject.forward = -baseSpeedForward;
+    if (turnLeft == turnRight || speedObject.forward == 0) speedObject.sideways = 0;
+    else if (turnLeft) speedObject.sideways = baseSpeedSideways;
+    else if (turnRight) speedObject.sideways = -baseSpeedSideways;
+    return speedObject;
+  }
+
+  function setUpOrthographicCamera() {
+    camera = new THREE.OrthographicCamera(
+      cameraWidth / -2, // left
+      cameraWidth / 2, // right
+      cameraHeight / 2, // top
+      cameraHeight / -2, // bottom
+      5, // near plane
+      2000 // far plane
+    );
+
+    camera.position.set(200, -500, 630);
+    camera.up = new THREE.Vector3(0, 0, 1);
+    camera.lookAt(0, 0, 0);
+    renderer.render(scene, camera);
+  }
+
+  function setUpPerspectiveCamera() {
+    camera = new THREE.PerspectiveCamera(45, aspectRatio, 1, 1000);
+    const deltaCameraX = 200 * Math.cos(playerCar.rotation.z);
+    const deltaCameraY = 200 * Math.sin(playerCar.rotation.z);
+    camera.position.set(playerCar.position.x - deltaCameraX, playerCar.position.y - deltaCameraY, playerCar.position.z + 150);
+    camera.up = new THREE.Vector3(0, 0, 1);
+    camera.lookAt(playerCar.position.x + deltaCameraX, playerCar.position.y + deltaCameraY, playerCar.position.z + 20);
+    camera.updateProjectionMatrix();
+    renderer.render(scene, camera);
+  }
+
+  window.addEventListener("resize", () => {
+    console.log("resize", window.innerWidth, window.innerHeight);
+
+    // Adjust camera
+    if (inOrthographicView) setUpOrthographicCamera();
+    else setUpPerspectiveCamera();
+
+    // Reset renderer
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.render(scene, camera);
+  });
+
+}
+
+            </script>
+          </head>
+          <body>
+          </body>
+        </html>
+      '></iframe><h2 id=conclusions--future-work>Conclusions & future work
+<a class=anchor href=#conclusions--future-work>#</a></h2><p>Manipulating the camera perspective is curcial for creating immersive and interactive visual experiences. Frameworks like Three.js provide strong tools for manipulating the perspective matrix in an easy and practical way. Even through these indirect methods for manipulating the matrix, the use of the basic operations of rotation and translation of points in 3D space are evident, and understading how they work and how to correctly apply them is necessary for using these kind of tools.</p><p>The abstraction of a camera object, with properties that define the eye matrix, is a very useful artifact for manipualting the perspective. In this application, we defined the eye matrix by setting the position of the <code>PerspectiveCamera</code> object, setiing a vector as the &ldquo;up&rdquo; direction ofr the camera (in this case the identity vector pointing in the positive z-axis direction), and a point for the camera to look towards. These properies uniquely define an eye matrix, that is built internally by the framework to calculate the position, orientation, and size of the objects in the viewing frustum.</p><p>Furthermore, a possible future area of work could be the implementation of a seamless, clean transtition between the orthographic and perspectove camerain Three.js. With a feature like this, a continous camera movement could be achived even if both types of camera available are used. Possibly, a more low-level manipulation of the eye matrix would be necessary to achieve this effect.</p><h2 id=sources>Sources
+<a class=anchor href=#sources>#</a></h2><p>[1] Márton Borbély, Hunor. Three.js Tutorial - How to Build a Simple Car with Texture in 3D. freeCodeCamp. 2021. Available: <a href=https://www.freecodecamp.org/news/three-js-tutorial/>https://www.freecodecamp.org/news/three-js-tutorial/</a></p><p>[2] <a href=https://www.khronos.org/webgl/wiki/Main_Page>WebGL</a></p><p>[3] <a href=https://threejs.org/>Three.js</a></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://jupachonc.github.io/showcase/commit/392ae47c3bdc24ee51dc92bbd8c09dda3de9ca34 title='Last modified by Julian Manosalva Manrique | May 23, 2023' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
+<span>May 23, 2023</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#workshop-3d-webgl-app>Workshop: 3D WebGL app</a><ul><li><a href=#problem-statement>Problem statement</a></li><li><a href=#background>Background</a><ul><li><a href=#webgl>WebGL</a></li><li><a href=#threejs>Three.js</a></li></ul></li><li><a href=#code-solution--results>Code (solution) & results</a><ul><li><a href=#car-perspective-game>Car perspective game</a></li></ul></li><li><a href=#conclusions--future-work>Conclusions & future work</a></li><li><a href=#sources>Sources</a></li></ul></li></ul></nav></div></aside></main></body></html>
