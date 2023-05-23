@@ -2,7 +2,7 @@
 
 {{< hint info >}}
 **Workshop**  
-Implement a 3d webgl application. The p5.treegl or any other libraries may be used.
+Implementación de Aplicación 3D.
 {{< /hint >}}
 
 ## Problem statement
