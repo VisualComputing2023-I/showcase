@@ -139,7 +139,7 @@ gl_FragColor = zoomedTexel;
 
 # **Trabajo futuro**
 
-# **Referencias**
+# Referencias
 
 {{< hint danger >}}
 
