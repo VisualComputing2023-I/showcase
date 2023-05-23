@@ -264,11 +264,6 @@ function randomizeColor() {
 
 # Referencias
 
-{{< hint danger >}}
-
-- Rubio, O. (2020, 2 octubre). Procesamiento de imagenes. https://www.vistronica.com/blog/post/procesamiento-de-imagenes.html
-
-{{< /hint >}}
 
 
 <style>
