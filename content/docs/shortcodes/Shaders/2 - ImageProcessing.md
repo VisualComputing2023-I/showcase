@@ -131,11 +131,12 @@ zoomedTexel = changeBrightness(zoomedTexel);
 
 gl_FragColor = zoomedTexel;
 ```
-### Resultado:
 
 {{< /details >}}
 
 <br>
+
+### Resultado:
 
 <div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="cbat">
 
