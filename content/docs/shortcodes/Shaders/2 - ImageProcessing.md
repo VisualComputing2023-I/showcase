@@ -1,4 +1,4 @@
-# 2 - Image And Video Processing
+# **2 - Image And Video Processing**
 
 {{< hint info >}}
 <b> Exercise </b>
@@ -10,7 +10,9 @@ Implement an image / video processing app supporting different masks, including 
 - Integrate luma and other coloring brightness tools.
   {{< /hint >}}
 
-# **Introducción**
+
+# Introducción
+
 El análisis y procesamiento de imágenes se realiza a través de computadoras, debido a la complejidad y el número de cálculos necesarios para realizarlo. Es por esto que, si bien la formulación matemática necesaria para su realización data de varios siglos atrás, la posibilidad real de utilizarla de forma cotidiana en la práctica clínica ha sido posible recién en las últimas décadas, gracias al avance en las tecnologías del hardware.
 
 La proliferación de nuevos equipamientos con capacidad para realizar millones de operaciones por segundo y su extensión a la vida cotidiana y a todo tipo de usuario, ha hecho posible que el análisis y procesamiento de imágenes digitales se constituya en un gran campo de estudio. En la actualidad, esta tecnología se encuentra incorporada incluso en todo tipo de equipamiento doméstico, como cámaras digitales, scaners y teléfonos celulares, entre otros.
@@ -23,7 +25,7 @@ El motivo principal de esta “aparición tardía” del procesamiento de imáge
 La variedad actual de técnicas, algoritmos y desarrollos de software y hardware utilizados en el procesamiento de imágenes digitales escapa al alcance de cualquier curso. En ellos se aprovechan técnicas desarrolladas inicialmente sobre conceptos fundacionales para el análisis de imágenes, y se incorporan conceptos y nociones de los más variados, propios de la física y la matemática, como el caso de la entropía o la métrica.
 
 
-# **Implementación**
+# Implementación
 
 ### **Solución (Código):**
 
@@ -147,7 +149,7 @@ gl_FragColor = zoomedTexel;
 
 </div>
 
-# **Conclusiones**
+# Conclusiones
 
 1. En la computación visual, el procesamiento de imágenes desempeña un papel fundamental al permitir la extracción de información valiosa a partir de datos visuales, lo que impulsa el avance de diversas aplicaciones en campos como la medicina, la robótica y la realidad virtual.
 
@@ -159,7 +161,7 @@ gl_FragColor = zoomedTexel;
 
 5. A medida que el procesamiento de imágenes en la computación visual avanza, también surgen desafíos éticos y de privacidad, como la manipulación de imágenes, la privacidad de datos y la responsabilidad en el uso de información visual. Es fundamental abordar estos desafíos de manera responsable para garantizar el beneficio y la protección de los usuarios y la sociedad en general.
 
-# **Trabajo futuro**
+# Trabajo futuro
 
 El procesamiento de imágenes en la computación visual es un campo en continuo progreso y se espera que siga ofreciendo nuevas oportunidades y desafíos en el futuro.
 

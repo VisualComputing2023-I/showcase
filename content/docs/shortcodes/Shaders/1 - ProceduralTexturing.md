@@ -1,4 +1,4 @@
-# 1 - Procedural texturing
+# **1 - Procedural texturing**
 
 {{< hint info >}}
 <b> Ejercicio </b>
@@ -6,7 +6,7 @@
 Adapte otros patrones del <a href="https://thebookofshaders.com/09/" target="_blank">libro de shaders</a> (consulte también la colección <a href="https://www.shadertoy.com/" target="_blank">shadertoy</a>) y mapeelos como texturas sobre otras formas 3D.
 {{< /hint >}}
 
-# **Introducción**
+# Introducción
 
 El "procedural texturing" o "texturizado procedural" es una técnica en computación visual que se utiliza para generar texturas de manera algorítmica, en lugar de crearlas manualmente. Esto se logra mediante la definición de reglas y procedimientos matemáticos que permiten generar patrones y detalles en la textura de manera automática.
 
@@ -17,7 +17,7 @@ Los procedimientos matemáticos utilizados en el texturizado procedural permiten
 El texturizado procedural es particularmente útil en la creación de videojuegos, películas de animación y efectos visuales, ya que permite generar texturas realistas de manera más rápida y eficiente que el texturizado manual. Además, las texturas generadas por procedimientos son mucho más ligeras en cuanto a su peso en memoria, lo que es importante en aplicaciones donde el rendimiento es crítico y se busca una alta eficiencia de recursos.
 
 
-# **Implementación**
+# Implementación
 
 ### **Solución (Código):**
 
@@ -92,7 +92,7 @@ function mouseMoved() {
 
 </div>
 
-# **Conclusiones**
+# Conclusiones
 
 1. El texturizado procedural es una técnica en computación visual muy eficaz y adaptable que posibilita la creación de texturas complejas y detalladas de forma automática mediante el uso de algoritmos y reglas matemáticas. Esto conlleva una mayor flexibilidad y eficiencia en la creación de efectos visuales.
 
@@ -109,7 +109,7 @@ function mouseMoved() {
 
 Se espera que los avances en técnicas de aprendizaje automático permitan la creación de sistemas de texturizado procedural cada vez más sofisticados, capaces de generar texturas más realistas y detalladas en tiempo real. Esta mejora en la eficiencia del proceso de producción de efectos visuales sería especialmente beneficiosa en áreas como los videojuegos y las películas de animación. Además, el texturizado procedural podría ser utilizado en combinación con la realidad virtual y aumentada para generar texturas y efectos visuales en tiempo real, lo que llevaría a la creación de experiencias más inmersivas y realistas para los usuarios. Por último, con el mejoramiento de la capacidad de procesamiento de las computadoras, se podrían generar texturas personalizadas aún más detalladas y únicas, lo que permitiría una mayor expresión y creatividad en la industria del entretenimiento.
 
-# **Referencias**
+# Referencias
 
 *   [Información de consulta (Introducción)](https://www.3dartistonline.com/news-and-features/2015/02/procedural-texturing-in-games-and-film/)
 
