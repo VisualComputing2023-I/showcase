@@ -16,6 +16,9 @@ Los procedimientos matemáticos utilizados en el texturizado procedural permiten
 
 El texturizado procedural es particularmente útil en la creación de videojuegos, películas de animación y efectos visuales, ya que permite generar texturas realistas de manera más rápida y eficiente que el texturizado manual. Además, las texturas generadas por procedimientos son mucho más ligeras en cuanto a su peso en memoria, lo que es importante en aplicaciones donde el rendimiento es crítico y se busca una alta eficiencia de recursos.
 
+
+# **Implementación**
+
 ### Solución (Código):
 
 Los fragment shaders correspondientes fueron tomados de el <a href="https://thebookofshaders.com/09/" target="_blank">libro de shaders</a>.

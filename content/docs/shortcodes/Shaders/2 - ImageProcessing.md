@@ -22,6 +22,9 @@ El motivo principal de esta “aparición tardía” del procesamiento de imáge
 
 La variedad actual de técnicas, algoritmos y desarrollos de software y hardware utilizados en el procesamiento de imágenes digitales escapa al alcance de cualquier curso. En ellos se aprovechan técnicas desarrolladas inicialmente sobre conceptos fundacionales para el análisis de imágenes, y se incorporan conceptos y nociones de los más variados, propios de la física y la matemática, como el caso de la entropía o la métrica.
 
+
+# **Implementación**
+
 ### Solución (Código):
 
 A continuación se presentan los extractos más significativos del código utilizado en el fragment shader.
