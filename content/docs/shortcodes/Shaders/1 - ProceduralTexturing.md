@@ -108,7 +108,7 @@ Se espera que los avances en técnicas de aprendizaje automático permitan la cr
 
 # **Referencias**
 
-*   [Información de consulta](https://www.3dartistonline.com/news-and-features/2015/02/procedural-texturing-in-games-and-film/)
+*   [Información de consulta (Introducción)](https://www.3dartistonline.com/news-and-features/2015/02/procedural-texturing-in-games-and-film/)
 
 *   [Primera guía para la implementación de los ejercicios](https://thebookofshaders.com/09/)
 

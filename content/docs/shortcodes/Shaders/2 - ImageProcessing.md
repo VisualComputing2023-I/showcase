@@ -151,9 +151,17 @@ gl_FragColor = zoomedTexel;
 
 # Referencias
 
-1.  Rubio, O. (2020, 2 octubre). Procesamiento de imagenes. https://www.vistronica.com/blog/post/procesamiento-de-imagenes.html
+*   [Información de consulta (Introducción)](https://www.famaf.unc.edu.ar/~pperez1/manuales/cim/cap2.html)
 
-2. https://www.famaf.unc.edu.ar/~pperez1/manuales/cim/cap2.html
+*   [Procesamiento de imágenes](https://www.vistronica.com/blog/post/procesamiento-de-imagenes.html)
+
+*   [Primera guía para la implementación de los ejercicios](https://codepen.io/tag/p5-js)
+
+*   [Segunda guía para la implementación de los ejercicios](https://github.com/CodingTrain/website-archive/tree/main/CodingChallenges/CC)
+
+*   [Tercera guía para la implementación de los ejercicios](https://openprocessing.org/)
+
+*   [Edición de texto](https://chat.openai.com/)
 
 <style>
 #cbat{
