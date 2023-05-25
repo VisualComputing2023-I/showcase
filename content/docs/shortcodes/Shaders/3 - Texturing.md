@@ -296,7 +296,7 @@ function randomizeColor() {
   c4 = [random(0,255),random(0,255),random(0,255)]; 
 }{{< /p5-global-iframe >}}
 
-# **Conclusiones**
+# Conclusiones
 
 1. En el ámbito de la computación visual, la texturización se presenta como una técnica fundamental para enriquecer los objetos virtuales, dotándolos de detalles y realismo al generar superficies que imitan una amplia variedad de materiales reales.
 
@@ -309,7 +309,7 @@ function randomizeColor() {
 5. La texturización en la computación visual se encuentra en constante evolución, con continuos avances en técnicas de mapeo, generación procedimental de texturas y algoritmos de renderizado, abriendo así nuevas posibilidades para la creación de mundos virtuales cada vez más realistas y atractivos para los usuarios.
 
 
-# **Trabajo futuro**
+# Trabajo futuro
 
 El futuro del trabajo en texturización en la computación visual es prometedor y lleno de oportunidades emocionantes. A medida que avanzamos, se anticipa el desarrollo de nuevas técnicas y herramientas que permitirán lograr un mayor nivel de realismo y detalle en la representación de materiales y superficies virtuales.
 
