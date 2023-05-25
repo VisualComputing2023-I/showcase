@@ -11,12 +11,22 @@ Implement an image / video processing app supporting different masks, including 
   {{< /hint >}}
 
 # **Introducción**
-### **Hablar más del tema**
+El análisis y procesamiento de imágenes se realiza a través de computadoras, debido a la complejidad y el número de cálculos necesarios para realizarlo. Es por esto que, si bien la formulación matemática necesaria para su realización data de varios siglos atrás, la posibilidad real de utilizarla de forma cotidiana en la práctica clínica ha sido posible recién en las últimas décadas, gracias al avance en las tecnologías del hardware.
+
+La proliferación de nuevos equipamientos con capacidad para realizar millones de operaciones por segundo y su extensión a la vida cotidiana y a todo tipo de usuario, ha hecho posible que el análisis y procesamiento de imágenes digitales se constituya en un gran campo de estudio. En la actualidad, esta tecnología se encuentra incorporada incluso en todo tipo de equipamiento doméstico, como cámaras digitales, scaners y teléfonos celulares, entre otros.
+
+En términos históricos, la utilización de imágenes radiográficas para diagnóstico clínico data prácticamente desde el descubrimiento de los rayos X en 1895 (Röentgen). Incluso, las imágenes funcionales a partir de la emisión de fotones (rayos γ
+) por parte de radionucleidos ya cuenta con más de 90 años de antigüedad (Heavesy & Seaborg, 1924). Sin embargo, las imágenes eran adquiridas sobre films radiográficos o directamente in vivo, por lo que su correcto procesamiento no ha explotado su real potencialidad sino hasta la incorporación de la tecnología que permitió digitalizarlas.
+
+El motivo principal de esta “aparición tardía” del procesamiento de imágenes ha sido entonces, debido a los requerimientos de hardware tanto para el procesamiento de las mismas como para la representación de estas en sistemas gráficos de alta performance. Paralelamente a este desarrollo, la formulación de algoritmos para el procesamiento ha seguido los avances tecnológicos logrando un alto grado de sofisticación y manipulación de imágenes en tiempo casi real.
+
+La variedad actual de técnicas, algoritmos y desarrollos de software y hardware utilizados en el procesamiento de imágenes digitales escapa al alcance de cualquier curso. En ellos se aprovechan técnicas desarrolladas inicialmente sobre conceptos fundacionales para el análisis de imágenes, y se incorporan conceptos y nociones de los más variados, propios de la física y la matemática, como el caso de la entropía o la métrica.
 
 ### Solución (Código):
 
-A continuación se muestran los fragmentos más relevante del código del fragment shader usado.  
-Primero, estas son las variables usadas:
+A continuación se presentan los extractos más significativos del código utilizado en el fragment shader.
+
+Variables utilizadas:
 
 {{< details "Variables" closed >}}
 
@@ -47,9 +57,9 @@ varying vec2 texcoords2;
 
 {{< /details >}}
 
-Con la siguiente función se aplica el kernel seleccionado:
+Función que aplica y determina el kernel seleccionado:
 
-{{< details "Función applyKernel" closed >}}
+{{< details "Aplicar kernel" closed >}}
 
 ```glsl
 vec4 applyKernel(){
@@ -87,9 +97,9 @@ vec4 applyKernel(){
 
 {{< /details >}}
 
-Para calcular el area de interes o la lupa:
+Función empleada para calcular la lupa o el área de interés:
 
-{{< details "Area" closed >}}
+{{< details "Área de interés" closed >}}
 
 ```glsl
 float dist = distance(gl_FragCoord.xy, mouse);
@@ -101,11 +111,10 @@ if(dist < radius){
 
 {{< /details >}}
 
-Por último, para realizar el efecto de lupa:
+Fucnione para aplicar el efecto de lupa:
 
-{{< details "Lupa" closed >}}
+{{< details "Efecto de lupa" closed >}}
 
-### Resultado:
 
 ```glsl
 vec2 mouseDist = gl_FragCoord.xy - mouse;
@@ -122,6 +131,7 @@ zoomedTexel = changeBrightness(zoomedTexel);
 
 gl_FragColor = zoomedTexel;
 ```
+### Resultado:
 
 {{< /details >}}
 
@@ -141,7 +151,9 @@ gl_FragColor = zoomedTexel;
 
 # Referencias
 
+1.  Rubio, O. (2020, 2 octubre). Procesamiento de imagenes. https://www.vistronica.com/blog/post/procesamiento-de-imagenes.html
 
+2. https://www.famaf.unc.edu.ar/~pperez1/manuales/cim/cap2.html
 
 <style>
 #cbat{
