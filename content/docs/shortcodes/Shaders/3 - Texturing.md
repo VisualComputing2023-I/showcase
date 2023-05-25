@@ -45,7 +45,7 @@ Debido a esto no se llega a ver los pixels de la imagen, ya que en el momento en
 También este proceso da la posibilidad de imitar las estructuras fractales de la naturaleza, es decir, se puede realizar la textura de un árbol perfectamente en la imagen, incluso se puede realizar las llamas del fuego siendo muy similar a como se puede notar en la vida real.
 
 
-### Solución (Código) y resultado:
+### Solución (Código):
 Indicaciones para su uso:
 
 * Existe un selector que permite elegir la textura deseada para su aplicación.
