@@ -141,6 +141,12 @@ void main() {
 ```
 {{< /details >}}
 
+</br>
+
+### Resultado:
+
+</br>
+
 {{< p5-global-iframe id="pyramid" width="750" height="555" >}}
 
 let Shader; 
