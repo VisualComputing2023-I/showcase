@@ -46,7 +46,7 @@ También este proceso da la posibilidad de imitar las estructuras fractales de l
 
 # **Implementación**
 
-### Solución (Código):
+### **Solución (Código):**
 Indicaciones para su uso:
 
 * Existe un selector que permite elegir la textura deseada para su aplicación.
@@ -144,7 +144,7 @@ void main() {
 
 </br>
 
-### Resultado:
+### **Resultado:**
 
 </br>
 

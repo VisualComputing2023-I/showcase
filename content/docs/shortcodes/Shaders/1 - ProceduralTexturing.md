@@ -19,7 +19,7 @@ El texturizado procedural es particularmente útil en la creación de videojuego
 
 # **Implementación**
 
-### Solución (Código):
+### **Solución (Código):**
 
 Los fragment shaders correspondientes fueron tomados de el <a href="https://thebookofshaders.com/09/" target="_blank">libro de shaders</a>.
 
@@ -78,7 +78,7 @@ function mouseMoved() {
 
 {{< /details >}}
 
-### Resultado:
+### **Resultado:**
 
 <div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="procedular-texturing">
 

@@ -25,7 +25,7 @@ La variedad actual de técnicas, algoritmos y desarrollos de software y hardware
 
 # **Implementación**
 
-### Solución (Código):
+### **Solución (Código):**
 
 A continuación se presentan los extractos más significativos del código utilizado en el fragment shader.
 
@@ -139,7 +139,7 @@ gl_FragColor = zoomedTexel;
 
 <br>
 
-### Resultado:
+### **Resultado:**
 
 <div style="display:flex; flex-direction: column; align-items: center; justify-content: center;" id="cbat">
 
