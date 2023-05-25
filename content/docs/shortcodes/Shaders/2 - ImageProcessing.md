@@ -111,7 +111,7 @@ if(dist < radius){
 
 {{< /details >}}
 
-Fucnione para aplicar el efecto de lupa:
+Aplicar el efecto de lupa:
 
 {{< details "Efecto de lupa" closed >}}
 
