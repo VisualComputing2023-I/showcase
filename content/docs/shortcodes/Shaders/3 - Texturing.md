@@ -1,4 +1,4 @@
-# Texturing
+# **Texturing**
 
 {{< hint info >}}
 <b> Exercise </b>
@@ -8,7 +8,7 @@
 
 {{< /hint >}}
 
-# **Introducción**
+# Introducción
 
 El Texturizado es el proceso que toma una superficie y modifica su apariencia a partir de imágenes, funciones u otros tipos de datos. Las texturas también son utilizadas para guardar una gran colección de datos para ser enviados a los shaders. Permiten agregar detalles sin la necesidad de agregar más polígonos.
 
