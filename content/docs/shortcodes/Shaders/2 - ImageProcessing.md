@@ -146,9 +146,31 @@ gl_FragColor = zoomedTexel;
 
 # **Conclusiones**
 
-1. 
+1. En la computación visual, el procesamiento de imágenes desempeña un papel fundamental al permitir la extracción de información valiosa a partir de datos visuales, lo que impulsa el avance de diversas aplicaciones en campos como la medicina, la robótica y la realidad virtual.
+
+2. El continuo desarrollo de algoritmos de procesamiento de imágenes en la computación visual ha llevado a mejoras significativas en áreas como el reconocimiento facial, la detección de objetos y la segmentación de imágenes, lo que ha ampliado las posibilidades de aplicaciones prácticas y creativas.
+
+3. El procesamiento de imágenes en tiempo real se ha convertido en una necesidad cada vez más apremiante en aplicaciones como la realidad aumentada y los sistemas de visión en tiempo real, lo que requiere algoritmos eficientes y técnicas optimizadas para ofrecer resultados instantáneos y precisos.
+
+4. La evolución de la inteligencia artificial y el aprendizaje automático ha impulsado enormemente el procesamiento de imágenes en la computación visual, permitiendo tareas más complejas como el reconocimiento de patrones, la generación de imágenes y la interpretación semántica de contenido visual.
+
+5. A medida que el procesamiento de imágenes en la computación visual avanza, también surgen desafíos éticos y de privacidad, como la manipulación de imágenes, la privacidad de datos y la responsabilidad en el uso de información visual. Es fundamental abordar estos desafíos de manera responsable para garantizar el beneficio y la protección de los usuarios y la sociedad en general.
 
 # **Trabajo futuro**
+
+El procesamiento de imágenes en la computación visual es un campo en continuo progreso y se espera que siga ofreciendo nuevas oportunidades y desafíos en el futuro.
+
+En primer lugar, se anticipa una mayor atención hacia la inteligencia artificial y el aprendizaje automático con el fin de mejorar la precisión y eficiencia del procesamiento de imágenes. Los algoritmos de detección, reconocimiento y seguimiento de objetos se beneficiarán de modelos más avanzados y técnicas de entrenamiento sofisticadas.
+
+Además, se prevé un mayor enfoque en el procesamiento de imágenes en tiempo real, especialmente en aplicaciones de realidad aumentada y virtual. Esto requerirá algoritmos y técnicas más rápidos y eficientes que ofrezcan resultados en tiempo real sin comprometer la calidad de la imagen.
+
+Otro aspecto relevante es el procesamiento de imágenes en dispositivos móviles y en entornos con restricciones de energía. A medida que los dispositivos móviles se vuelven más potentes, resultará crucial desarrollar algoritmos optimizados y técnicas de procesamiento de imágenes que se adapten a las limitaciones de recursos y energía.
+
+La colaboración entre la computación visual y otras disciplinas, como la robótica y la medicina, también experimentará un crecimiento significativo. El procesamiento de imágenes desempeñará un papel fundamental en el desarrollo de sistemas autónomos, como robots y vehículos autónomos, así como en aplicaciones médicas como el diagnóstico por imagen y la cirugía asistida por ordenador.
+
+Por último, el procesamiento de imágenes deberá enfrentar desafíos éticos y de privacidad en el futuro. A medida que la tecnología avanza, será necesario abordar cuestiones relacionadas con la manipulación de imágenes, la protección de datos personales y el uso responsable de la información visual.
+
+En resumen, el futuro del procesamiento de imágenes en la computación visual promete avances emocionantes en áreas como la inteligencia artificial, la realidad aumentada, la eficiencia energética y la colaboración interdisciplinaria. Al explorar estas áreas, resulta fundamental abordar los desafíos éticos y de privacidad para garantizar un desarrollo responsable y beneficioso de esta tecnología en constante evolución.
 
 # Referencias
 
@@ -158,7 +180,7 @@ gl_FragColor = zoomedTexel;
 
 *   [Primera guía para la implementación de los ejercicios](https://codepen.io/tag/p5-js)
 
-*   [Segunda guía para la implementación de los ejercicios](https://github.com/CodingTrain/website-archive/tree/main/CodingChallenges/CC)
+*   [Segunda guía para la implementación de los ejercicios](https://github.com/CodingTrain/website-archive/tree/main/CodingChallenges)
 
 *   [Tercera guía para la implementación de los ejercicios](https://openprocessing.org/)
 
