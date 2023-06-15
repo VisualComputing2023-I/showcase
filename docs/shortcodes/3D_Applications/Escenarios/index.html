@@ -1,0 +1,279 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Escenarios # Ejercicio Design and implement a 3D Application using WebGL, through some library or framwork based on it.
+Introducción # La creación de escenarios 3D utilizando p5.js y la librería easycam ofrece a los desarrolladores una forma poderosa y accesible de construir entornos interactivos en tres dimensiones. Con p5.js, una librería de programación creativa basada en JavaScript, y easycam, una extensión que facilita el control de la cámara en entornos 3D, es posible crear mundos virtuales con objetos estáticos y dinámicos que se mueven de manera fluida."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Escenarios # Ejercicio Design and implement a 3D Application using WebGL, through some library or framwork based on it.
+Introducción # La creación de escenarios 3D utilizando p5.js y la librería easycam ofrece a los desarrolladores una forma poderosa y accesible de construir entornos interactivos en tres dimensiones. Con p5.js, una librería de programación creativa basada en JavaScript, y easycam, una extensión que facilita el control de la cámara en entornos 3D, es posible crear mundos virtuales con objetos estáticos y dinámicos que se mueven de manera fluida."><meta property="og:type" content="article"><meta property="og:url" content="https://visualcomputing2023-i.github.io/showcase/docs/shortcodes/3D_Applications/Escenarios/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2023-06-14T22:44:22-05:00"><title>Escenarios | Visual Computing 2023 I</title><link rel=manifest href=/showcase/manifest.json><link rel=icon href=/showcase/favicon.png type=image/x-icon><link rel=stylesheet href=/showcase/book.min.4b35fed0bea034bbc19c89c71e14b73fb9c68cfcc586b9382adfb9b7b103ba06.css integrity="sha256-SzX+0L6gNLvBnInHHhS3P7nGjPzFhrk4Kt+5t7EDugY=" crossorigin=anonymous><script defer src=/showcase/flexsearch.min.js></script>
+<script defer src=/showcase/en.search.min.3a8d658c77eb93c7f12a2b8af49a700131e474f288eefb605d9fa61576dbe5a7.js integrity="sha256-Oo1ljHfrk8fxKiuK9JpwATHkdPKI7vtgXZ+mFXbb5ac=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/showcase/><span>Visual Computing 2023 I</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><span>Shortcodes</span><ul><li><input type=checkbox id=section-55b036e67a18ffaca311c4c3ea31e8b2 class=toggle checked>
+<label for=section-55b036e67a18ffaca311c4c3ea31e8b2 class="flex justify-between"><a href=/showcase/docs/shortcodes/3D_Applications/>3 D Applications</a></label><ul><li><a href=/showcase/docs/shortcodes/3D_Applications/3D_Camera/>3 D Camera</a></li><li><a href=/showcase/docs/shortcodes/3D_Applications/Escenarios/ class=active>Escenarios</a></li></ul></li><li><input type=checkbox id=section-ec67a64aba70b9df3d2a9acd6c92e3bc class=toggle>
+<label for=section-ec67a64aba70b9df3d2a9acd6c92e3bc class="flex justify-between"><a href=/showcase/docs/shortcodes/p5/>P5</a></label><ul><li><a href=/showcase/docs/shortcodes/p5/iframe/>Iframe</a></li><li><a href=/showcase/docs/shortcodes/p5/div/>Div</a></li></ul></li><li><input type=checkbox id=section-37d133451a87125afc7e4d4a60cdb12b class=toggle>
+<label for=section-37d133451a87125afc7e4d4a60cdb12b class="flex justify-between"><a href=/showcase/docs/shortcodes/Shaders/>Shaders</a></label><ul><li><a href=/showcase/docs/shortcodes/Shaders/1-ProceduralTexturing/>1 Procedural Texturing</a></li><li><a href=/showcase/docs/shortcodes/Shaders/2-ImageProcessing/>2 Image Processing</a></li><li><a href=/showcase/docs/shortcodes/Shaders/3-Texturing/>3 Texturing</a></li></ul></li><li><input type=checkbox id=section-46ef92ed4553b248f8f108332fae886a class=toggle>
+<label for=section-46ef92ed4553b248f8f108332fae886a class="flex justify-between"><a href=/showcase/docs/shortcodes/Team/>Team</a></label><ul><li><a href=/showcase/docs/shortcodes/Team/Diego-Alvarado/>Diego Alvarado</a></li><li><a href=/showcase/docs/shortcodes/Team/Juli%C3%A1n-Manosalva/>Julián Manosalva</a></li><li><a href=/showcase/docs/shortcodes/Team/Sebasti%C3%A1n-Pach%C3%B3n/>Sebastián Pachón</a></li></ul></li><li><input type=checkbox id=section-94839c8d59cd3fd9e827edbeb4e69371 class=toggle>
+<label for=section-94839c8d59cd3fd9e827edbeb4e69371 class="flex justify-between"><a href=/showcase/docs/shortcodes/VisualIllutions/>Visual Illutions</a></label><ul><li><a href=/showcase/docs/shortcodes/VisualIllutions/1-Visual-Illutions/>1 Visual Illutions</a></li><li><a href=/showcase/docs/shortcodes/VisualIllutions/2-Masking/>2 Masking</a></li><li><a href=/showcase/docs/shortcodes/VisualIllutions/3-Mach-Bands/>3 Mach Bands</a></li></ul></li></ul></li></ul><ul><li><a href=/showcase/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/showcase/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Escenarios</strong>
+<label for=toc-control><img src=/showcase/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#escenarios><strong>Escenarios</strong></a></li><li><a href=#introducción>Introducción</a></li><li><a href=#implementación>Implementación</a><ul><li><ul><li><a href=#solución-código><strong>Solución (Código):</strong></a></li><li><a href=#resultado><strong>Resultado:</strong></a></li></ul></li></ul></li><li><a href=#conclusiones>Conclusiones</a></li><li><a href=#trabajo-futuro><strong>Trabajo futuro</strong></a></li><li><a href=#referencias>Referencias</a></li></ul></nav></aside></header><article class=markdown><h1 id=escenarios><strong>Escenarios</strong>
+<a class=anchor href=#escenarios>#</a></h1><blockquote class="book-hint info"><p><b>Ejercicio</b></p><p>Design and implement a 3D Application using WebGL, through some library or framwork based on it.</p></blockquote><h1 id=introducción>Introducción
+<a class=anchor href=#introducci%c3%b3n>#</a></h1><p>La creación de escenarios 3D utilizando p5.js y la librería easycam ofrece a los desarrolladores una forma poderosa y accesible de construir entornos interactivos en tres dimensiones. Con p5.js, una librería de programación creativa basada en JavaScript, y easycam, una extensión que facilita el control de la cámara en entornos 3D, es posible crear mundos virtuales con objetos estáticos y dinámicos que se mueven de manera fluida.</p><p>La librería easycam proporciona una cámara fácilmente manipulable, permitiendo a los usuarios controlar el punto de vista y la posición de la cámara dentro del escenario 3D. Esto significa que se pueden establecer vistas específicas, cambiar el ángulo de visualización y acercar o alejar la cámara de los objetos en la escena.</p><p>Para crear un escenario 3D, se pueden agregar objetos fijos que formen parte del entorno estático. Estos objetos pueden ser estructuras arquitectónicas, paisajes, terrenos o cualquier elemento que componga el fondo del escenario. Estos objetos se definen con coordenadas tridimensionales y se dibujan en la escena utilizando las funciones de dibujo proporcionadas por p5.js.</p><p>Además de los objetos fijos, se pueden incluir elementos que se muevan por el escenario. Estos objetos pueden ser personajes animados, partículas, vehículos u otros elementos interactivos. Para lograr el movimiento de estos objetos, se actualizan sus coordenadas en cada fotograma del ciclo de dibujo. Pueden utilizarse algoritmos y técnicas como la física básica, ecuaciones de movimiento o comportamientos predefinidos para controlar el movimiento de los objetos en respuesta a la interacción del usuario o a eventos específicos.</p><h1 id=implementación>Implementación
+<a class=anchor href=#implementaci%c3%b3n>#</a></h1><h3 id=solución-código><strong>Solución (Código):</strong>
+<a class=anchor href=#soluci%c3%b3n-c%c3%b3digo>#</a></h3><p>El código fue desarrolado usando los ejemplos de <a href=https://carrot.whitman.edu/P5JS/javascript/p5.EasyCam-master/examples/ target=_blank>Whitman</a>.</p><details><summary>Source Code: JavaScript</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * 
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * The p5.EasyCam library - Easy 3D CameraControl for p5.js and WEBGL.
+</span></span></span><span style=display:flex><span><span style=color:#75715e> *
+</span></span></span><span style=display:flex><span><span style=color:#75715e> *   Copyright 2018-2020 by p5.EasyCam authors
+</span></span></span><span style=display:flex><span><span style=color:#75715e> *
+</span></span></span><span style=display:flex><span><span style=color:#75715e> *   Source: https://github.com/freshfork/p5.EasyCam
+</span></span></span><span style=display:flex><span><span style=color:#75715e> *
+</span></span></span><span style=display:flex><span><span style=color:#75715e> *   MIT License: https://opensource.org/licenses/MIT
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * 
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * 
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * explanatory notes:
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * 
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * p5.EasyCam is a derivative of the original PeasyCam Library by Jonathan Feinberg 
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * and combines new useful features with the great look and feel of its parent.
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * 
+</span></span></span><span style=display:flex><span><span style=color:#75715e> * 
+</span></span></span><span style=display:flex><span><span style=color:#75715e> */</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// SplitView setup
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// Two cameras, each one owns its own rendertarget.
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span> 
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>easycam1</span>, <span style=color:#a6e22e>easycam2</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setup</span>() {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pixelDensity</span>(<span style=color:#ae81ff>2</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>canvas</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createCanvas</span>(<span style=color:#a6e22e>windowWidth</span>, <span style=color:#a6e22e>windowHeight</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> Math.<span style=color:#a6e22e>ceil</span>(<span style=color:#a6e22e>windowWidth</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>h</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>windowHeight</span>;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>graphics1</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createGraphics</span>(<span style=color:#a6e22e>w</span>, <span style=color:#a6e22e>h</span>, <span style=color:#a6e22e>WEBGL</span>)
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>graphics2</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>createGraphics</span>(<span style=color:#a6e22e>w</span>, <span style=color:#a6e22e>h</span>, <span style=color:#a6e22e>WEBGL</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#a6e22e>Dw</span>.<span style=color:#a6e22e>EasyCam</span>.<span style=color:#a6e22e>INFO</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam1</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Dw</span>.<span style=color:#a6e22e>EasyCam</span>(<span style=color:#a6e22e>graphics1</span>.<span style=color:#a6e22e>_renderer</span>, {<span style=color:#a6e22e>distance</span> <span style=color:#f92672>:</span> <span style=color:#ae81ff>600</span>});
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam2</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Dw</span>.<span style=color:#a6e22e>EasyCam</span>(<span style=color:#a6e22e>graphics2</span>.<span style=color:#a6e22e>_renderer</span>, {<span style=color:#a6e22e>distance</span> <span style=color:#f92672>:</span> <span style=color:#ae81ff>600</span>});
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam1</span>.<span style=color:#a6e22e>setDistanceMin</span>(<span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam1</span>.<span style=color:#a6e22e>setDistanceMax</span>(<span style=color:#ae81ff>3000</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam2</span>.<span style=color:#a6e22e>setDistanceMin</span>(<span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam2</span>.<span style=color:#a6e22e>setDistanceMax</span>(<span style=color:#ae81ff>3000</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam1</span>.<span style=color:#a6e22e>attachMouseListeners</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>_renderer</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam2</span>.<span style=color:#a6e22e>attachMouseListeners</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>_renderer</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// add some custom attributes
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>easycam1</span>.<span style=color:#a6e22e>IDX</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam2</span>.<span style=color:#a6e22e>IDX</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// set viewports
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>easycam1</span>.<span style=color:#a6e22e>setViewport</span>([<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>,<span style=color:#a6e22e>w</span>,<span style=color:#a6e22e>h</span>]);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam2</span>.<span style=color:#a6e22e>setViewport</span>([<span style=color:#a6e22e>w</span>,<span style=color:#ae81ff>0</span>,<span style=color:#a6e22e>w</span>,<span style=color:#a6e22e>h</span>]);
+</span></span><span style=display:flex><span>} 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>windowResized</span>() {
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>resizeCanvas</span>(<span style=color:#a6e22e>windowWidth</span>, <span style=color:#a6e22e>windowHeight</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> Math.<span style=color:#a6e22e>ceil</span>(<span style=color:#a6e22e>windowWidth</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>2</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>h</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>windowHeight</span>;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// resize p5.RendererGL
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>easycam1</span>.<span style=color:#a6e22e>renderer</span>.<span style=color:#a6e22e>resize</span>(<span style=color:#a6e22e>w</span>,<span style=color:#a6e22e>h</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam2</span>.<span style=color:#a6e22e>renderer</span>.<span style=color:#a6e22e>resize</span>(<span style=color:#a6e22e>w</span>,<span style=color:#a6e22e>h</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// set new graphics dim
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>easycam1</span>.<span style=color:#a6e22e>graphics</span>.<span style=color:#a6e22e>width</span>  <span style=color:#f92672>=</span> <span style=color:#a6e22e>w</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam1</span>.<span style=color:#a6e22e>graphics</span>.<span style=color:#a6e22e>height</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>h</span>;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam2</span>.<span style=color:#a6e22e>graphics</span>.<span style=color:#a6e22e>width</span>  <span style=color:#f92672>=</span> <span style=color:#a6e22e>w</span>;
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam2</span>.<span style=color:#a6e22e>graphics</span>.<span style=color:#a6e22e>height</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>h</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// set new viewport
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>easycam1</span>.<span style=color:#a6e22e>setViewport</span>([<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>0</span>,<span style=color:#a6e22e>w</span>,<span style=color:#a6e22e>h</span>]);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>easycam2</span>.<span style=color:#a6e22e>setViewport</span>([<span style=color:#a6e22e>w</span>,<span style=color:#ae81ff>0</span>,<span style=color:#a6e22e>w</span>,<span style=color:#a6e22e>h</span>]);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>draw</span>(){
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>clear</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>handleSuperController</span>([<span style=color:#a6e22e>easycam1</span>, <span style=color:#a6e22e>easycam2</span>]);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// render a scene for each camera
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>displayScene</span>(<span style=color:#a6e22e>easycam1</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>displayScene</span>(<span style=color:#a6e22e>easycam2</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// display results
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>displayResult_P2D</span>();
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// displayResult_WEBGL();
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// use this, when the main canvas is P2D ... createCanvas(w,h,P2D)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>displayResult_P2D</span>(){
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>vp1</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>easycam1</span>.<span style=color:#a6e22e>getViewport</span>();
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>vp2</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>easycam2</span>.<span style=color:#a6e22e>getViewport</span>();
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>image</span>(<span style=color:#a6e22e>easycam1</span>.<span style=color:#a6e22e>graphics</span>, <span style=color:#a6e22e>vp1</span>[<span style=color:#ae81ff>0</span>], <span style=color:#a6e22e>vp1</span>[<span style=color:#ae81ff>1</span>], <span style=color:#a6e22e>vp1</span>[<span style=color:#ae81ff>2</span>], <span style=color:#a6e22e>vp1</span>[<span style=color:#ae81ff>3</span>]);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>image</span>(<span style=color:#a6e22e>easycam2</span>.<span style=color:#a6e22e>graphics</span>, <span style=color:#a6e22e>vp2</span>[<span style=color:#ae81ff>0</span>], <span style=color:#a6e22e>vp2</span>[<span style=color:#ae81ff>1</span>], <span style=color:#a6e22e>vp2</span>[<span style=color:#ae81ff>2</span>], <span style=color:#a6e22e>vp2</span>[<span style=color:#ae81ff>3</span>]);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// use this, when the main canvas is WEBGL ... createCanvas(w,h,WEBGL)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>displayResult_WEBGL</span>(){
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>vp1</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>easycam1</span>.<span style=color:#a6e22e>getViewport</span>();
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>vp2</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>easycam2</span>.<span style=color:#a6e22e>getViewport</span>();
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>resetMatrix</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>ortho</span>(<span style=color:#ae81ff>0</span>, <span style=color:#a6e22e>width</span>, <span style=color:#f92672>-</span><span style=color:#a6e22e>height</span>, <span style=color:#ae81ff>0</span>, <span style=color:#f92672>-</span>Number.<span style=color:#a6e22e>MAX_VALUE</span>, <span style=color:#f92672>+</span>Number.<span style=color:#a6e22e>MAX_VALUE</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>texture</span>(<span style=color:#a6e22e>easycam1</span>.<span style=color:#a6e22e>graphics</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>rect</span>(<span style=color:#a6e22e>vp1</span>[<span style=color:#ae81ff>0</span>], <span style=color:#a6e22e>vp1</span>[<span style=color:#ae81ff>1</span>], <span style=color:#a6e22e>vp1</span>[<span style=color:#ae81ff>2</span>], <span style=color:#a6e22e>vp1</span>[<span style=color:#ae81ff>3</span>]);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>texture</span>(<span style=color:#a6e22e>easycam2</span>.<span style=color:#a6e22e>graphics</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>rect</span>(<span style=color:#a6e22e>vp2</span>[<span style=color:#ae81ff>0</span>], <span style=color:#a6e22e>vp2</span>[<span style=color:#ae81ff>1</span>], <span style=color:#a6e22e>vp2</span>[<span style=color:#ae81ff>2</span>], <span style=color:#a6e22e>vp2</span>[<span style=color:#ae81ff>3</span>]);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>displayScene</span>(<span style=color:#a6e22e>cam</span>){
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>pg</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>cam</span>.<span style=color:#a6e22e>graphics</span>;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>w</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>width</span>;
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>h</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>height</span>;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>gray</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>200</span>;
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>push</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>noStroke</span>();
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// projection
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>perspective</span>(<span style=color:#ae81ff>60</span> <span style=color:#f92672>*</span> <span style=color:#a6e22e>PI</span><span style=color:#f92672>/</span><span style=color:#ae81ff>180</span>, <span style=color:#a6e22e>w</span><span style=color:#f92672>/</span><span style=color:#a6e22e>h</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>5000</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// BG
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>cam</span>.<span style=color:#a6e22e>IDX</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) {<span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>clear</span>(<span style=color:#ae81ff>220</span>);<span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>background</span>(<span style=color:#ae81ff>220</span>);}
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>cam</span>.<span style=color:#a6e22e>IDX</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>) {<span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>clear</span>(<span style=color:#ae81ff>32</span>);<span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>background</span>(<span style=color:#ae81ff>32</span>);}
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>ambientLight</span>(<span style=color:#ae81ff>100</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>pointLight</span>(<span style=color:#ae81ff>255</span>, <span style=color:#ae81ff>255</span>, <span style=color:#ae81ff>255</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#75715e>// objects
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>randomSeed</span>(<span style=color:#ae81ff>2</span>);
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>50</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>){
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>push</span>();
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>m</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>100</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>tx</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>random</span>(<span style=color:#f92672>-</span><span style=color:#a6e22e>m</span>, <span style=color:#a6e22e>m</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>ty</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>random</span>(<span style=color:#f92672>-</span><span style=color:#a6e22e>m</span>, <span style=color:#a6e22e>m</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>tz</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>random</span>(<span style=color:#f92672>-</span><span style=color:#a6e22e>m</span>, <span style=color:#a6e22e>m</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>r</span> <span style=color:#f92672>=</span> ((<span style=color:#a6e22e>tx</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>m</span>) <span style=color:#f92672>*</span> <span style=color:#ae81ff>0.5</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>0.5</span>) <span style=color:#f92672>*</span> <span style=color:#ae81ff>255</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>g</span> <span style=color:#f92672>=</span> ((<span style=color:#a6e22e>ty</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>m</span>) <span style=color:#f92672>*</span> <span style=color:#ae81ff>0.5</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>0.5</span>) <span style=color:#f92672>*</span> <span style=color:#a6e22e>r</span><span style=color:#f92672>/</span><span style=color:#ae81ff>2</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>b</span> <span style=color:#f92672>=</span> ((<span style=color:#a6e22e>tz</span> <span style=color:#f92672>/</span> <span style=color:#a6e22e>m</span>) <span style=color:#f92672>*</span> <span style=color:#ae81ff>0.5</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>0.5</span>) <span style=color:#f92672>*</span> <span style=color:#a6e22e>g</span>;
+</span></span><span style=display:flex><span> 
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>translate</span>(<span style=color:#a6e22e>tx</span>, <span style=color:#a6e22e>ty</span>, <span style=color:#a6e22e>tz</span>);
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>gray</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>random</span>(<span style=color:#ae81ff>64</span>,<span style=color:#ae81ff>255</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>cam</span>.<span style=color:#a6e22e>IDX</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>ambientMaterial</span>(<span style=color:#a6e22e>r</span>,<span style=color:#a6e22e>g</span>,<span style=color:#a6e22e>b</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>cam</span>.<span style=color:#a6e22e>IDX</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>) <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>ambientMaterial</span>(<span style=color:#a6e22e>gray</span>);
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>box</span>(<span style=color:#a6e22e>random</span>(<span style=color:#ae81ff>10</span>,<span style=color:#ae81ff>40</span>));
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>pop</span>();
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>ambientMaterial</span>(<span style=color:#ae81ff>255</span>, <span style=color:#ae81ff>220</span>, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>box</span>(<span style=color:#ae81ff>50</span>, <span style=color:#ae81ff>50</span>, <span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>push</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>rotateZ</span>(<span style=color:#a6e22e>sin</span>(<span style=color:#a6e22e>frameCount</span><span style=color:#f92672>*</span><span style=color:#ae81ff>0.015</span>) <span style=color:#f92672>*</span> <span style=color:#a6e22e>PI</span><span style=color:#f92672>*</span><span style=color:#ae81ff>1.5</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>translate</span>(<span style=color:#ae81ff>120</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>ambientMaterial</span>(<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>128</span>,<span style=color:#ae81ff>255</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>sphere</span>(<span style=color:#ae81ff>15</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>pop</span>();
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>push</span>();
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>rotateX</span>(<span style=color:#a6e22e>sin</span>(<span style=color:#a6e22e>frameCount</span><span style=color:#f92672>*</span><span style=color:#ae81ff>0.02</span>) <span style=color:#f92672>*</span> <span style=color:#a6e22e>PI</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>translate</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>150</span>, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>ambientMaterial</span>(<span style=color:#ae81ff>128</span>,<span style=color:#ae81ff>255</span>,<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>sphere</span>(<span style=color:#ae81ff>15</span>);
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>pop</span>();
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>  <span style=color:#a6e22e>pg</span>.<span style=color:#a6e22e>pop</span>();
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>mousePressed</span>(){
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>handleSuperController</span>(<span style=color:#a6e22e>cameralist</span>){
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>keyIsPressed</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#a6e22e>key</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39; &#39;</span>){
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>delay</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>150</span>; 
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>active</span>  <span style=color:#f92672>=</span> <span style=color:#66d9ef>undefined</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>focused</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>undefined</span>;
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// find active or focused camera which controls the others
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>i</span> <span style=color:#66d9ef>in</span> <span style=color:#a6e22e>cameralist</span>){
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>cam</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>cameralist</span>[<span style=color:#a6e22e>i</span>];
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>cam</span>.<span style=color:#a6e22e>mouse</span>.<span style=color:#a6e22e>isPressed</span>){
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>active</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>cam</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>cam</span>.<span style=color:#a6e22e>mouse</span>.<span style=color:#a6e22e>insideViewport</span>(<span style=color:#a6e22e>mouseX</span>, <span style=color:#a6e22e>mouseY</span>)){
+</span></span><span style=display:flex><span>        <span style=color:#a6e22e>focused</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>cam</span>;
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// no active camera, try focused
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>active</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>active</span> <span style=color:#f92672>||</span> <span style=color:#a6e22e>focused</span>;
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// apply state to all other cameras
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>active</span>) {
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>state</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>active</span>.<span style=color:#a6e22e>getState</span>();
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>var</span> <span style=color:#a6e22e>i</span> <span style=color:#66d9ef>in</span> <span style=color:#a6e22e>cameralist</span>){
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>cam</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>cameralist</span>[<span style=color:#a6e22e>i</span>];
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>cam</span> <span style=color:#f92672>!=</span> <span style=color:#a6e22e>active</span>){
+</span></span><span style=display:flex><span>          <span style=color:#a6e22e>cam</span>.<span style=color:#a6e22e>setState</span>(<span style=color:#a6e22e>state</span>, <span style=color:#a6e22e>delay</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div></details><h3 id=resultado><strong>Resultado:</strong>
+<a class=anchor href=#resultado>#</a></h3><div style=display:flex;flex-direction:column;align-items:center;justify-content:center id=procedular-texturing><iframe id=randomboxes style=width:420px;height:420px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js></script>
+             <script src=https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam/p5.easycam.js></script> 
+            
+            
+            
+            
+            <script src=/showcase/sketches/3d/randomboxes.js></script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe></div><h1 id=conclusiones>Conclusiones
+<a class=anchor href=#conclusiones>#</a></h1><ol><li><p>La combinación de p5.js y la librería easycam proporciona una solución efectiva y accesible para crear escenarios 3D interactivos. Estas herramientas permiten a los desarrolladores construir entornos virtuales envolventes y dinámicos que pueden ser explorados y manipulados por los usuarios.</p></li><li><p>La librería easycam simplifica significativamente el control de la cámara en entornos 3D. Proporciona funciones y métodos que facilitan el ajuste del punto de vista, la posición y los ángulos de visualización en el escenario. Esto permite a los desarrolladores crear y modificar la perspectiva de la cámara con mayor facilidad y precisión.</p></li><li><p>Al incluir objetos fijos en el escenario, se puede establecer una base estática que forma parte del fondo. Estos objetos pueden representar paisajes, estructuras arquitectónicas, terrenos u otros elementos que compongan el entorno en el que se desarrolla la experiencia 3D. Los objetos fijos proporcionan la estructura y el contexto necesarios para el escenario.</p></li><li><p>La introducción de objetos en movimiento en el escenario agrega dinamismo y acción. Estos objetos pueden tomar la forma de personajes animados, partículas que se mueven con cierto comportamiento o cualquier otro elemento interactivo. A través de algoritmos de movimiento o comportamientos predefinidos, estos objetos pueden moverse de manera autónoma o en respuesta a las interacciones del usuario, añadiendo un elemento de vida y emoción al escenario.</p></li><li><p>La combinación de objetos fijos y objetos en movimiento crea una experiencia inmersiva para los usuarios. Les permite explorar y participar activamente en el escenario 3D, interactuando con los elementos que lo componen. Esta interactividad enriquece la experiencia de usuario, ya que pueden experimentar cambios en la perspectiva, observar cómo los objetos se mueven y reaccionar ante ellos, creando una sensación de presencia y realismo en el entorno virtual.</p></li></ol><h1 id=trabajo-futuro><strong>Trabajo futuro</strong>
+<a class=anchor href=#trabajo-futuro>#</a></h1><p>Un área de trabajo futuro importante es la optimización del rendimiento de los escenarios 3D, mediante la aplicación de técnicas de optimización y mejoras en la renderización para lograr una experiencia fluida incluso en escenas complejas. Otra área de investigación prometedora es la implementación de interacciones avanzadas, como detección de colisiones realistas y reconocimiento de gestos, para mejorar la interacción del usuario con los escenarios.</p><p>De la misma forma es importante podría enfocarse en la implementación de técnicas de inteligencia artificial y aprendizaje automático para mejorar la interacción y el comportamiento de los objetos en movimiento en los escenarios 3D. Esto podría implicar el desarrollo de algoritmos de inteligencia artificial que permitan a los objetos reaccionar de manera más realista a su entorno y a las acciones del usuario, creando una experiencia más dinámica y envolvente.</p><h1 id=referencias>Referencias
+<a class=anchor href=#referencias>#</a></h1><ul><li><a href=https://carrot.whitman.edu/P5JS/javascript/p5.EasyCam-master/examples/>Ejemplos</a></li><li><a href=https://www.humanlevel.com/articulos/desarrollo-web/llega-el-3d-a-la-web.html>3D en la web</a></li><li><a href=https://developer.mozilla.org/es/docs/Web/API/WebGL_API/Tutorial/Getting_started_with_WebGL>WEBGL</a></li><li><a href=https://diwi.github.io/p5.EasyCam/>Easycam</a></li><li><a href=https://github.com/freshfork/p5.EasyCam>EasyCam freshfrok</a></li></ul><style>#procedular-texturing{background-color:#000;border-radius:1rem;padding:1rem;text-decoration:none!important}#procedular-texturing iframe{border:none}</style></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://jupachonc.github.io/showcase/commit/57f501d291f58006b783757e4f75650d637280ad title='Last modified by Sebastián Pachón | June 15, 2023' target=_blank rel=noopener><img src=/showcase/svg/calendar.svg class=book-icon alt=Calendar>
+<span>June 15, 2023</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#escenarios><strong>Escenarios</strong></a></li><li><a href=#introducción>Introducción</a></li><li><a href=#implementación>Implementación</a><ul><li><ul><li><a href=#solución-código><strong>Solución (Código):</strong></a></li><li><a href=#resultado><strong>Resultado:</strong></a></li></ul></li></ul></li><li><a href=#conclusiones>Conclusiones</a></li><li><a href=#trabajo-futuro><strong>Trabajo futuro</strong></a></li><li><a href=#referencias>Referencias</a></li></ul></nav></div></aside></main></body></html>
